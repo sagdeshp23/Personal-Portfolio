@@ -1,1791 +1,771 @@
+<!-- FILE: /index.html -->
+<!-- Last updated: 2026-05-09 -->
+<!-- Description: Portfolio HTML structure with external theme, language, and app scripts. -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagar Deshpande — Power Platform + AI Engineer</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        body {
-            background: #131313;
-            color: #e5e2e1;
-            font-family: Inter, sans-serif;
-            overflow-x: hidden;
-            font-size: 14px
-        }
-
-        .msym {
-            font-family: 'Material Symbols Outlined';
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 1;
-            user-select: none
-        }
-
-        .mf {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24
-        }
-
-        .glass {
-            background: rgba(34, 34, 34, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08)
-        }
-
-        .btn-p {
-            background: linear-gradient(135deg, #742774, #9a3a9a);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #ffd6f7;
-            cursor: pointer;
-            transition: all .2s;
-            font-family: Inter, sans-serif
-        }
-
-        .btn-p:hover {
-            box-shadow: 0 0 28px rgba(116, 39, 116, 0.55);
-            transform: translateY(-1px)
-        }
-
-        .btn-g {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: #e5e2e1;
-            cursor: pointer;
-            transition: all .2s;
-            font-family: Inter, sans-serif
-        }
-
-        .btn-g:hover {
-            background: rgba(34, 34, 34, 0.55);
-            border-color: rgba(255, 170, 247, 0.4)
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 9px 16px;
-            border-radius: 8px;
-            color: #d4c1ce;
-            text-decoration: none;
-            transition: all .2s;
-            border-left: 3px solid transparent;
-            font-size: 11px;
-            letter-spacing: .05em;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.04)
-        }
-
-        .nav-link.active {
-            background: rgba(53, 53, 52, 0.85);
-            color: #ffaaf7;
-            border-left-color: #ffaaf7;
-            padding-left: 13px
-        }
-
-        .nav-link.active .ni {
-            color: #ffaaf7
-        }
-
-        .ni {
-            font-family: 'Material Symbols Outlined';
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            font-size: 20px;
-            display: inline-block
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity .55s ease, transform .55s ease
-        }
-
-        .reveal.vis {
-            opacity: 1;
-            transform: translateY(0)
-        }
-
-        .d1 {
-            transition-delay: .07s
-        }
-
-        .d2 {
-            transition-delay: .14s
-        }
-
-        .d3 {
-            transition-delay: .22s
-        }
-
-        .d4 {
-            transition-delay: .3s
-        }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: .05;
-            pointer-events: none;
-            z-index: 0;
-            animation: orbf 22s ease-in-out infinite
-        }
-
-        .o1 {
-            width: 700px;
-            height: 700px;
-            background: #ffaaf7;
-            top: -200px;
-            left: -150px
-        }
-
-        .o2 {
-            width: 500px;
-            height: 500px;
-            background: #a3c9ff;
-            top: 40%;
-            right: -120px;
-            animation-delay: -8s
-        }
-
-        .o3 {
-            width: 600px;
-            height: 600px;
-            background: #bfce77;
-            bottom: -150px;
-            left: 30%;
-            animation-delay: -16s
-        }
-
-        @keyframes orbf {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1)
-            }
-
-            33% {
-                transform: translate(25px, -30px) scale(1.05)
-            }
-
-            66% {
-                transform: translate(-18px, 20px) scale(0.95)
-            }
-        }
-
-        .pulse {
-            animation: pulsef 2.2s infinite
-        }
-
-        @keyframes pulsef {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 170, 247, .4)
-            }
-
-            50% {
-                box-shadow: 0 0 0 6px rgba(255, 170, 247, 0)
-            }
-        }
-
-        .pulse-g {
-            animation: pulseg 2.2s infinite
-        }
-
-        @keyframes pulseg {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(191, 206, 119, .4)
-            }
-
-            50% {
-                box-shadow: 0 0 0 6px rgba(191, 206, 119, 0)
-            }
-        }
-
-        .grad-text {
-            background: linear-gradient(135deg, #ffaaf7, #a3c9ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text
-        }
-
-        .fx-bar {
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, .1);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, .5)
-        }
-
-        .pcard {
-            transition: transform .3s, box-shadow .3s;
-            display: flex;
-            flex-direction: column
-        }
-
-        .pcard:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .45)
-        }
-
-        .skill-tag {
-            transition: all .2s;
-            cursor: default;
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 14px;
-            background: #2a2a2a;
-            border: 1px solid #50434d;
-            border-radius: 8px;
-            font-family: 'Space Grotesk', monospace;
-            font-size: 12px;
-            color: #e5e2e1
-        }
-
-        .skill-tag:hover {
-            border-color: #ffaaf7;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(255, 170, 247, .12)
-        }
-
-        .filter-btn {
-            cursor: pointer;
-            padding: 6px 16px;
-            border-radius: 9999px;
-            border: 1px solid #50434d;
-            color: #d4c1ce;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            transition: all .2s;
-            background: transparent;
-            font-family: Inter, sans-serif
-        }
-
-        .filter-btn.active {
-            background: #742774;
-            border-color: #ffaaf7;
-            color: #ffaaf7
-        }
-
-        .filter-btn:hover:not(.active) {
-            border-color: rgba(255, 170, 247, .4);
-            color: #ffaaf7
-        }
-
-        .dot-grid {
-            background-image: radial-gradient(circle, rgba(255, 255, 255, .07) 1px, transparent 1px);
-            background-size: 24px 24px
-        }
-
-        .flow-conn {
-            width: 2px;
-            height: 40px;
-            background: #50434d;
-            margin: 0 auto
-        }
-
-        .chat-msg {
-            animation: slideup .28s ease forwards
-        }
-
-        @keyframes slideup {
-            from {
-                opacity: 0;
-                transform: translateY(8px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        .typing-dot {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: #d4c1ce;
-            border-radius: 50%;
-            margin: 0 2px;
-            animation: tdot 1.2s infinite
-        }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: .2s
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: .4s
-        }
-
-        @keyframes tdot {
-
-            0%,
-            80%,
-            100% {
-                transform: scale(1);
-                opacity: .5
-            }
-
-            40% {
-                transform: scale(1.3);
-                opacity: 1
-            }
-        }
-
-        section[id] {
-            scroll-margin-top: 48px
-        }
-
-        ::-webkit-scrollbar {
-            width: 4px
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #131313
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #50434d;
-            border-radius: 2px
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #742774
-        }
-
-        #sidebar {
-            transition: transform .3s ease;
-            z-index: 40
-        }
-
-        #mob-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .65);
-            z-index: 35
-        }
-
-        #mob-overlay.active {
-            display: block
-        }
-
-        #proj-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 60;
-            align-items: center;
-            justify-content: center;
-            padding: 24px
-        }
-
-        #proj-modal.open {
-            display: flex
-        }
-
-        #toast {
-            transform: translateY(10px);
-            transition: opacity .3s, transform .3s
-        }
-
-        #toast.show {
-            opacity: 1 !important;
-            transform: translateY(0) !important
-        }
-
-        @media(max-width:767px) {
-            #sidebar {
-                transform: translateX(-100%);
-                position: fixed !important
-            }
-
-            #sidebar.open {
-                transform: translateX(0)
-            }
-
-            #mob-overlay {
-                display: none
-            }
-
-            #mob-overlay.active {
-                display: block
-            }
-
-            #main-content {
-                margin-left: 0 !important
-            }
-
-            #search-wrap {
-                display: none !important
-            }
-
-            #menu-btn {
-                display: flex !important
-            }
-
-            .hero-grid {
-                flex-direction: column !important
-            }
-
-            .hero-grid .stats-card {
-                width: 100% !important
-            }
-
-            .pgrid {
-                grid-template-columns: 1fr !important
-            }
-
-            .two-col {
-                grid-template-columns: 1fr !important
-            }
-
-            .three-col {
-                grid-template-columns: 1fr !important
-            }
-
-            .chat-layout {
-                flex-direction: column !important;
-                height: auto !important
-            }
-
-            .chat-sidebar {
-                display: none !important
-            }
-        }
-
-        @media(min-width:768px) {
-            #sidebar {
-                transform: none !important;
-                position: fixed !important
-            }
-
-            #menu-btn {
-                display: none !important
-            }
-        }
-
-        @media(max-width:900px) {
-            .pgrid {
-                grid-template-columns: 1fr 1fr !important
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar Deshpande — Power Platform + AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div class="orb o1"></div>
-    <div class="orb o2"></div>
-    <div class="orb o3"></div>
-    <div id="mob-overlay" onclick="closeSidebar()"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div id="mob-overlay" data-action="close-sidebar"></div>
 
-    <!-- ════════════════ TOP NAV ════════════════ -->
-    <header
-        style="position:fixed;top:0;width:100%;z-index:50;background:#201f1f;border-bottom:1px solid #50434d;display:flex;justify-content:space-between;align-items:center;height:48px;padding:0 16px;gap:12px">
-        <div style="display:flex;align-items:center;gap:10px">
-            <button id="menu-btn" onclick="toggleSidebar()"
-                style="background:none;border:none;color:#d4c1ce;cursor:pointer;padding:4px;display:none"><span
-                    class="msym" style="font-size:22px">menu</span></button>
-            <span class="msym mf" style="color:#ffaaf7;font-size:20px">view_cozy</span>
-            <span style="font-weight:600;color:#e5e2e1;font-size:17px">Power Portfolio</span>
+<!-- ════════════════ TOP NAV ════════════════ -->
+<header class="u-0001">
+  <div class="u-0002">
+    <button id="menu-btn" data-action="toggle-sidebar" class="u-0003"><span class="msym u-0004">menu</span></button>
+    <span class="msym mf u-0005">view_cozy</span>
+    <span class="u-0006">Power Portfolio</span>
+  </div>
+  <div id="search-wrap" class="u-0007">
+    <span class="msym u-0008">search</span>
+    <input id="gsearch" class="u-0009" placeholder="Search sections…">
+  </div>
+  <div class="u-0010">
+                <div id="formula-toggle" class="formula-bar-toggle" title="Click to switch theme" tabindex="0" role="button" aria-label="Click to switch theme">
+                <span class="fx-icon">ƒx</span>
+                <span class="fx-label">Set( varTheme, </span>
+                <span id="fx-value" class="fx-value">"Dark"</span>
+                <span class="fx-close"> )</span>
+                <span class="fx-hint">↵</span>
+            </div>
+            <div id="lang-toggle" class="u-0011" aria-label="Language selector">
+                <button type="button" class="lang-btn active u-0012" data-lang="en" >EN</button>
+                <button type="button" class="lang-btn u-0013" data-lang="de" >DE</button>
+            </div>
+    <button data-action="open-linkedin" class="btn-p u-0014">Save</button>
+    <div data-goto="copilot" title="Chat with Sagar's Copilot" class="u-0015">
+      <img src="avatar.png" alt="Sagar" class="u-0016">
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ SIDEBAR ════════════════ -->
+<nav id="sidebar" class="u-0017">
+  <div class="u-0018">
+    <div class="u-0019">
+      <div class="u-0020">
+        <img src="avatar.png" alt="Sagar Deshpande" class="u-0016">
+      </div>
+      <div>
+        <div class="u-0021">Sagar</div>
+        <div class="u-0022">Power Platform + AI Engineer</div>
+      </div>
+    </div>
+    <button data-action="open-linkedin" class="btn-p u-0023">
+      <span class="msym u-0024">download</span>Download CV
+    </button>
+  </div>
+  <div class="u-0025">
+    <div class="nav-link" data-sec="home" data-goto="home" data-close-sidebar-mobile="true"><span class="ni">home</span>The Maker (Home)</div>
+    <div class="nav-link" data-sec="canvas" data-goto="canvas" data-close-sidebar-mobile="true"><span class="ni">grid_view</span>The Canvas</div>
+    <div class="nav-link" data-sec="flow" data-goto="flow" data-close-sidebar-mobile="true"><span class="ni">schema</span>The Flow</div>
+    <div class="nav-link" data-sec="copilot" data-goto="copilot" data-close-sidebar-mobile="true"><span class="ni">smart_toy</span>The Copilot</div>
+  </div>
+  <div class="u-0026">
+    <button data-action="open-linkedin" class="btn-g u-0027" title="LinkedIn"><span class="msym u-0028">link</span></button>
+    <button data-action="copy-email" class="btn-g u-0027" title="Copy Email"><span class="msym u-0028">mail</span></button>
+    <button data-goto="copilot" data-close-sidebar-mobile="true" class="btn-g u-0027" title="Copilot Chat"><span class="msym u-0028">chat</span></button>
+    <div class="u-0029">
+      <div class="pulse-g u-0030"></div>
+      <span class="u-0031">Available</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ MAIN ════════════════ -->
+<main id="main-content" class="u-0032">
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  HOME                                         -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="home" class="u-0033">
+
+  <div class="fx-bar reveal u-0034">
+    <span class="msym u-0035">function</span>
+    <span class="u-0036"><span class="u-0037">Navigate</span><span class="u-0038">(Home_Screen, </span><span class="u-0039">ScreenTransition.Fade</span><span class="u-0038">)</span></span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-grid u-0040">
+    <div class="u-0041">
+      <div class="reveal d1">
+        <div class="u-0042">// Power Platform + AI Portfolio</div>
+        <h1 class="u-0043">Sagar Milind<br><span class="grad-text">Deshpande</span></h1>
+      </div>
+      <p class="reveal d2 u-0044">Power Platform + AI Engineer · C1 German · Turning complex problems into solutions people actually enjoy using.</p>
+      <div class="reveal d3 u-0045">
+        <button data-goto="canvas" class="btn-p u-0046"><span class="msym u-0024">grid_view</span>View Projects</button>
+        <button data-action="open-linkedin" class="btn-g u-0046"><span class="msym u-0024">download</span>Resume / CV</button>
+      </div>
+      <div class="reveal d4 u-0047">
+        <span class="u-0048">Power Platform</span>
+        <span class="u-0049">C1 Deutsch</span>
+        <span class="u-0050">AI &amp; Copilot</span>
+        <span class="u-0051">Economics Background</span>
+      </div>
+    </div>
+    <div class="stats-card glass reveal d2 u-0052">
+      <div class="u-0053"></div>
+      <div class="u-0054">
+        <div class="u-0055">
+          <img src="avatar.png" alt="Sagar Deshpande" class="u-0016">
         </div>
-        <div id="search-wrap"
-            style="flex:1;max-width:420px;display:flex;align-items:center;background:#2a2a2a;border-radius:9999px;padding:0 14px;height:32px;border:1px solid #50434d">
-            <span class="msym" style="color:#d4c1ce;font-size:17px;margin-right:8px">search</span>
-            <input id="gsearch"
-                style="background:none;border:none;outline:none;color:#e5e2e1;font-size:13px;width:100%;font-family:Inter,sans-serif"
-                placeholder="Search sections…">
+        <div>
+          <div class="u-0056">Sagar Deshpande</div>
+          <div class="u-0057">Pune, Maharashtra · India</div>
+          <div class="u-0058">
+            <div class="pulse-g u-0030"></div>
+            <span class="u-0059">Open to Work</span>
+          </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px">
-            <span style="color:#d4c1ce;font-size:10px;font-weight:700;letter-spacing:.07em">EN</span>
-            <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')" class="btn-p"
-                style="padding:5px 16px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.05em">Save</button>
-            <div onclick="goTo('copilot')" title="Chat with Sagar's Copilot"
-                style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,170,247,.45);overflow:hidden;cursor:pointer;transition:box-shadow .2s"
-                onmouseover="this.style.boxShadow='0 0 14px rgba(255,170,247,.5)'"
-                onmouseout="this.style.boxShadow='none'">
-                <img src="avatar.png" alt="Sagar" style="width:100%;height:100%;object-fit:cover;display:block">
-            </div>
+      </div>
+      <div class="u-0060">
+        <div class="u-0061">
+          <div class="u-0062">5+</div>
+          <div class="u-0063">Yrs Exp</div>
         </div>
-    </header>
-
-    <!-- ════════════════ SIDEBAR ════════════════ -->
-    <nav id="sidebar"
-        style="top:48px;height:calc(100vh - 48px);width:260px;background:#1c1b1b;border-right:1px solid #50434d;display:flex;flex-direction:column;padding:16px 0;gap:4px;position:fixed">
-        <div style="padding:0 16px 16px">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-                <div
-                    style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,170,247,.4);flex-shrink:0;overflow:hidden">
-                    <img src="avatar.png" alt="Sagar Deshpande"
-                        style="width:100%;height:100%;object-fit:cover;display:block">
-                </div>
-                <div>
-                    <div style="color:#ffaaf7;font-weight:600;font-size:18px">Sagar</div>
-                    <div
-                        style="color:#d4c1ce;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase">
-                        Power Platform + AI Engineer</div>
-                </div>
-            </div>
-            <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')" class="btn-p"
-                style="width:100%;padding:9px 0;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;gap:8px">
-                <span class="msym" style="font-size:16px">download</span>Download CV
-            </button>
+        <div class="u-0061">
+          <div class="u-0064">C1</div>
+          <div class="u-0063">Deutsch</div>
         </div>
-        <div style="flex:1;padding:0 8px;display:flex;flex-direction:column;gap:2px">
-            <div class="nav-link" data-sec="home" onclick="goTo('home');closeSidebarMob()"><span
-                    class="ni">home</span>The Maker (Home)</div>
-            <div class="nav-link" data-sec="canvas" onclick="goTo('canvas');closeSidebarMob()"><span
-                    class="ni">grid_view</span>The Canvas</div>
-            <div class="nav-link" data-sec="flow" onclick="goTo('flow');closeSidebarMob()"><span
-                    class="ni">schema</span>The Flow</div>
-            <div class="nav-link" data-sec="copilot" onclick="goTo('copilot');closeSidebarMob()"><span
-                    class="ni">smart_toy</span>The Copilot</div>
+        <div class="u-0061">
+          <div class="u-0065">190+</div>
+          <div class="u-0063">Hrs/Mo</div>
         </div>
-        <div style="padding:12px 16px;border-top:1px solid #50434d;display:flex;align-items:center;gap:6px">
-            <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')" class="btn-g"
-                style="padding:7px;border-radius:8px;display:flex" title="LinkedIn"><span class="msym"
-                    style="font-size:18px">link</span></button>
-            <button onclick="copyEmail()" class="btn-g" style="padding:7px;border-radius:8px;display:flex"
-                title="Copy Email"><span class="msym" style="font-size:18px">mail</span></button>
-            <button onclick="goTo('copilot');closeSidebarMob()" class="btn-g"
-                style="padding:7px;border-radius:8px;display:flex" title="Copilot Chat"><span class="msym"
-                    style="font-size:18px">chat</span></button>
-            <div style="margin-left:auto;display:flex;align-items:center;gap:4px">
-                <div style="width:7px;height:7px;border-radius:50%;background:#bfce77" class="pulse-g"></div>
-                <span
-                    style="font-size:9px;color:#bfce77;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Available</span>
-            </div>
+      </div>
+      <div class="u-0066">
+        <div class="u-0067"><span class="msym u-0068">location_on</span>Pune, India · Remote Friendly</div>
+        <div class="u-0067"><span class="msym u-0069">school</span>BA Economics · SPPU · 2020</div>
+        <div class="u-0070" data-action="copy-email" title="Copy email">
+          <span class="msym u-0071">mail</span>
+          <span class="u-0072">deshpande.sagar.milind@gmail.com</span>
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
 
-    <!-- ════════════════ MAIN ════════════════ -->
-    <main id="main-content" style="margin-left:260px;padding-top:48px;min-height:100vh;position:relative;z-index:1">
+  <!-- QUICK NAV CARDS -->
+  <div class="two-col u-0073">
+    <button data-goto="canvas" class="glass u-0074">
+      <div class="u-0075">
+        <div class="u-0002">
+          <div class="u-0076"><span class="msym u-0077">grid_view</span></div>
+          <span class="u-0078">The Canvas</span>
+        </div>
+        <span class="msym u-0038">arrow_forward</span>
+      </div>
+      <p class="u-0079">6 complex Power Apps, AI pipelines, Dataverse architectures and GPT-4.1 integrations — from T-Systems, Adastra, and Freelance.</p>
+      <div class="u-0080">
+        <span class="u-0081">Power Apps</span>
+        <span class="u-0082">AI / OpenAI</span>
+        <span class="u-0083">Dataverse</span>
+      </div>
+    </button>
+    <button data-goto="flow" class="glass u-0084">
+      <div class="u-0075">
+        <div class="u-0002">
+          <div class="u-0085"><span class="msym u-0037">schema</span></div>
+          <span class="u-0078">The Flow</span>
+        </div>
+        <span class="msym u-0038">arrow_forward</span>
+      </div>
+      <p class="u-0079">5+ years visualised as a Power Automate execution flow. Concentrix → T-Systems → Adastra → Freelance.</p>
+      <div class="u-0080">
+        <span class="u-0082">T-Systems</span>
+        <span class="u-0081">Adastra</span>
+      </div>
+    </button>
+  </div>
 
-        <!-- ══════════════════════════════════════════════ -->
-        <!--  HOME                                         -->
-        <!-- ══════════════════════════════════════════════ -->
-        <section id="home" style="min-height:100vh;padding:24px;display:flex;flex-direction:column;gap:32px">
+  <!-- EXPERIENCE TIMELINE -->
+  <div class="reveal">
+    <h2 class="u-0086"><span class="msym u-0037">business_center</span>Work Experience</h2>
+    <div class="u-0087">
+      <div class="u-0088">
+        <div class="u-0089"><span class="msym u-0005">smart_toy</span></div>
+        <div class="u-0090">
+          <div class="u-0091">
+            <span class="u-0092">Adastra</span>
+            <span class="u-0093">Current</span>
+          </div>
+          <div class="u-0057">Data Engineer — Power Platform + AI</div>
+          <div class="u-0094">
+            <span class="u-0095">Copilot Studio</span>
+            <span class="u-0095">Azure OpenAI</span>
+            <span class="u-0095">MCP Server</span>
+            <span class="u-0095">PCF Controls</span>
+          </div>
+        </div>
+        <div class="u-0096"><div class="u-0097">Jan 2025 – Present</div><div class="u-0098">Pune · ~1 yr</div></div>
+      </div>
+      <div class="u-0088">
+        <div class="u-0099"><span class="msym u-0100">flowsheet</span></div>
+        <div class="u-0090">
+          <div class="u-0092">T-Systems ICT India</div>
+          <div class="u-0057">Junior Consultant — Power Platform Developer</div>
+          <div class="u-0094">
+            <span class="u-0095">Power Automate</span>
+            <span class="u-0095">Power BI</span>
+            <span class="u-0095">Canvas Apps</span>
+            <span class="u-0095">German C1 Lead</span>
+          </div>
+        </div>
+        <div class="u-0096"><div class="u-0101">May 2022 – Dec 2024</div><div class="u-0098">Pune · 2.5 yrs</div></div>
+      </div>
+      <div class="u-0088">
+        <div class="u-0102"><span class="msym u-0103">translate</span></div>
+        <div class="u-0090">
+          <div class="u-0092">Concentrix Daksh Services</div>
+          <div class="u-0057">Advisor I — German Enterprise Support</div>
+          <div class="u-0094">
+            <span class="u-0095">German C1</span>
+            <span class="u-0095">87% CSAT</span>
+          </div>
+        </div>
+        <div class="u-0096"><div class="u-0104">Jun 2020 – Mar 2022</div><div class="u-0098">Pune · 1.8 yrs</div></div>
+      </div>
+      <div class="u-0105">
+        <div class="u-0106"><span class="msym u-0005">work</span></div>
+        <div class="u-0090">
+          <div class="u-0092">Freelance — Power Platform + AI Consultant</div>
+          <div class="u-0057">AI Real Estate Document Processing Pipeline</div>
+          <div class="u-0094">
+            <span class="u-0095">GPT-4.1</span>
+            <span class="u-0095">Dataverse</span>
+            <span class="u-0095">Remote</span>
+          </div>
+        </div>
+        <div class="u-0096"><div class="u-0097">Jul – Dec 2025</div><div class="u-0098">Remote</div></div>
+      </div>
+    </div>
+    <div class="u-0107">
+      <button data-goto="flow" class="u-0108">Full flow timeline <span class="msym u-0109">arrow_forward</span></button>
+    </div>
+  </div>
 
-            <div class="fx-bar reveal"
-                style="border-radius:10px;padding:8px 16px;display:flex;align-items:center;gap:10px">
-                <span class="msym" style="color:#d4c1ce;font-size:17px">function</span>
-                <span style="font-family:'Space Grotesk',monospace;font-size:12px"><span
-                        style="color:#3b93f1">Navigate</span><span style="color:#d4c1ce">(Home_Screen, </span><span
-                        style="color:#bfce77">ScreenTransition.Fade</span><span style="color:#d4c1ce">)</span></span>
-            </div>
+  <!-- CERTS -->
+    <h2 class="u-0086"><span class="msym mf u-0077">verified</span>Certifications</h2>
+    <div class="two-col u-0110">
+      <div class="glass d1 reveal u-0111">
+        <div class="u-0112"><span class="msym mf u-0113">verified</span></div>
+        <div><div class="u-0056">PL-400</div><div class="u-0114">Power Platform Developer Associate</div><div class="u-0115">Microsoft · May 2025</div></div>
+      </div>
+      <div class="glass d2 reveal u-0111">
+        <div class="u-0116"><span class="msym mf u-0117">workspace_premium</span></div>
+        <div><div class="u-0056">PL-900</div><div class="u-0114">Power Platform Fundamentals</div><div class="u-0118">Microsoft · October 2024</div></div>
+      </div>
+    </div>
+  </div>
 
-            <!-- HERO -->
-            <div class="hero-grid" style="display:flex;gap:32px;align-items:flex-start">
-                <div style="flex:1;display:flex;flex-direction:column;gap:16px">
-                    <div class="reveal d1">
-                        <div
-                            style="font-size:10px;font-weight:700;letter-spacing:.15em;color:#ffaaf7;text-transform:uppercase;margin-bottom:10px">
-                            // Power Platform + AI Portfolio</div>
-                        <h1
-                            style="font-weight:700;line-height:1.15;letter-spacing:-.03em;font-size:clamp(32px,5vw,52px)">
-                            Sagar Milind Deshpande</h1>
-                    </div>
-                    <p class="reveal d2" style="color:#d4c1ce;font-size:15px;line-height:1.7;max-width:480px">Power
-                        Platform + AI Engineer · C1 German · Turning complex problems into solutions people actually
-                        enjoy using.</p>
-                    <div class="reveal d3" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
-                        <button onclick="goTo('canvas')" class="btn-p"
-                            style="padding:10px 24px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;gap:8px"><span
-                                class="msym" style="font-size:16px">grid_view</span>View Projects</button>
-                        <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')"
-                            class="btn-g"
-                            style="padding:10px 24px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.05em;display:flex;align-items:center;gap:8px"><span
-                                class="msym" style="font-size:16px">download</span>Resume / CV</button>
-                    </div>
-                    <div class="reveal d4" style="display:flex;flex-wrap:wrap;gap:8px">
-                        <span
-                            style="padding:4px 12px;border-radius:9999px;background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.25);color:#ffaaf7;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">Power
-                            Platform</span>
-                        <span
-                            style="padding:4px 12px;border-radius:9999px;background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.25);color:#a3c9ff;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">C1
-                            Deutsch</span>
-                        <span
-                            style="padding:4px 12px;border-radius:9999px;background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.25);color:#bfce77;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">AI
-                            &amp; Copilot</span>
-                        <span
-                            style="padding:4px 12px;border-radius:9999px;background:rgba(80,67,77,.5);border:1px solid #50434d;color:#d4c1ce;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">Economics
-                            Background</span>
-                    </div>
-                </div>
-                <div class="stats-card glass reveal d2"
-                    style="width:320px;flex-shrink:0;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden">
-                    <div
-                        style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,170,247,.04),rgba(163,201,255,.04));pointer-events:none">
-                    </div>
-                    <div style="display:flex;align-items:center;gap:14px;position:relative">
-                        <div
-                            style="width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,170,247,.4);flex-shrink:0;overflow:hidden;box-shadow:0 0 20px rgba(255,170,247,.2)">
-                            <img src="avatar.png" alt="Sagar Deshpande"
-                                style="width:100%;height:100%;object-fit:cover;display:block">
-                        </div>
-                        <div>
-                            <div style="color:#e5e2e1;font-weight:600;font-size:16px">Sagar Deshpande</div>
-                            <div style="color:#d4c1ce;font-size:12px;margin-top:2px">Pune, Maharashtra · India</div>
-                            <div style="display:flex;align-items:center;gap:4px;margin-top:4px">
-                                <div style="width:7px;height:7px;border-radius:50%;background:#bfce77" class="pulse-g">
-                                </div>
-                                <span
-                                    style="color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Open
-                                    to Work</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-                        <div
-                            style="background:rgba(19,19,19,.6);border-radius:12px;padding:10px;text-align:center;border:1px solid rgba(80,67,77,.4)">
-                            <div style="color:#ffaaf7;font-weight:700;font-size:24px">5+</div>
-                            <div
-                                style="color:#d4c1ce;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:4px">
-                                Yrs Exp</div>
-                        </div>
-                        <div
-                            style="background:rgba(19,19,19,.6);border-radius:12px;padding:10px;text-align:center;border:1px solid rgba(80,67,77,.4)">
-                            <div style="color:#a3c9ff;font-weight:700;font-size:24px">C1</div>
-                            <div
-                                style="color:#d4c1ce;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:4px">
-                                Deutsch</div>
-                        </div>
-                        <div
-                            style="background:rgba(19,19,19,.6);border-radius:12px;padding:10px;text-align:center;border:1px solid rgba(80,67,77,.4)">
-                            <div style="color:#bfce77;font-weight:700;font-size:20px">190+</div>
-                            <div
-                                style="color:#d4c1ce;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:4px">
-                                Hrs/Mo</div>
-                        </div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:8px">
-                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#d4c1ce"><span
-                                class="msym" style="color:#ffaaf7;font-size:16px">location_on</span>Pune, India · Remote
-                            Friendly</div>
-                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#d4c1ce"><span
-                                class="msym" style="color:#a3c9ff;font-size:16px">school</span>BA Economics · SPPU ·
-                            2020</div>
-                        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#d4c1ce;cursor:pointer"
-                            onclick="copyEmail()" title="Copy email">
-                            <span class="msym" style="color:#bfce77;font-size:16px">mail</span>
-                            <span
-                                style="font-family:'Space Grotesk',monospace;font-size:11px">deshpande.sagar.milind@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- ABOUT -->
+  <div class="glass reveal u-0119">
+    <div class="u-0120"></div>
+    <h2 class="u-0121">
+      <div class="u-0122">
+        <img src="avatar.png" alt="Sagar" class="u-0016">
+      </div>
+      About Me
+    </h2>
+    <div class="u-0123">
+      <p>I didn't start in computer science. I started in <span class="u-0124">economics</span>. That single fact changes how I approach every problem — I think from the user's perspective first, and from the technology second. Most developers can't do that. I can.</p>
+      <p>With <span class="u-0125">5+ years on Microsoft Power Platform</span>, I've shipped JSON-Schema-driven Canvas Apps managing 80+ entities, AI document processing pipelines powered by GPT-4.1, and Copilot Studio agents with full CRUD via a configured MCP server.</p>
+      <p>I'm fluent in German at <span class="u-0126">C1 level</span>. Not listed-on-a-CV fluent. Actually-leading-kick-off-meetings-with-native-DACH-clients fluent. This opens doors in European markets that most Indian developers simply can't walk through.</p>
+      <div class="u-0127">
+        <span class="msym u-0128">format_quote</span>
+        <p class="u-0129">"The best solution is the one that feels obvious to the person who never asked how it works."</p>
+      </div>
+    </div>
+  </div>
 
-            <!-- QUICK NAV CARDS -->
-            <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-                <button onclick="goTo('canvas')" class="glass"
-                    style="border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;text-align:left;transition:transform .3s;border-top:4px solid #ffaaf7;background:rgba(34,34,34,.6);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)"
-                    onmouseover="this.style.transform='translateY(-4px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div style="display:flex;align-items:center;justify-content:space-between">
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <div
-                                style="width:40px;height:40px;border-radius:10px;background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);display:flex;align-items:center;justify-content:center">
-                                <span class="msym" style="color:#ffaaf7">grid_view</span></div>
-                            <span style="color:#e5e2e1;font-weight:600;font-size:17px">The Canvas</span>
-                        </div>
-                        <span class="msym" style="color:#d4c1ce">arrow_forward</span>
-                    </div>
-                    <p style="color:#d4c1ce;font-size:13px;line-height:1.6">6 complex Power Apps, AI pipelines,
-                        Dataverse architectures and GPT-4.1 integrations — from T-Systems, Adastra, and Freelance.</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px">
-                        <span
-                            style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">Power
-                            Apps</span>
-                        <span
-                            style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">AI
-                            / OpenAI</span>
-                        <span
-                            style="background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.2);color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">Dataverse</span>
-                    </div>
-                </button>
-                <button onclick="goTo('flow')" class="glass"
-                    style="border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;text-align:left;transition:transform .3s;border-top:4px solid #a3c9ff;background:rgba(34,34,34,.6);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)"
-                    onmouseover="this.style.transform='translateY(-4px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div style="display:flex;align-items:center;justify-content:space-between">
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <div
-                                style="width:40px;height:40px;border-radius:10px;background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);display:flex;align-items:center;justify-content:center">
-                                <span class="msym" style="color:#a3c9ff">schema</span></div>
-                            <span style="color:#e5e2e1;font-weight:600;font-size:17px">The Flow</span>
-                        </div>
-                        <span class="msym" style="color:#d4c1ce">arrow_forward</span>
-                    </div>
-                    <p style="color:#d4c1ce;font-size:13px;line-height:1.6">5+ years visualised as a Power Automate
-                        execution flow. Concentrix → T-Systems → Adastra → Freelance.</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px">
-                        <span
-                            style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">T-Systems</span>
-                        <span
-                            style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">Adastra</span>
-                    </div>
-                </button>
-            </div>
+  <!-- TESTIMONIALS -->
+  <div class="reveal">
+    <h2 class="u-0086"><span class="msym mf u-0039">format_quote</span>Testimonials</h2>
+    <div class="three-col u-0130">
+      <div class="glass d1 reveal u-0131">
+        <span class="msym u-0132">format_quote</span>
+        <p class="u-0133">"Sagar has a rare ability to make complex solutions feel effortless. His non-technical background is his biggest technical strength — he always asks 'will a non-developer understand this?' before writing a single line of Power Fx."</p>
+        <div class="u-0134">
+          <div class="u-0135">Saurabh Bauskar</div>
+          <div class="u-0136">Power Platform Community</div>
+        </div>
+      </div>
+      <div class="glass d2 reveal u-0131">
+        <span class="msym u-0132">format_quote</span>
+        <p class="u-0133">"He approaches every build from a user-experience lens first. The apps he delivers require almost no user training — and that's the hardest thing to achieve in enterprise software."</p>
+        <div class="u-0134">
+          <div class="u-0137">Madhura Gokhale</div>
+          <div class="u-0136">Enterprise Development</div>
+        </div>
+      </div>
+      <div class="glass d3 reveal u-0131">
+        <span class="msym u-0132">format_quote</span>
+        <p class="u-0133">"Sagar delivered 190+ hours of monthly time savings. Every flow was clean, well-documented, and easy to maintain long after handover."</p>
+        <div class="u-0134">
+          <div class="u-0138">Eesha Apasangi</div>
+          <div class="u-0136">Business Analyst · T-Systems ICT India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- EXPERIENCE TIMELINE -->
-            <div class="reveal">
-                <h2
-                    style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:8px;margin-bottom:16px">
-                    <span class="msym" style="color:#a3c9ff">business_center</span>Work Experience</h2>
-                <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
-                    <div style="padding:16px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(80,67,77,.4);background:rgba(34,34,34,.6);transition:background .2s"
-                        onmouseover="this.style.background='rgba(255,170,247,.05)'"
-                        onmouseout="this.style.background='rgba(34,34,34,.6)'">
-                        <div
-                            style="width:40px;height:40px;border-radius:10px;background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                            <span class="msym" style="color:#ffaaf7;font-size:20px">smart_toy</span></div>
-                        <div style="flex:1;min-width:0">
-                            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-                                <span style="color:#e5e2e1;font-weight:600;font-size:15px">Adastra</span>
-                                <span
-                                    style="background:rgba(191,206,119,.15);border:1px solid rgba(191,206,119,.35);color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Current</span>
-                            </div>
-                            <div style="color:#d4c1ce;font-size:12px;margin-top:2px">Data Engineer — Power Platform + AI
-                            </div>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:7px">
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Copilot
-                                    Studio</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Azure
-                                    OpenAI</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">MCP
-                                    Server</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">PCF
-                                    Controls</span>
-                            </div>
-                        </div>
-                        <div style="text-align:right;flex-shrink:0">
-                            <div style="color:#ffaaf7;font-size:12px;font-weight:600">Jan 2025 – Present</div>
-                            <div style="color:#d4c1ce;font-size:11px;margin-top:2px">Pune · ~1 yr</div>
-                        </div>
-                    </div>
-                    <div style="padding:16px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(80,67,77,.4);background:rgba(34,34,34,.6);transition:background .2s"
-                        onmouseover="this.style.background='rgba(163,201,255,.05)'"
-                        onmouseout="this.style.background='rgba(34,34,34,.6)'">
-                        <div
-                            style="width:40px;height:40px;border-radius:10px;background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                            <span class="msym" style="color:#a3c9ff;font-size:20px">flowsheet</span></div>
-                        <div style="flex:1;min-width:0">
-                            <div style="color:#e5e2e1;font-weight:600;font-size:15px">T-Systems ICT India</div>
-                            <div style="color:#d4c1ce;font-size:12px;margin-top:2px">Junior Consultant — Power Platform
-                                Developer</div>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:7px">
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Power
-                                    Automate</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Power
-                                    BI</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Canvas
-                                    Apps</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">German
-                                    C1 Lead</span>
-                            </div>
-                        </div>
-                        <div style="text-align:right;flex-shrink:0">
-                            <div style="color:#a3c9ff;font-size:12px;font-weight:600">May 2022 – Dec 2024</div>
-                            <div style="color:#d4c1ce;font-size:11px;margin-top:2px">Pune · 2.5 yrs</div>
-                        </div>
-                    </div>
-                    <div style="padding:16px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(80,67,77,.4);background:rgba(34,34,34,.6);transition:background .2s"
-                        onmouseover="this.style.background='rgba(191,206,119,.05)'"
-                        onmouseout="this.style.background='rgba(34,34,34,.6)'">
-                        <div
-                            style="width:40px;height:40px;border-radius:10px;background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                            <span class="msym" style="color:#bfce77;font-size:20px">translate</span></div>
-                        <div style="flex:1;min-width:0">
-                            <div style="color:#e5e2e1;font-weight:600;font-size:15px">Concentrix Daksh Services</div>
-                            <div style="color:#d4c1ce;font-size:12px;margin-top:2px">Advisor I — German Enterprise
-                                Support</div>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:7px">
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">German
-                                    C1</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">87%
-                                    CSAT</span>
-                            </div>
-                        </div>
-                        <div style="text-align:right;flex-shrink:0">
-                            <div style="color:#bfce77;font-size:12px;font-weight:600">Jun 2020 – Mar 2022</div>
-                            <div style="color:#d4c1ce;font-size:11px;margin-top:2px">Pune · 1.8 yrs</div>
-                        </div>
-                    </div>
-                    <div style="padding:16px 20px;display:flex;align-items:center;gap:16px;background:rgba(34,34,34,.6);transition:background .2s"
-                        onmouseover="this.style.background='rgba(255,170,247,.04)'"
-                        onmouseout="this.style.background='rgba(34,34,34,.6)'">
-                        <div
-                            style="width:40px;height:40px;border-radius:10px;background:rgba(255,170,247,.08);border:1px solid rgba(255,170,247,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                            <span class="msym" style="color:#ffaaf7;font-size:20px">work</span></div>
-                        <div style="flex:1;min-width:0">
-                            <div style="color:#e5e2e1;font-weight:600;font-size:15px">Freelance — Power Platform + AI
-                                Consultant</div>
-                            <div style="color:#d4c1ce;font-size:12px;margin-top:2px">AI Real Estate Document Processing
-                                Pipeline</div>
-                            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:7px">
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">GPT-4.1</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Dataverse</span>
-                                <span
-                                    style="background:#1c1b1b;border:1px solid rgba(255,255,255,.07);color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace;padding:2px 8px;border-radius:5px">Remote</span>
-                            </div>
-                        </div>
-                        <div style="text-align:right;flex-shrink:0">
-                            <div style="color:#ffaaf7;font-size:12px;font-weight:600">Jul – Dec 2025</div>
-                            <div style="color:#d4c1ce;font-size:11px;margin-top:2px">Remote</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:right;margin-top:10px">
-                    <button onclick="goTo('flow')"
-                        style="background:none;border:none;color:#ffaaf7;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:Inter,sans-serif">Full
-                        flow timeline <span class="msym" style="font-size:13px">arrow_forward</span></button>
-                </div>
-            </div>
+<div class="u-0139"></div>
 
-            <!-- CERTS -->
-            <h2
-                style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:8px;margin-bottom:16px">
-                <span class="msym mf" style="color:#ffaaf7">verified</span>Certifications</h2>
-            <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-                <div class="glass d1 reveal"
-                    style="border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;transition:transform .2s"
-                    onmouseover="this.style.transform='translateY(-3px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width:48px;height:48px;border-radius:12px;background:#2a2a2a;border:1px solid rgba(255,170,247,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                        <span class="msym mf" style="color:#ffaaf7;font-size:26px">verified</span></div>
-                    <div>
-                        <div style="color:#e5e2e1;font-weight:600;font-size:16px">PL-400</div>
-                        <div style="color:#d4c1ce;font-size:12px">Power Platform Developer Associate</div>
-                        <div
-                            style="color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:4px">
-                            Microsoft · May 2025</div>
-                    </div>
-                </div>
-                <div class="glass d2 reveal"
-                    style="border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;transition:transform .2s"
-                    onmouseover="this.style.transform='translateY(-3px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width:48px;height:48px;border-radius:12px;background:#2a2a2a;border:1px solid rgba(163,201,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                        <span class="msym mf" style="color:#a3c9ff;font-size:26px">workspace_premium</span></div>
-                    <div>
-                        <div style="color:#e5e2e1;font-weight:600;font-size:16px">PL-900</div>
-                        <div style="color:#d4c1ce;font-size:12px">Power Platform Fundamentals</div>
-                        <div
-                            style="color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:4px">
-                            Microsoft · October 2024</div>
-                    </div>
-                </div>
-            </div>
-            </div>
+<!-- ══════════════════════════════════════════════ -->
+<!--  CANVAS                                       -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="canvas" class="u-0140">
+  <div class="glass reveal u-0141">
+    <button class="btn-g u-0142"><span class="msym u-0143">undo</span></button>
+    <button class="btn-g u-0142"><span class="msym u-0143">redo</span></button>
+    <div class="u-0144"></div>
+    <button class="btn-g u-0145"><span class="msym u-0146">add_circle</span>Insert</button>
+    <button class="btn-g u-0145"><span class="msym u-0146">database</span>Data</button>
+    <div class="fx-bar u-0147">
+      <div class="u-0148"><span class="msym u-0149">function</span></div>
+      <span class="u-0150">Filter(Projects, Status = Active)</span>
+    </div>
+    <button class="btn-g u-0151"><span class="msym u-0143">play_circle</span></button>
+    <button class="btn-g u-0142"><span class="msym u-0143">publish</span></button>
+  </div>
+  <div class="reveal">
+    <h1 class="u-0152">The Canvas</h1>
+    <p class="u-0038">A collection of 6 complex Power Apps, Dataverse architectures, and AI integrations.</p>
+  </div>
+  <div class="reveal u-0047">
+    <button class="filter-btn active" data-filter="all">All (6)</button>
+    <button class="filter-btn" data-filter="pa">Power Apps</button>
+    <button class="filter-btn" data-filter="ai">AI</button>
+    <button class="filter-btn" data-filter="dv">Dataverse</button>
+    <button class="filter-btn" data-filter="pm">Power Automate</button>
+    <button class="filter-btn" data-filter="bi">Power BI</button>
+  </div>
+  <div id="pgrid" class="pgrid u-0153">
+    <article class="glass pcard reveal d1 u-0154" data-t="ai,pa,dv">
+      <div class="u-0155">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0157">document_scanner</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0160">Power Apps</span>
+          <span class="u-0161">AI</span>
+          <span class="u-0162">Dataverse</span>
+        </div>
+        <h3 class="u-0056">AI-Powered Document Processing</h3>
+        <p class="u-0163">GPT-4.1 + Dataverse pipelines automate ingestion, classification, and metadata extraction of legacy PDFs. <strong class="u-0077">190+ hours</strong> saved monthly.</p>
+        <div class="u-0164">Freelance · 2025</div>
+        <button data-modal="0" class="u-0165">View Solution <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+    <article class="glass pcard reveal d2 u-0154" data-t="pa,dv">
+      <div class="u-0167">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0168">dynamic_form</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0160">Power Apps</span>
+          <span class="u-0162">Dataverse</span>
+        </div>
+        <h3 class="u-0056">JSON-Schema Dynamic Form Engine</h3>
+        <p class="u-0163">Recursive Canvas App generating forms from Dataverse JSON schemas. <strong class="u-0037">80+ entities</strong>, 1,000+ attributes — zero code changes per config update.</p>
+        <div class="u-0164">Adastra · 2025</div>
+        <button data-modal="1" class="u-0169">View Architecture <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+    <article class="glass pcard reveal d3 u-0154" data-t="ai,dv">
+      <div class="u-0170">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0171">smart_toy</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0161">AI</span>
+          <span class="u-0172">Copilot Studio</span>
+        </div>
+        <h3 class="u-0056">Advanced Copilot Studio Agent</h3>
+        <p class="u-0163">Enterprise-grade agent using MCP Server for secure CRUD on internal SQL databases. Knowledge base embedded for guided workflow walkthroughs. <strong class="u-0039">Reduced average ticket resolution time by ~40% and eliminated the need for developer intervention on routine data requests.</strong></p>
+        <div class="u-0164">Adastra · 2025</div>
+        <button data-modal="2" class="u-0173">View Details <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+    <article class="glass pcard reveal d1 u-0154" data-t="pm,dv">
+      <div class="u-0174">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0168">bolt</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0161">Power Automate</span>
+          <span class="u-0172">SharePoint</span>
+        </div>
+        <h3 class="u-0056">190+ Hours Saved: Enterprise Automation</h3>
+        <p class="u-0163">Comprehensive Power Automate suite — approval routing, document workflows, cross-platform notifications, scheduled pipelines, full SharePoint integration.</p>
+        <div class="u-0164">T-Systems · 2022–2024</div>
+        <button data-modal="3" class="u-0169">View Suite <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+    <article class="glass pcard reveal d2 u-0154" data-t="bi,dv,pm">
+      <div class="u-0175">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0157">bar_chart</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0160">Power BI</span>
+          <span class="u-0162">DAX</span>
+        </div>
+        <h3 class="u-0056">Enterprise Power BI Reporting Suite</h3>
+        <p class="u-0163">Three BI solutions: 5-level drillable ticket hierarchy, DevOps license compliance tracker (7–8 tools), and ServiceNow SLA reaction time report.</p>
+        <div class="u-0164">T-Systems · 2022–2024</div>
+        <button data-modal="4" class="u-0165">View Reports <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+    <article class="glass pcard reveal d3 u-0154" data-t="ai,pa">
+      <div class="u-0176">
+        <div class="u-0156"></div>
+        <span class="msym mf u-0171">auto_awesome</span>
+      </div>
+      <div class="u-0158">
+        <div class="u-0159">
+          <span class="u-0160">Power Apps</span>
+          <span class="u-0161">AI</span>
+        </div>
+        <h3 class="u-0056">AI Assistance — Upload to Autofill</h3>
+        <p class="u-0163">Single Canvas App screen pipeline: upload → Azure OpenAI extraction → confidence scoring → auto-fill. Zero manual data entry for standard documents.</p>
+        <div class="u-0164">Adastra · 2025</div>
+        <button data-modal="5" class="u-0173">View Flow <span class="msym u-0166">arrow_forward</span></button>
+      </div>
+    </article>
+  </div>
+</section>
 
-            <!-- ABOUT -->
-            <div class="glass reveal" style="border-radius:20px;padding:28px;position:relative;overflow:hidden">
-                <div
-                    style="position:absolute;top:0;right:0;width:180px;height:180px;background:rgba(255,170,247,.04);border-radius:50%;transform:translate(50%,-50%);pointer-events:none">
-                </div>
-                <h2
-                    style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:12px;margin-bottom:16px">
-                    <div
-                        style="width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,170,247,.4);overflow:hidden;flex-shrink:0">
-                        <img src="avatar.png" alt="Sagar" style="width:100%;height:100%;object-fit:cover;display:block">
-                    </div>
-                    About Me
-                </h2>
-                <div style="display:flex;flex-direction:column;gap:12px;color:#d4c1ce;font-size:14px;line-height:1.7">
-                    <p>I didn't start in computer science. I started in <span
-                            style="color:#bfce77;font-weight:500">economics</span>. That single fact changes how I
-                        approach every problem — I think from the user's perspective first, and from the technology
-                        second. Most developers can't do that. I can.</p>
-                    <p>With <span style="color:#ffaaf7;font-weight:500">5+ years on Microsoft Power Platform</span>,
-                        I've shipped JSON-Schema-driven Canvas Apps managing 80+ entities, AI document processing
-                        pipelines powered by GPT-4.1, and Copilot Studio agents with full CRUD via a configured MCP
-                        server.</p>
-                    <p>I'm fluent in German at <span style="color:#a3c9ff;font-weight:500">C1 level</span>. Not
-                        listed-on-a-CV fluent. Actually-leading-kick-off-meetings-with-native-DACH-clients fluent. This
-                        opens doors in European markets that most Indian developers simply can't walk through.</p>
-                    <div
-                        style="border-top:1px solid #50434d;padding-top:14px;display:flex;align-items:flex-start;gap:10px">
-                        <span class="msym" style="color:#ffaaf7;font-size:18px;margin-top:2px">format_quote</span>
-                        <p style="color:#e5e2e1;font-style:italic">"The best solution is the one that feels obvious to
-                            the person who never asked how it works."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TESTIMONIALS -->
-            <div class="reveal">
-                <h2
-                    style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:8px;margin-bottom:16px">
-                    <span class="msym mf" style="color:#bfce77">format_quote</span>Testimonials</h2>
-                <div class="three-col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-                    <div class="glass d1 reveal"
-                        style="border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s"
-                        onmouseover="this.style.transform='translateY(-3px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <span class="msym"
-                            style="color:rgba(80,67,77,.25);font-size:52px;position:absolute;top:10px;right:10px">format_quote</span>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;position:relative">"Sagar has a rare
-                            ability to make complex solutions feel effortless. His non-technical background is his
-                            biggest technical strength — he always asks 'will a non-developer understand this?' before
-                            writing a single line of Power Fx."</p>
-                        <div style="margin-top:auto;padding-top:8px;border-top:1px solid #50434d">
-                            <div
-                                style="color:#ffaaf7;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">
-                                Saurabh Bauskar</div>
-                            <div style="color:#d4c1ce;font-size:11px">Power Platform Community</div>
-                        </div>
-                    </div>
-                    <div class="glass d2 reveal"
-                        style="border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s"
-                        onmouseover="this.style.transform='translateY(-3px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <span class="msym"
-                            style="color:rgba(80,67,77,.25);font-size:52px;position:absolute;top:10px;right:10px">format_quote</span>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;position:relative">"He approaches every
-                            build from a user-experience lens first. The apps he delivers require almost no user
-                            training — and that's the hardest thing to achieve in enterprise software."</p>
-                        <div style="margin-top:auto;padding-top:8px;border-top:1px solid #50434d">
-                            <div
-                                style="color:#a3c9ff;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">
-                                Madhura Gokhale</div>
-                            <div style="color:#d4c1ce;font-size:11px">Enterprise Development</div>
-                        </div>
-                    </div>
-                    <div class="glass d3 reveal"
-                        style="border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s"
-                        onmouseover="this.style.transform='translateY(-3px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <span class="msym"
-                            style="color:rgba(80,67,77,.25);font-size:52px;position:absolute;top:10px;right:10px">format_quote</span>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;position:relative">"Sagar delivered 190+
-                            hours of monthly time savings. Every flow was clean, well-documented, and easy to maintain
-                            long after handover."</p>
-                        <div style="margin-top:auto;padding-top:8px;border-top:1px solid #50434d">
-                            <div
-                                style="color:#bfce77;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">
-                                Eesha Apasangi</div>
-                            <div style="color:#d4c1ce;font-size:11px">Business Analyst · T-Systems ICT India</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div style="height:1px;background:linear-gradient(90deg,transparent,#50434d,transparent);margin:0 24px"></div>
-
-        <!-- ══════════════════════════════════════════════ -->
-        <!--  CANVAS                                       -->
-        <!-- ══════════════════════════════════════════════ -->
-        <section id="canvas" style="min-height:100vh;padding:24px;display:flex;flex-direction:column;gap:24px">
-            <div class="glass reveal"
-                style="border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-                <button class="btn-g" style="padding:5px 8px;border-radius:6px;display:flex"><span class="msym"
-                        style="font-size:17px">undo</span></button>
-                <button class="btn-g" style="padding:5px 8px;border-radius:6px;display:flex"><span class="msym"
-                        style="font-size:17px">redo</span></button>
-                <div style="width:1px;height:20px;background:#50434d;margin:0 4px"></div>
-                <button class="btn-g"
-                    style="padding:5px 12px;border-radius:6px;font-size:12px;display:flex;align-items:center;gap:4px"><span
-                        class="msym" style="font-size:15px">add_circle</span>Insert</button>
-                <button class="btn-g"
-                    style="padding:5px 12px;border-radius:6px;font-size:12px;display:flex;align-items:center;gap:4px"><span
-                        class="msym" style="font-size:15px">database</span>Data</button>
-                <div class="fx-bar"
-                    style="flex:1;max-width:380px;border-radius:7px;display:flex;align-items:center;overflow:hidden;margin:0 8px">
-                    <div style="background:#2a2a2a;padding:6px 10px;border-right:1px solid #50434d;flex-shrink:0"><span
-                            class="msym" style="color:#d4c1ce;font-size:14px">function</span></div>
-                    <span
-                        style="font-family:'Space Grotesk',monospace;font-size:12px;color:#a3c9ff;padding:6px 12px">Filter(Projects,
-                        Status = Active)</span>
-                </div>
-                <button class="btn-g" style="padding:5px 8px;border-radius:6px;display:flex;margin-left:auto"><span
-                        class="msym" style="font-size:17px">play_circle</span></button>
-                <button class="btn-g" style="padding:5px 8px;border-radius:6px;display:flex"><span class="msym"
-                        style="font-size:17px">publish</span></button>
-            </div>
-            <div class="reveal">
-                <h1 style="font-weight:700;font-size:32px;letter-spacing:-.02em;color:#e5e2e1;margin-bottom:6px">The
-                    Canvas</h1>
-                <p style="color:#d4c1ce">A collection of 6 complex Power Apps, Dataverse architectures, and AI
-                    integrations.</p>
-            </div>
-            <div class="reveal" style="display:flex;flex-wrap:wrap;gap:8px">
-                <button class="filter-btn active" onclick="filterP('all',this)">All (6)</button>
-                <button class="filter-btn" onclick="filterP('pa',this)">Power Apps</button>
-                <button class="filter-btn" onclick="filterP('ai',this)">AI</button>
-                <button class="filter-btn" onclick="filterP('dv',this)">Dataverse</button>
-                <button class="filter-btn" onclick="filterP('pm',this)">Power Automate</button>
-                <button class="filter-btn" onclick="filterP('bi',this)">Power BI</button>
-            </div>
-            <div id="pgrid" class="pgrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-                <article class="glass pcard reveal d1" data-t="ai,pa,dv" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(255,170,247,.08);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#ffaaf7;font-size:52px;opacity:.8">document_scanner</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Power
-                                Apps</span>
-                            <span
-                                style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">AI</span>
-                            <span
-                                style="background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.2);color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Dataverse</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">AI-Powered Document Processing</h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">GPT-4.1 + Dataverse pipelines
-                            automate ingestion, classification, and metadata extraction of legacy PDFs. <strong
-                                style="color:#ffaaf7">190+ hours</strong> saved monthly.</p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            Freelance · 2025</div>
-                        <button onclick="openModal(0)"
-                            style="background:none;border:none;color:#ffaaf7;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Solution <span
-                                class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-                <article class="glass pcard reveal d2" data-t="pa,dv" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(163,201,255,.08);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#a3c9ff;font-size:52px;opacity:.8">dynamic_form</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Power
-                                Apps</span>
-                            <span
-                                style="background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.2);color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Dataverse</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">JSON-Schema Dynamic Form Engine</h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">Recursive Canvas App generating
-                            forms from Dataverse JSON schemas. <strong style="color:#a3c9ff">80+ entities</strong>,
-                            1,000+ attributes — zero code changes per config update.</p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            Adastra · 2025</div>
-                        <button onclick="openModal(1)"
-                            style="background:none;border:none;color:#a3c9ff;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Architecture
-                            <span class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-                <article class="glass pcard reveal d3" data-t="ai,dv" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(191,206,119,.08);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#bfce77;font-size:52px;opacity:.8">smart_toy</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">AI</span>
-                            <span
-                                style="background:rgba(80,67,77,.5);border:1px solid #50434d;color:#e5e2e1;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Copilot
-                                Studio</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">Advanced Copilot Studio Agent</h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">Enterprise-grade agent using MCP
-                            Server for secure CRUD on internal SQL databases. Knowledge base embedded for guided
-                            workflow walkthroughs. <strong style="color:#bfce77">Reduced average ticket resolution time
-                                by ~40% and eliminated the need for developer intervention on routine data
-                                requests.</strong></p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            Adastra · 2025</div>
-                        <button onclick="openModal(2)"
-                            style="background:none;border:none;color:#bfce77;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Details <span
-                                class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-                <article class="glass pcard reveal d1" data-t="pm,dv" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(59,147,241,.08);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#3b93f1;font-size:52px;opacity:.8">bolt</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Power
-                                Automate</span>
-                            <span
-                                style="background:rgba(80,67,77,.5);border:1px solid #50434d;color:#e5e2e1;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">SharePoint</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">190+ Hours Saved: Enterprise Automation
-                        </h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">Comprehensive Power Automate
-                            suite — approval routing, document workflows, cross-platform notifications, scheduled
-                            pipelines, full SharePoint integration.</p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            T-Systems · 2022–2024</div>
-                        <button onclick="openModal(3)"
-                            style="background:none;border:none;color:#a3c9ff;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Suite <span
-                                class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-                <article class="glass pcard reveal d2" data-t="bi,dv,pm" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(255,170,247,.06);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#ffaaf7;font-size:52px;opacity:.8">bar_chart</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Power
-                                BI</span>
-                            <span
-                                style="background:rgba(191,206,119,.1);border:1px solid rgba(191,206,119,.2);color:#bfce77;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">DAX</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">Enterprise Power BI Reporting Suite
-                        </h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">Three BI solutions: 5-level
-                            drillable ticket hierarchy, DevOps license compliance tracker (7–8 tools), and ServiceNow
-                            SLA reaction time report.</p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            T-Systems · 2022–2024</div>
-                        <button onclick="openModal(4)"
-                            style="background:none;border:none;color:#ffaaf7;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Reports <span
-                                class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-                <article class="glass pcard reveal d3" data-t="ai,pa" style="border-radius:14px;overflow:hidden">
-                    <div
-                        style="height:112px;display:flex;align-items:center;justify-content:center;background:rgba(191,206,119,.06);border-bottom:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(to top,rgba(19,19,19,.85),transparent)">
-                        </div>
-                        <span class="msym mf" style="color:#bfce77;font-size:52px;opacity:.8">auto_awesome</span>
-                    </div>
-                    <div style="padding:16px;display:flex;flex-direction:column;flex:1;gap:10px">
-                        <div style="display:flex;flex-wrap:wrap;gap:5px">
-                            <span
-                                style="background:rgba(255,170,247,.1);border:1px solid rgba(255,170,247,.2);color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">Power
-                                Apps</span>
-                            <span
-                                style="background:rgba(163,201,255,.1);border:1px solid rgba(163,201,255,.2);color:#a3c9ff;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:9999px">AI</span>
-                        </div>
-                        <h3 style="color:#e5e2e1;font-weight:600;font-size:16px">AI Assistance — Upload to Autofill</h3>
-                        <p style="color:#d4c1ce;font-size:13px;line-height:1.6;flex:1">Single Canvas App screen
-                            pipeline: upload → Azure OpenAI extraction → confidence scoring → auto-fill. Zero manual
-                            data entry for standard documents.</p>
-                        <div style="color:rgba(212,193,206,.5);font-size:10px;font-family:'Space Grotesk',monospace">
-                            Adastra · 2025</div>
-                        <button onclick="openModal(5)"
-                            style="background:none;border:none;color:#bfce77;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;transition:gap .2s;font-family:Inter,sans-serif"
-                            onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='4px'">View Flow <span
-                                class="msym" style="font-size:14px">arrow_forward</span></button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <div style="height:1px;background:linear-gradient(90deg,transparent,#50434d,transparent);margin:0 24px"></div>
+<div class="u-0139"></div>
 
 <!-- ══════════════════════════════════════════════ -->
 <!--  FLOW                                         -->
 <!-- ══════════════════════════════════════════════ -->
-<section id="flow" style="min-height:100vh;padding:24px;display:flex;flex-direction:column;gap:24px;position:relative">
-  <div class="dot-grid" style="position:absolute;inset:0;opacity:.035;pointer-events:none"></div>
+<section id="flow" class="u-0177">
+  <div class="dot-grid u-0178"></div>
 
-  <div class="fx-bar reveal" style="border-radius:10px;padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative">
-    <span class="msym" style="color:#d4c1ce;font-size:17px">function</span>
-    <span style="font-family:'Space Grotesk',monospace;font-size:12px"><span style="color:#3b93f1">Filter</span><span style="color:#d4c1ce">(Experience, Level &gt;= </span><span style="color:#bfce77">Senior</span><span style="color:#d4c1ce">)</span></span>
-    <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
-      <span style="color:#d4c1ce;font-size:10px;font-family:'Space Grotesk',monospace">Status:</span>
-      <span style="color:#bfce77;font-size:10px;font-weight:700">Succeeded</span>
-      <span style="color:rgba(212,193,206,.35);font-size:10px;font-family:'Space Grotesk',monospace">| Duration: 5+ Years</span>
+  <div class="fx-bar reveal u-0179">
+    <span class="msym u-0035">function</span>
+    <span class="u-0036"><span class="u-0037">Filter</span><span class="u-0038">(Experience, Level &gt;= </span><span class="u-0039">Senior</span><span class="u-0038">)</span></span>
+    <div class="u-0180">
+      <span class="u-0181">Status:</span>
+      <span class="u-0182">Succeeded</span>
+      <span class="u-0183">| Duration: 5+ Years</span>
     </div>
   </div>
 
-  <div class="reveal" style="position:relative">
-    <h1 style="font-weight:700;font-size:32px;letter-spacing:-.02em;color:#e5e2e1;margin-bottom:4px;display:flex;align-items:center;gap:10px"><span class="msym mf" style="color:#ffaaf7;font-size:32px">schema</span>Execution Flow</h1>
-    <p style="color:#d4c1ce;margin:0 0 0 42px">My professional journey — visualised as a Power Automate workflow.</p>
+  <div class="reveal u-0184">
+    <h1 class="u-0185"><span class="msym mf u-0186">schema</span>Execution Flow</h1>
+    <p class="u-0187">My professional journey — visualised as a Power Automate workflow.</p>
   </div>
 
   <!-- Timeline -->
-  <div style="display:flex;flex-direction:column;align-items:center;max-width:640px;margin:0 auto;width:100%;position:relative">
+  <div class="u-0188">
 
     <!-- TRIGGER: Education -->
-    <div class="glass reveal" style="width:100%;border-radius:14px;overflow:hidden;transition:transform .3s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;background:rgba(255,170,247,.07)">
-        <div style="width:32px;height:32px;border-radius:50%;background:#742774;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym mf" style="color:white;font-size:15px">bolt</span></div>
-        <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#ffaaf7;font-weight:600">When an academic degree is acquired</span>
-        <span style="margin-left:auto;font-size:9px;font-weight:700;color:#d4c1ce;background:#2a2a2a;padding:2px 8px;border-radius:6px;border:1px solid #50434d;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0">TRIGGER</span>
+    <div class="glass reveal u-0189">
+      <div class="u-0190">
+        <div class="u-0191"><span class="msym mf u-0192">bolt</span></div>
+        <span class="u-0193">When an academic degree is acquired</span>
+        <span class="u-0194">TRIGGER</span>
       </div>
-      <div style="padding:20px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px">
-          <div><h3 style="color:#e5e2e1;font-weight:600;font-size:17px;margin-bottom:4px">Bachelor of Arts — Economics</h3><div style="color:rgba(212,193,206,.6);font-size:11px;font-family:'Space Grotesk',monospace">Savitribai Phule Pune University · 2020</div></div>
-          <div style="text-align:right;flex-shrink:0"><div style="color:#bfce77;font-size:12px;font-weight:700">SPPU</div><div style="color:#d4c1ce;font-size:11px">Pune</div></div>
+      <div class="u-0195">
+        <div class="u-0196">
+          <div><h3 class="u-0197">Bachelor of Arts — Economics</h3><div class="u-0198">Savitribai Phule Pune University · 2020</div></div>
+          <div class="u-0096"><div class="u-0199">SPPU</div><div class="u-0136">Pune</div></div>
         </div>
-        <p style="color:#d4c1ce;font-size:13px;line-height:1.6">Economics background instills systemic thinking, resource optimisation logic, and a user-first perspective that most CS graduates don't develop.</p>
+        <p class="u-0079">Economics background instills systemic thinking, resource optimisation logic, and a user-first perspective that most CS graduates don't develop.</p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div class="flow-conn"></div><span class="msym" style="color:#50434d;font-size:22px;margin-top:-8px">keyboard_arrow_down</span></div>
+    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
 
     <!-- Concentrix -->
-    <div class="glass reveal d1" style="width:100%;border-radius:14px;overflow:hidden;transition:transform .3s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;background:rgba(191,206,119,.07)">
-        <div style="width:32px;height:32px;border-radius:50%;background:#414d00;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym" style="color:#bfce77;font-size:15px">translate</span></div>
-        <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#bfce77;font-weight:600">Initialize German Language Protocol</span>
-        <span style="margin-left:auto;font-size:9px;font-weight:700;color:#d4c1ce;background:#2a2a2a;padding:2px 8px;border-radius:6px;border:1px solid #50434d;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0">ACTION</span>
+    <div class="glass reveal d1 u-0189">
+      <div class="u-0202">
+        <div class="u-0203"><span class="msym u-0204">translate</span></div>
+        <span class="u-0205">Initialize German Language Protocol</span>
+        <span class="u-0194">ACTION</span>
       </div>
-      <div style="padding:20px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px">
-          <div><h3 style="color:#e5e2e1;font-weight:600;font-size:17px;margin-bottom:4px">Concentrix Daksh Services</h3><div style="color:rgba(212,193,206,.6);font-size:11px;font-family:'Space Grotesk',monospace">Advisor I · Jun 2020 – Mar 2022 · Pune</div></div>
-          <div style="text-align:right;flex-shrink:0"><div style="color:#bfce77;font-size:12px;font-weight:700">87%</div><div style="color:#d4c1ce;font-size:11px">CSAT</div></div>
+      <div class="u-0195">
+        <div class="u-0196">
+          <div><h3 class="u-0197">Concentrix Daksh Services</h3><div class="u-0198">Advisor I · Jun 2020 – Mar 2022 · Pune</div></div>
+          <div class="u-0096"><div class="u-0199">87%</div><div class="u-0136">CSAT</div></div>
         </div>
-        <div style="background:#0e0e0e;border-radius:8px;padding:10px;border:1px solid #50434d;font-family:'Space Grotesk',monospace;font-size:12px;margin-bottom:10px">
-          <div style="color:rgba(212,193,206,.5);font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Output Variables</div>
-          <div style="display:flex;align-items:center;gap:8px"><span class="msym" style="color:#bfce77;font-size:13px">check_circle</span><span style="color:#e5e2e1">50+ daily native-German interactions · 87% CSAT · 90%+ RAP performance</span></div>
+        <div class="u-0206">
+          <div class="u-0207">Output Variables</div>
+          <div class="u-0010"><span class="msym u-0208">check_circle</span><span class="u-0209">50+ daily native-German interactions · 87% CSAT · 90%+ RAP performance</span></div>
         </div>
-        <p style="color:#d4c1ce;font-size:13px;line-height:1.6">Built enterprise-level German communication with native DACH speakers. Foundation for leading kick-offs and acting as Team Lead at T-Systems.</p>
+        <p class="u-0079">Built enterprise-level German communication with native DACH speakers. Foundation for leading kick-offs and acting as Team Lead at T-Systems.</p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div class="flow-conn"></div><span class="msym" style="color:#50434d;font-size:22px;margin-top:-8px">keyboard_arrow_down</span></div>
+    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
 
     <!-- T-Systems -->
-    <div class="glass reveal d2" style="width:100%;border-radius:14px;overflow:hidden;transition:transform .3s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;background:rgba(59,147,241,.07)">
-        <div style="width:32px;height:32px;border-radius:50%;background:#004883;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym" style="color:#a3c9ff;font-size:15px">flowsheet</span></div>
-        <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#a3c9ff;font-weight:600">Initialize Power Platform Stack</span>
-        <span style="margin-left:auto;font-size:9px;font-weight:700;color:#d4c1ce;background:#2a2a2a;padding:2px 8px;border-radius:6px;border:1px solid #50434d;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0">ACTION</span>
+    <div class="glass reveal d2 u-0189">
+      <div class="u-0210">
+        <div class="u-0211"><span class="msym u-0212">flowsheet</span></div>
+        <span class="u-0213">Initialize Power Platform Stack</span>
+        <span class="u-0194">ACTION</span>
       </div>
-      <div style="padding:20px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px">
-          <div><h3 style="color:#e5e2e1;font-weight:600;font-size:17px;margin-bottom:4px">T-Systems ICT India</h3><div style="color:rgba(212,193,206,.6);font-size:11px;font-family:'Space Grotesk',monospace">Junior Consultant · May 2022 – Dec 2024 · Pune</div></div>
-          <div style="text-align:right;flex-shrink:0"><div style="color:#a3c9ff;font-size:12px;font-weight:700">190+</div><div style="color:#d4c1ce;font-size:11px">Hrs/Month</div></div>
+      <div class="u-0195">
+        <div class="u-0196">
+          <div><h3 class="u-0197">T-Systems ICT India</h3><div class="u-0198">Junior Consultant · May 2022 – Dec 2024 · Pune</div></div>
+          <div class="u-0096"><div class="u-0214">190+</div><div class="u-0136">Hrs/Month</div></div>
         </div>
-        <div style="background:#0e0e0e;border-radius:8px;padding:10px;border:1px solid #50434d;font-size:12px;margin-bottom:10px">
-          <div style="color:rgba(212,193,206,.5);font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-family:'Space Grotesk',monospace">Output Metrics</div>
-          <div style="display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',monospace"><span class="msym" style="color:#a3c9ff;font-size:13px">check_circle</span><span style="color:#e5e2e1">Automated workflows saving <strong style="color:#a3c9ff">190+ hours</strong> of team bandwidth monthly</span></div>
+        <div class="u-0215">
+          <div class="u-0216">Output Metrics</div>
+          <div class="u-0217"><span class="msym u-0218">check_circle</span><span class="u-0209">Automated workflows saving <strong class="u-0037">190+ hours</strong> of team bandwidth monthly</span></div>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Power Apps</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Power Automate</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Power BI</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">SharePoint</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">German C1 Lead</span>
+        <div class="u-0219">
+          <span class="u-0220">Power Apps</span>
+          <span class="u-0220">Power Automate</span>
+          <span class="u-0220">Power BI</span>
+          <span class="u-0220">SharePoint</span>
+          <span class="u-0220">German C1 Lead</span>
         </div>
-        <p style="color:#d4c1ce;font-size:13px;line-height:1.6">Led kick-off meetings with German clients. Built Canvas/Model-Driven Apps, complex Power Automate flows, Power BI reporting suites, and ServiceNow integrations.</p>
+        <p class="u-0079">Led kick-off meetings with German clients. Built Canvas/Model-Driven Apps, complex Power Automate flows, Power BI reporting suites, and ServiceNow integrations.</p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div class="flow-conn"></div><span class="msym" style="color:#50434d;font-size:22px;margin-top:-8px">keyboard_arrow_down</span></div>
+    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
 
     <!-- Adastra -->
-    <div class="glass reveal d3" style="width:100%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,170,247,.18);transition:transform .3s;box-shadow:0 0 40px rgba(255,170,247,.07)" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;background:rgba(255,170,247,.08)">
-        <div style="width:32px;height:32px;border-radius:50%;background:#742774;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym" style="color:white;font-size:15px">smart_toy</span></div>
-        <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#ffaaf7;font-weight:600">Deploy AI &amp; Advanced Architecture</span>
-        <div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div style="width:7px;height:7px;border-radius:50%;background:#bfce77" class="pulse-g"></div><span style="font-size:9px;font-weight:700;color:#bfce77;letter-spacing:.07em;text-transform:uppercase">ACTIVE</span></div>
+    <div class="glass reveal d3 u-0221">
+      <div class="u-0222">
+        <div class="u-0191"><span class="msym u-0192">smart_toy</span></div>
+        <span class="u-0193">Deploy AI &amp; Advanced Architecture</span>
+        <div class="u-0029"><div class="pulse-g u-0030"></div><span class="u-0223">ACTIVE</span></div>
       </div>
-      <div style="padding:20px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px">
-          <div><h3 style="color:#e5e2e1;font-weight:600;font-size:17px;margin-bottom:4px">Adastra</h3><div style="color:rgba(212,193,206,.6);font-size:11px;font-family:'Space Grotesk',monospace">Data Engineer (Power Platform) · Jan 2025 – Present · Pune</div></div>
-          <div style="display:flex;align-items:center;gap:4px"><div style="width:7px;height:7px;border-radius:50%;background:#ffaaf7" class="pulse"></div><span style="color:#ffaaf7;font-size:12px;font-weight:700">Live</span></div>
+      <div class="u-0195">
+        <div class="u-0196">
+          <div><h3 class="u-0197">Adastra</h3><div class="u-0198">Data Engineer (Power Platform) · Jan 2025 – Present · Pune</div></div>
+          <div class="u-0224"><div class="pulse u-0225"></div><span class="u-0226">Live</span></div>
         </div>
-        <div style="background:#0e0e0e;border-radius:8px;padding:10px;border:1px solid #50434d;font-size:12px;margin-bottom:10px">
-          <div style="color:rgba(212,193,206,.5);font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;font-family:'Space Grotesk',monospace">Active Outputs</div>
-          <div style="display:flex;flex-direction:column;gap:5px;font-family:'Space Grotesk',monospace">
-            <div style="display:flex;align-items:center;gap:8px"><span class="msym" style="color:#ffaaf7;font-size:13px">check_circle</span><span style="color:#e5e2e1">JSON Engine — <strong style="color:#ffaaf7">80+ entities</strong>, 1,000+ attributes, zero redeploy</span></div>
-            <div style="display:flex;align-items:center;gap:8px"><span class="msym" style="color:#ffaaf7;font-size:13px">check_circle</span><span style="color:#e5e2e1">Copilot agents with MCP Server + full CRUD operations</span></div>
-            <div style="display:flex;align-items:center;gap:8px"><span class="msym" style="color:#ffaaf7;font-size:13px">check_circle</span><span style="color:#e5e2e1">AI upload-to-autofill pipeline via Azure OpenAI GPT-4.1</span></div>
+        <div class="u-0215">
+          <div class="u-0216">Active Outputs</div>
+          <div class="u-0227">
+            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">JSON Engine — <strong class="u-0077">80+ entities</strong>, 1,000+ attributes, zero redeploy</span></div>
+            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">Copilot agents with MCP Server + full CRUD operations</span></div>
+            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">AI upload-to-autofill pipeline via Azure OpenAI GPT-4.1</span></div>
           </div>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Copilot Studio</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">MCP Server</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">PCF Controls</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Azure OpenAI</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">JSON Schema</span>
-          <span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Azure DevOps</span>
+        <div class="u-0219">
+          <span class="u-0220">Copilot Studio</span>
+          <span class="u-0220">MCP Server</span>
+          <span class="u-0220">PCF Controls</span>
+          <span class="u-0220">Azure OpenAI</span>
+          <span class="u-0220">JSON Schema</span>
+          <span class="u-0220">Azure DevOps</span>
         </div>
-        <p style="color:#d4c1ce;font-size:13px;line-height:1.6">Architecting advanced AI integrations, Dataverse-backed MDA apps, and enterprise Copilot agents with Dev/Test/Prod governance via Azure DevOps pipelines.</p>
+        <p class="u-0079">Architecting advanced AI integrations, Dataverse-backed MDA apps, and enterprise Copilot agents with Dev/Test/Prod governance via Azure DevOps pipelines.</p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center"><div class="flow-conn"></div><span class="msym" style="color:#50434d;font-size:22px;margin-top:-8px">keyboard_arrow_down</span></div>
+    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
 
     <!-- PARALLEL SPLIT -->
-    <div class="reveal" style="width:100%">
-      <div style="position:relative;height:16px;margin:0 25%">
-        <div style="position:absolute;inset:0;border-top:2px solid #50434d"></div>
-        <div style="position:absolute;left:0;top:0;width:2px;height:100%;background:#50434d"></div>
-        <div style="position:absolute;right:0;top:0;width:2px;height:100%;background:#50434d"></div>
+    <div class="reveal u-0229">
+      <div class="u-0230">
+        <div class="u-0231"></div>
+        <div class="u-0232"></div>
+        <div class="u-0233"></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
-        <div class="glass" style="border-radius:12px;overflow:hidden;transition:transform .3s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:8px;background:rgba(255,170,247,.06)">
-            <div style="width:26px;height:26px;border-radius:50%;background:#742774;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym" style="color:white;font-size:13px">work</span></div>
-            <span style="font-family:'Space Grotesk',monospace;font-size:10px;color:#ffaaf7;font-weight:600">Process AI Pipelines</span>
+      <div class="u-0234">
+        <div class="glass u-0235">
+          <div class="u-0236">
+            <div class="u-0237"><span class="msym u-0238">work</span></div>
+            <span class="u-0239">Process AI Pipelines</span>
           </div>
-          <div style="padding:14px">
-            <h4 style="color:#e5e2e1;font-weight:600;font-size:14px;margin-bottom:4px">Freelance</h4>
-            <div style="color:rgba(212,193,206,.6);font-size:10px;font-family:'Space Grotesk',monospace;margin-bottom:10px">Jul – Dec 2025 · Remote</div>
-            <div style="display:flex;flex-direction:column;gap:5px">
-              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#d4c1ce"><span class="msym" style="color:#ffaaf7;font-size:12px;margin-top:1px">check_circle</span>GPT-4.1 real estate data extraction</div>
-              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#d4c1ce"><span class="msym" style="color:#ffaaf7;font-size:12px;margin-top:1px">check_circle</span>Multi-entity Dataverse upsert engine</div>
-              <div style="display:flex;align-items:flex-start;gap:6px;font-size:11px;color:#d4c1ce"><span class="msym" style="color:#ffaaf7;font-size:12px;margin-top:1px">check_circle</span>Centralised error logging + admin MDA</div>
+          <div class="u-0240">
+            <h4 class="u-0241">Freelance</h4>
+            <div class="u-0242">Jul – Dec 2025 · Remote</div>
+            <div class="u-0243">
+              <div class="u-0244"><span class="msym u-0245">check_circle</span>GPT-4.1 real estate data extraction</div>
+              <div class="u-0244"><span class="msym u-0245">check_circle</span>Multi-entity Dataverse upsert engine</div>
+              <div class="u-0244"><span class="msym u-0245">check_circle</span>Centralised error logging + admin MDA</div>
             </div>
           </div>
         </div>
-        <div style="border-radius:12px;overflow:hidden;background:rgba(34,34,34,.55);backdrop-filter:blur(20px);border:1px dashed rgba(191,206,119,.4);transition:transform .3s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="padding:8px 12px;border-bottom:1px solid rgba(191,206,119,.1);display:flex;align-items:center;gap:8px;background:rgba(191,206,119,.06)">
-            <div style="width:26px;height:26px;border-radius:50%;background:#414d00;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym" style="color:#bfce77;font-size:13px">translate</span></div>
-            <span style="font-family:'Space Grotesk',monospace;font-size:10px;color:#bfce77;font-weight:600">Condition: Language</span>
+        <div class="u-0246">
+          <div class="u-0247">
+            <div class="u-0248"><span class="msym u-0208">translate</span></div>
+            <span class="u-0249">Condition: Language</span>
           </div>
-          <div style="padding:14px">
-            <h4 style="color:#e5e2e1;font-weight:600;font-size:14px;margin-bottom:8px">German C1 Certification</h4>
-            <div style="background:#0e0e0e;border-radius:6px;padding:8px;border:1px solid #50434d;font-family:'Space Grotesk',monospace;font-size:11px;margin-bottom:8px">
-              <span style="color:#d4c1ce">if </span><span style="color:#bfce77">Level</span><span style="color:#d4c1ce"> == </span><span style="color:#ffaaf7">"C1"</span>
-              <div style="color:#bfce77;margin-top:4px">→ DACH Market Access Enabled</div>
+          <div class="u-0240">
+            <h4 class="u-0250">German C1 Certification</h4>
+            <div class="u-0251">
+              <span class="u-0038">if </span><span class="u-0039">Level</span><span class="u-0038"> == </span><span class="u-0077">"C1"</span>
+              <div class="u-0252">→ DACH Market Access Enabled</div>
             </div>
-            <p style="color:#d4c1ce;font-size:11px;line-height:1.5">Leading technical kick-offs with native German clients directly — a rare differentiator in Indian Power Platform talent.</p>
+            <p class="u-0253">Leading technical kick-offs with native German clients directly — a rare differentiator in Indian Power Platform talent.</p>
           </div>
         </div>
       </div>
-      <div style="position:relative;height:16px;margin:16px 25% 0">
-        <div style="position:absolute;inset:0;border-bottom:2px solid #50434d"></div>
-        <div style="position:absolute;left:0;top:0;width:2px;height:100%;background:#50434d"></div>
-        <div style="position:absolute;right:0;top:0;width:2px;height:100%;background:#50434d"></div>
+      <div class="u-0254">
+        <div class="u-0255"></div>
+        <div class="u-0232"></div>
+        <div class="u-0233"></div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="u-0200">
         <div class="flow-conn"></div>
-        <div style="width:16px;height:16px;border-radius:50%;background:rgba(255,170,247,.2);border:2px solid #ffaaf7;box-shadow:0 0 0 6px #131313,0 0 0 8px rgba(255,170,247,.15)"></div>
+        <div class="u-0256"></div>
       </div>
     </div>
 
     <!-- END Node -->
-    <div class="glass reveal d1" style="width:100%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,170,247,.28);box-shadow:0 0 40px rgba(255,170,247,.08);margin-top:16px">
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;background:rgba(255,170,247,.09)">
-        <div style="width:32px;height:32px;border-radius:50%;background:#742774;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="msym mf" style="color:white;font-size:15px">flag</span></div>
-        <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#ffaaf7;font-weight:600">Current Status — Ready for Next Challenge</span>
-        <div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div style="width:7px;height:7px;border-radius:50%;background:#bfce77" class="pulse-g"></div><span style="font-size:9px;font-weight:700;color:#bfce77;letter-spacing:.08em;text-transform:uppercase">Open to Work</span></div>
+    <div class="glass reveal d1 u-0257">
+      <div class="u-0258">
+        <div class="u-0191"><span class="msym mf u-0192">flag</span></div>
+        <span class="u-0193">Current Status — Ready for Next Challenge</span>
+        <div class="u-0029"><div class="pulse-g u-0030"></div><span class="u-0259">Open to Work</span></div>
       </div>
-      <div style="padding:24px;text-align:center">
-        <p style="color:#d4c1ce;font-size:14px;margin-bottom:16px;line-height:1.6">Ready to bring Power Platform expertise and C1 German fluency to your team. Pune-based, remote-friendly.</p>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
-          <button onclick="goTo('copilot')" class="btn-p" style="padding:10px 20px;border-radius:10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:16px">smart_toy</span>Chat with Copilot</button>
-          <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')" class="btn-g" style="padding:10px 20px;border-radius:10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:16px">link</span>LinkedIn</button>
-          <button onclick="copyEmail()" class="btn-g" style="padding:10px 20px;border-radius:10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:16px">mail</span>Copy Email</button>
+      <div class="u-0260">
+        <p class="u-0261">Ready to bring Power Platform expertise and C1 German fluency to your team. Pune-based, remote-friendly.</p>
+        <div class="u-0262">
+          <button data-goto="copilot" class="btn-p u-0263"><span class="msym u-0024">smart_toy</span>Chat with Copilot</button>
+          <button data-action="open-linkedin" class="btn-g u-0263"><span class="msym u-0024">link</span>LinkedIn</button>
+          <button data-action="copy-email" class="btn-g u-0263"><span class="msym u-0024">mail</span>Copy Email</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Skills -->
-  <div class="reveal" style="border-top:1px solid #50434d;padding-top:32px;position:relative">
-    <h2 style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:8px;margin-bottom:16px"><span class="msym" style="color:#a3c9ff">build</span>Skills Arsenal</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:8px">
+  <div class="reveal u-0264">
+    <h2 class="u-0086"><span class="msym u-0037">build</span>Skills Arsenal</h2>
+    <div class="u-0047">
       <span class="skill-tag">Power Automate</span><span class="skill-tag">Power Apps (Canvas + MDA)</span><span class="skill-tag">Microsoft Dataverse</span><span class="skill-tag">Copilot Studio</span><span class="skill-tag">Power BI + DAX</span><span class="skill-tag">Azure OpenAI / GPT-4.1</span><span class="skill-tag">MCP Server Integration</span><span class="skill-tag">PCF Controls</span><span class="skill-tag">JSON Schema</span><span class="skill-tag">JavaScript / TypeScript</span><span class="skill-tag">SharePoint</span><span class="skill-tag">Dynamics 365</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">SQL Server</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Power Query (M)</span><span class="skill-tag">ServiceNow</span><span class="skill-tag">German C1 (Professional)</span>
     </div>
   </div>
 </section>
 
-<div style="height:1px;background:linear-gradient(90deg,transparent,#50434d,transparent);margin:0 24px"></div>
+<div class="u-0139"></div>
 
 <!-- ══════════════════════════════════════════════ -->
 <!--  COPILOT                                      -->
-        <!-- ══════════════════════════════════════════════ -->
-        <section id="copilot" style="min-height:100vh;padding:24px;display:flex;flex-direction:column;gap:20px">
-            <div class="reveal">
-                <h1 style="font-weight:700;font-size:32px;letter-spacing:-.02em;color:#e5e2e1;margin-bottom:6px">The
-                    Copilot</h1>
-                <p style="color:#d4c1ce">An AI agent trained on Sagar's profile. Ask anything a recruiter might want to
-                    know.</p>
-            </div>
+<!-- ══════════════════════════════════════════════ -->
+<section id="copilot" class="u-0265">
+  <div class="reveal">
+    <h1 class="u-0152">The Copilot</h1>
+    <p class="u-0038">An AI agent trained on Sagar's profile. Ask anything a recruiter might want to know.</p>
+  </div>
 
-            <div class="reveal chat-layout" style="display:flex;gap:20px;height:660px">
-                <!-- Sidebar prompts -->
-                <div class="chat-sidebar" style="width:196px;flex-shrink:0;display:flex;flex-direction:column;gap:7px">
-                    <div
-                        style="font-size:9px;font-weight:700;letter-spacing:.1em;color:#d4c1ce;text-transform:uppercase;margin-bottom:4px">
-                        Recruiter Prompts</div>
-                    <button class="glass" onclick="sendQ('What are your top skills?')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(255,170,247,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#ffaaf7;font-size:14px;margin-top:1px">star</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">What are your top skills?</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('Tell me about your German expertise')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(163,201,255,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#a3c9ff;font-size:14px;margin-top:1px">translate</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">Tell me about German expertise</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('Describe a complex Power App you built')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(191,206,119,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#bfce77;font-size:14px;margin-top:1px">work_history</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">Describe a complex Power App</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('Show contact information')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(255,170,247,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#ffaaf7;font-size:14px;margin-top:1px">contact_page</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">Show contact information</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('What certifications do you have?')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(163,201,255,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#a3c9ff;font-size:14px;margin-top:1px">verified</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">What certifications?</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('Tell me about your work experience')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(191,206,119,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym"
-                            style="color:#bfce77;font-size:14px;margin-top:1px">business_center</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">Work experience</span>
-                    </button>
-                    <button class="glass" onclick="sendQ('Why should I hire Sagar?')"
-                        style="text-align:left;padding:11px;border-radius:11px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:border-color .2s;font-family:Inter,sans-serif"
-                        onmouseover="this.style.borderColor='rgba(255,170,247,.5)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-                        <span class="msym" style="color:#ffaaf7;font-size:14px;margin-top:1px">thumb_up</span><span
-                            style="color:#e5e2e1;font-size:12px;line-height:1.4">Why should I hire Sagar?</span>
-                    </button>
-                </div>
+  <div class="reveal chat-layout u-0266">
+    <!-- Sidebar prompts -->
+    <div class="chat-sidebar u-0267">
+      <div class="u-0268">Recruiter Prompts</div>
+      <button class="glass u-0269" data-question="What are your top skills?">
+        <span class="msym u-0270">star</span><span class="u-0271">What are your top skills?</span>
+      </button>
+      <button class="glass u-0269" data-question="Tell me about your German expertise">
+        <span class="msym u-0272">translate</span><span class="u-0271">Tell me about German expertise</span>
+      </button>
+      <button class="glass u-0269" data-question="Describe a complex Power App you built">
+        <span class="msym u-0273">work_history</span><span class="u-0271">Describe a complex Power App</span>
+      </button>
+      <button class="glass u-0269" data-question="Show contact information">
+        <span class="msym u-0270">contact_page</span><span class="u-0271">Show contact information</span>
+      </button>
+      <button class="glass u-0269" data-question="What certifications do you have?">
+        <span class="msym u-0272">verified</span><span class="u-0271">What certifications?</span>
+      </button>
+      <button class="glass u-0269" data-question="Tell me about your work experience">
+        <span class="msym u-0273">business_center</span><span class="u-0271">Work experience</span>
+      </button>
+      <button class="glass u-0269" data-question="Why should I hire Sagar?">
+        <span class="msym u-0270">thumb_up</span><span class="u-0271">Why should I hire Sagar?</span>
+      </button>
+    </div>
 
-                <!-- Chat window -->
-                <div class="glass"
-                    style="flex:1;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;min-width:0">
-                    <div
-                        style="padding:14px 20px;border-bottom:1px solid rgba(80,67,77,.3);display:flex;align-items:center;gap:12px;background:rgba(19,19,19,.7);backdrop-filter:blur(12px);flex-shrink:0">
-                        <div style="position:relative;width:40px;height:40px;flex-shrink:0">
-                            <div
-                                style="width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,170,247,.4);overflow:hidden">
-                                <img src="avatar.png" alt="Sagar"
-                                    style="width:100%;height:100%;object-fit:cover;display:block">
-                            </div>
-                            <div
-                                style="position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#742774;border:2px solid #131313;display:flex;align-items:center;justify-content:center">
-                                <span class="msym mf" style="color:#f297eb;font-size:9px">smart_toy</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div style="color:#e5e2e1;font-weight:600;font-size:15px">Sagar's Copilot Agent</div>
-                            <div style="display:flex;align-items:center;gap:5px;margin-top:2px">
-                                <div style="width:7px;height:7px;border-radius:50%;background:#ffaaf7" class="pulse">
-                                </div>
-                                <span
-                                    style="font-size:9px;letter-spacing:.08em;color:#d4c1ce;text-transform:uppercase;font-weight:700">Online
-                                    &amp; Ready</span>
-                            </div>
-                        </div>
-                        <button onclick="clearChat()"
-                            style="margin-left:auto;background:none;border:none;color:#d4c1ce;cursor:pointer;padding:6px;border-radius:8px;transition:color .2s"
-                            title="Clear chat" onmouseover="this.style.color='#e5e2e1'"
-                            onmouseout="this.style.color='#d4c1ce'">
-                            <span class="msym" style="font-size:18px">delete_sweep</span>
-                        </button>
-                    </div>
-                    <div id="chat-msgs"
-                        style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px">
-                        <div style="display:flex;gap:10px">
-                            <div
-                                style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,170,247,.35);overflow:hidden;flex-shrink:0;margin-top:18px">
-                                <img src="avatar.png" alt="Sagar"
-                                    style="width:100%;height:100%;object-fit:cover;display:block">
-                            </div>
-                            <div style="display:flex;flex-direction:column;gap:6px;max-width:88%">
-                                <span
-                                    style="font-size:9px;font-weight:700;letter-spacing:.08em;color:#d4c1ce;text-transform:uppercase;margin-left:4px">Sagar's
-                                    Copilot</span>
-                                <div style="background:#2a2a2a;border-radius:16px 16px 16px 4px;padding:14px">
-                                    <p style="color:#e5e2e1;font-size:13px;line-height:1.65">Hello! I'm an AI agent
-                                        trained on Sagar's professional experience, portfolio, and skills.<br><br>I can
-                                        help you understand his expertise in Power Platform, AI integrations, C1 German
-                                        fluency, or provide direct contact details. Use the prompts on the left or just
-                                        ask freely.</p>
-                                </div>
-                                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:4px">
-                                    <button onclick="sendQ('Portfolio Highlights')"
-                                        style="padding:5px 14px;border-radius:9999px;border:1px solid rgba(80,67,77,.6);color:#d4c1ce;font-size:11px;background:rgba(14,14,14,.5);cursor:pointer;transition:all .2s;font-family:Inter,sans-serif"
-                                        onmouseover="this.style.borderColor='rgba(255,170,247,.5)';this.style.color='#ffaaf7'"
-                                        onmouseout="this.style.borderColor='rgba(80,67,77,.6)';this.style.color='#d4c1ce'">Portfolio
-                                        Highlights</button>
-                                    <button onclick="sendQ('Show contact information')"
-                                        style="padding:5px 14px;border-radius:9999px;border:1px solid rgba(80,67,77,.6);color:#d4c1ce;font-size:11px;background:rgba(14,14,14,.5);cursor:pointer;transition:all .2s;font-family:Inter,sans-serif"
-                                        onmouseover="this.style.borderColor='rgba(255,170,247,.5)';this.style.color='#ffaaf7'"
-                                        onmouseout="this.style.borderColor='rgba(80,67,77,.6)';this.style.color='#d4c1ce'">Contact
-                                        Info</button>
-                                    <button onclick="sendQ('Why should I hire Sagar?')"
-                                        style="padding:5px 14px;border-radius:9999px;border:1px solid rgba(80,67,77,.6);color:#d4c1ce;font-size:11px;background:rgba(14,14,14,.5);cursor:pointer;transition:all .2s;font-family:Inter,sans-serif"
-                                        onmouseover="this.style.borderColor='rgba(191,206,119,.5)';this.style.color='#bfce77'"
-                                        onmouseout="this.style.borderColor='rgba(80,67,77,.6)';this.style.color='#d4c1ce'">Why
-                                        hire Sagar?</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="padding:12px 16px;border-top:1px solid rgba(80,67,77,.2);flex-shrink:0">
-                        <div id="chat-wrap"
-                            style="background:#2a2a2a;border-radius:12px;border:1px solid #50434d;display:flex;align-items:flex-end;padding:8px;transition:border-color .2s">
-                            <textarea id="chat-input" onkeydown="handleKey(event)" oninput="autores(this)"
-                                style="flex:1;background:none;border:none;outline:none;color:#e5e2e1;font-size:13px;resize:none;padding:6px 8px;max-height:80px;font-family:Inter,sans-serif;min-height:34px"
-                                placeholder="Ask Sagar's Copilot…" rows="1"></textarea>
-                            <button onclick="sendMsg()" class="btn-p"
-                                style="width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                                <span class="msym" style="font-size:17px">send</span>
-                            </button>
-                        </div>
-                        <div style="font-size:9px;color:rgba(212,193,206,.3);text-align:center;margin-top:6px">Enter to
-                            send · Shift+Enter for new line</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer
-            style="padding:20px 24px;border-top:1px solid #50434d;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
-            <div style="color:#d4c1ce;font-size:12px"><strong style="color:#e5e2e1">Sagar Milind Deshpande</strong> ·
-                Power Platform + AI Engineer · Pune, India</div>
-            <div style="display:flex;align-items:center;gap:16px">
-                <button onclick="window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank')"
-                    style="background:none;border:none;color:#a3c9ff;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px;font-family:Inter,sans-serif"><span
-                        class="msym" style="font-size:15px">link</span>LinkedIn</button>
-                <button onclick="copyEmail()"
-                    style="background:none;border:none;color:#ffaaf7;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px;font-family:Inter,sans-serif"><span
-                        class="msym" style="font-size:15px">mail</span>deshpande.sagar.milind@gmail.com</button>
-            </div>
-            <div style="color:rgba(212,193,206,.25);font-size:10px">Built with Power Platform aesthetics</div>
-        </footer>
-    </main>
-
-    <!-- PROJECT MODAL -->
-    <div id="proj-modal"
-        style="display:none;position:fixed;inset:0;z-index:60;align-items:center;justify-content:center;padding:24px">
-        <div style="position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(8px)"
-            onclick="closeModal()"></div>
-        <div class="glass"
-            style="border-radius:20px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;position:relative;z-index:10;padding:32px">
-            <button onclick="closeModal()"
-                style="position:absolute;top:16px;right:16px;background:none;border:none;color:#d4c1ce;cursor:pointer;padding:4px"><span
-                    class="msym" style="font-size:22px">close</span></button>
-            <div id="modal-body"></div>
+    <!-- Chat window -->
+    <div class="glass u-0274">
+      <div class="u-0275">
+        <div class="u-0276">
+          <div class="u-0277">
+            <img src="avatar.png" alt="Sagar" class="u-0016">
+          </div>
+          <div class="u-0278">
+            <span class="msym mf u-0279">smart_toy</span>
+          </div>
         </div>
-    </div>
-
-    <!-- TOAST -->
-    <div id="toast"
-        style="position:fixed;bottom:24px;right:24px;z-index:70;background:rgba(34,34,34,.95);backdrop-filter:blur(20px);border:1px solid rgba(191,206,119,.45);color:#bfce77;font-size:12px;font-weight:700;padding:10px 16px;border-radius:12px;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none">
-        <span class="msym" style="font-size:15px">check_circle</span><span id="toast-txt">Copied!</span>
-    </div>
-
-    <script>
-// NAV
-function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('mob-overlay').classList.toggle('active')}
-function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('mob-overlay').classList.remove('active')}
-function closeSidebarMob(){if(window.innerWidth<768)closeSidebar()}
-
-// Active nav on scroll
-const secs=['home','canvas','flow','copilot'];
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
-      document.querySelector(`[data-sec="${e.target.id}"]`)?.classList.add('active');
-    }
-  });
-},{threshold:0.2,rootMargin:'-48px 0px -45% 0px'});
-secs.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
-
-// Global search
-document.getElementById('gsearch').addEventListener('keydown',e=>{
-  if(e.key!=='Enter')return;
-  const q=e.target.value.toLowerCase().trim();
-  const map={home:['home','about','maker','cert','test','sagar'],canvas:['canvas','project','app','ai','dataverse','automate','bi','power'],flow:['flow','exp','skill','work','job','experience'],copilot:['copilot','chat','contact','ask']};
-  for(const[sec,kws]of Object.entries(map)){if(kws.some(k=>q.includes(k)||k.includes(q))){goTo(sec);e.target.value='';break}}
-});
-
-// Scroll reveal
-const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-
-// Project filter
-function filterP(tag,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('#pgrid article').forEach((c,i)=>{
-    const tags=c.dataset.t||'';
-    const show=tag==='all'||tags.includes(tag);
-    c.style.display=show?'flex':'none';
-    if(show){c.style.opacity='0';c.style.transform='translateY(14px)';setTimeout(()=>{c.style.transition='opacity .35s,transform .35s';c.style.opacity='1';c.style.transform='translateY(0)'},i*40)}
-  });
-}
-
-// Project modal data
-const PM=[
-  {t:'AI-Powered Document Processing',co:'Freelance · 2025',col:'#ffaaf7',ic:'document_scanner',tags:['Power Apps','AI','Dataverse','Power Automate','Azure OpenAI'],desc:'Replaced a 100% manual real estate document review workflow with an end-to-end AI pipeline. Power Automate handles upload, GPT-4.1 classifies and extracts structured metadata, Dataverse stores records — with confidence-based routing for edge cases requiring human review.',tech:['Power Apps','Power Automate','Azure OpenAI','GPT-4.1','Dataverse','Model-Driven App','Environment Variables','Modular Child Flows'],pts:['Multi-stage pipeline: upload → AI classification → metadata extraction → Dataverse record creation','Confidence-based routing using configuration tables instead of hardcoded logic','Multi-entity upsert engine: Deal, Asset, Building, and Unit hierarchical levels','Centralised error logging and monitoring via admin Model-Driven App','Clean Dev/Test/Prod deployments using Environment Variables and modular child flows']},
-  {t:'JSON-Schema Dynamic Form Engine',co:'Adastra · 2025',col:'#a3c9ff',ic:'dynamic_form',tags:['Power Apps','Dataverse','JSON Schema','PCF Controls'],desc:'Canvas App powered by a JSON-Schema-driven engine managing 80+ entities and 1,000+ attributes. Business users can add, hide, show, or modify fields in real time — zero code changes required per configuration update.',tech:['Canvas Apps','Power Fx','Dataverse','JSON Schema','JavaScript','PCF Controls'],pts:['80+ entities and 1,000+ attributes managed from Dataverse-stored schemas','Zero redeploy required for any field configuration changes','Real-time dynamic grid and configuration interface for business users','Recursive component architecture for arbitrarily nested form structures','Dark/Light mode UI with KPI dashboards and embedded Power BI reports']},
-  {t:'Advanced Copilot Studio Agent',co:'Adastra · 2025',col:'#bfce77',ic:'smart_toy',tags:['AI','Copilot Studio','MCP Server','Dataverse'],desc:'Enterprise-grade Copilot agents supporting file uploads, dynamic form retrieval, and full CRUD operations via a configured MCP server. Knowledge articles embedded directly in the agent for guided walkthroughs. Result: ~40% reduction in average ticket resolution time and zero developer intervention needed for routine data requests post-deployment.',tech:['Copilot Studio','MCP Server','Dataverse','Power Automate','Knowledge Base'],pts:['MCP Server integration for secure CRUD on internal SQL databases and proprietary APIs','Dynamic form retrieval — agent generates and fills forms contextually','File upload flows with AI-driven processing and routing','Embedded knowledge base for step-by-step guided workflow walkthroughs','~40% reduction in ticket resolution time — no developer needed for routine data requests']},
-  {t:'190+ Hours Saved: Enterprise Automation Suite',co:'T-Systems · 2022–2024',col:'#3b93f1',ic:'bolt',tags:['Power Automate','SharePoint','Microsoft Teams'],desc:'A comprehensive suite of Power Automate flows eliminating over 190 hours of manual monthly effort — approval routing, document workflows, cross-platform notifications, and scheduled pipelines.',tech:['Power Automate','SharePoint','Microsoft Teams','Email','Excel','Scheduled Flows'],pts:['190+ hours of team bandwidth freed monthly across all automated workflows','Approval routing flows with multi-stage escalation and tracking','Document processing workflows with automated filing and metadata tagging','Cross-platform notifications via Teams and Email with dynamic content','Scheduled maintenance pipelines replacing manual weekly reporting tasks']},
-  {t:'Enterprise Power BI Reporting Suite',co:'T-Systems · 2022–2024',col:'#ffaaf7',ic:'bar_chart',tags:['Power BI','DAX','ServiceNow','Azure DevOps'],desc:'Three end-to-end Power BI solutions built on complex data models: a 5-level drillable ticket hierarchy, a DevOps license compliance tracker, and a ServiceNow SLA reaction time report.',tech:['Power BI','DAX Measures','Power Query (M)','Data Modelling','ServiceNow','Azure DevOps'],pts:['5-level drillable ticket hierarchy: Projects → Services → Sub-Services → Tickets → Categories','DevOps toolchain license compliance across 7–8 tools — flags licenses unused for 6+ months','ServiceNow SLA report: Open → In Progress → Pending → Closed lifecycle tracking','All three built on multi-table data models with Power Query transformations','Embedded as interactive reports within Power Apps for unified UX']},
-  {t:'AI Assistance — Upload to Autofill',co:'Adastra · 2025',col:'#bfce77',ic:'auto_awesome',tags:['Power Apps','Azure OpenAI','Dataverse'],desc:'A single Canvas App screen handling the entire document-to-data pipeline: upload document → Power Automate triggers Azure OpenAI extraction → confidence scoring routes for auto-fill or manual review.',tech:['Canvas Apps','Azure OpenAI','Power Automate','Dataverse','PCF Controls'],pts:['Single-screen UX for the full upload-to-fill pipeline — no page navigation required','GPT-4.1 extracts structured data from unstructured documents precisely','High confidence → auto-fill; low confidence → flagged for human review','PCF controls for enhanced file upload experience with preview support','Zero manual data entry for standard documents in production']}
-];
-
-function openModal(i){
-  const p=PM[i];
-  document.getElementById('modal-body').innerHTML=`
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-      <div style="width:48px;height:48px;border-radius:12px;background:${p.col}18;border:1px solid ${p.col}33;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <span class="msym mf" style="color:${p.col};font-size:26px">${p.ic}</span>
+        <div>
+          <div class="u-0092">Sagar's Copilot Agent</div>
+          <div class="u-0280">
+            <div class="pulse u-0225"></div>
+            <span class="u-0281">Online &amp; Ready</span>
+          </div>
+        </div>
+        <button data-action="clear-chat" class="u-0282" title="Clear chat">
+          <span class="msym u-0028">delete_sweep</span>
+        </button>
       </div>
-      <div><h2 style="color:#e5e2e1;font-weight:700;font-size:20px;margin-bottom:4px">${p.t}</h2><div style="color:rgba(212,193,206,.6);font-size:11px;font-family:'Space Grotesk',monospace">${p.co}</div></div>
+      <div id="chat-msgs" class="u-0283">
+        <div class="u-0284">
+          <div class="u-0285">
+            <img src="avatar.png" alt="Sagar" class="u-0016">
+          </div>
+          <div class="u-0286">
+            <span class="u-0287">Sagar's Copilot</span>
+            <div class="u-0288">
+              <p class="u-0289">Hello! I'm an AI agent trained on Sagar's professional experience, portfolio, and skills.<br><br>I can help you understand his expertise in Power Platform, AI integrations, C1 German fluency, or provide direct contact details. Use the prompts on the left or just ask freely.</p>
+            </div>
+            <div class="u-0290">
+              <button data-question="Portfolio Highlights" class="u-0291">Portfolio Highlights</button>
+              <button data-question="Show contact information" class="u-0291">Contact Info</button>
+              <button data-question="Why should I hire Sagar?" class="u-0291">Why hire Sagar?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-0292">
+        <div id="chat-wrap" class="u-0293">
+          <textarea id="chat-input" class="u-0294" placeholder="Ask Sagar's Copilot…" rows="1"></textarea>
+          <button data-action="send-msg" class="btn-p u-0295">
+            <span class="msym u-0143">send</span>
+          </button>
+        </div>
+        <div class="u-0296">Enter to send · Shift+Enter for new line</div>
+      </div>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">${p.tags.map(t=>`<span style="background:${p.col}15;border:1px solid ${p.col}30;color:${p.col};font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:9999px">${t}</span>`).join('')}</div>
-    <p style="color:#d4c1ce;font-size:14px;line-height:1.7;margin-bottom:20px">${p.desc}</p>
-    <h3 style="color:#e5e2e1;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px">Key Achievements</h3>
-    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">${p.pts.map(b=>`<div style="display:flex;align-items:flex-start;gap:8px"><span class="msym" style="color:${p.col};font-size:14px;margin-top:2px">check_circle</span><span style="color:#d4c1ce;font-size:13px;line-height:1.6">${b}</span></div>`).join('')}</div>
-    <h3 style="color:#e5e2e1;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px">Tech Stack</h3>
-    <div style="display:flex;flex-wrap:wrap;gap:6px">${p.tech.map(t=>`<span style="background:#2a2a2a;border:1px solid rgba(255,255,255,.1);color:#e5e2e1;font-size:11px;font-family:'Space Grotesk',monospace;padding:4px 12px;border-radius:7px">${t}</span>`).join('')}</div>`;
-  const m=document.getElementById('proj-modal');
-  m.style.display='flex';
-}
-function closeModal(){document.getElementById('proj-modal').style.display='none'}
+  </div>
+</section>
 
-// CHAT
-const RESP={
-  skills:()=>`Sagar's strongest skills centre on the Microsoft Power Platform:\n\n**Power Apps** — Canvas and Model-Driven Apps, including a JSON-Schema engine managing 80+ entities and PCF custom controls.\n\n**Power Automate** — Complex multi-stage pipelines, approval flows, document extraction, and 190+ hours of monthly savings at T-Systems.\n\n**AI Integration** — Azure OpenAI GPT-4.1 for document processing, Copilot Studio agents with MCP Server, and confidence-based routing logic.\n\n**Dataverse** — Relational architectures, Dev/Test/Prod governance, and multi-entity hierarchical data modelling.\n\n**German C1** — Used daily in client-facing meetings and technical kick-offs with DACH customers.`,
-  german:()=>`Sagar holds a C1 (Professional Proficiency) German certification — not just listed on a CV, but actively used every day.\n\nAt **T-Systems ICT India**, he:\n- Led technical kick-off meetings directly with native German-speaking clients\n- Provided Level 1 technical and business support in German\n- Acted as Team Lead for German-speaking customer accounts\n- Achieved **87% CSAT** while handling 50+ daily interactions in German at Concentrix\n\nThis is a rare differentiator — it opens direct DACH market access without requiring a German intermediary.`,
-  app:()=>`The standout example is the **JSON-Schema Dynamic Form Engine** at Adastra:\n\nA recursive Canvas App generating complex UI forms directly from Dataverse-stored JSON schemas:\n- Supports **80+ entities** and **1,000+ attributes**\n- Business users modify fields in real time — zero code changes\n- PCF controls, Dark/Light mode UI, embedded Power BI reports\n\nAnother major project: the **AI-Powered Document Processing** system — GPT-4.1 extracts metadata from PDFs, routes via confidence scoring, creates Dataverse records automatically — replacing 100% manual review.`,
-  contact:()=>`Here are Sagar's direct contact details:\n\n📧 **Email:** deshpande.sagar.milind@gmail.com\n🔗 **LinkedIn:** linkedin.com/in/sagar-deshpande2306\n📍 **Location:** Pune, Maharashtra, India\n📱 **Phone:** +91 90286 82226\n\nHe is open to opportunities and available for interviews. Remote-friendly and open to relocation for the right role.`,
-  cert:()=>`Sagar holds two current Microsoft certifications:\n\n🏅 **PL-400** — Microsoft Certified: Power Platform Developer Associate (May 2025)\nThe advanced developer certification — covering custom connectors, PCF controls, and complex Canvas App development.\n\n🏅 **PL-900** — Microsoft Certified: Power Platform Fundamentals (October 2024)\n\nBoth are from 2024–2025, reflecting active upskilling alongside his professional work.`,
-  exp:()=>`Sagar's professional journey spans 5+ years:\n\n**Concentrix** (Jun 2020 – Mar 2022)\nAdvisor I — Built C1 German communication with native DACH clients. 87% CSAT, 90%+ RAP.\n\n**T-Systems ICT India** (May 2022 – Dec 2024)\nJunior Consultant — Automated 190+ hrs/month, built Canvas Apps, Power Automate suites, Power BI dashboards. Led German-language kick-offs.\n\n**Adastra** (Jan 2025 – Present)\nData Engineer (Power Platform) — AI pipelines, Copilot Studio agents with MCP Server, JSON-Schema form engine, PCF controls, Azure DevOps governance.\n\n**Freelance** (Jul – Dec 2025)\nEnd-to-end AI real estate document processing with GPT-4.1 and Dataverse.`,
-  hire:()=>`Three things make Sagar stand out:\n\n**1. User-first thinking from an economics background**\nHe didn't start in CS — he started in economics. This gives him a systemic, non-technical perspective that most developers lack. His apps require almost no user training.\n\n**2. C1 German fluency**\nActually leading technical kick-offs with native DACH clients — not just listed on a CV. Opens European markets most Indian developers can't access directly.\n\n**3. Full-stack Power Platform depth**\nFrom Canvas Apps with PCF controls to AI pipelines with GPT-4.1 to Copilot Studio agents with MCP Server CRUD — Sagar works at the advanced end of the spectrum.\n\n"The apps he delivers require almost no user training — and that's the hardest thing to achieve in enterprise software." — Madhura Gokhale`,
-  portfolio:()=>`Sagar's portfolio has 6 projects across 3 companies:\n\n1. **AI Document Processing** — GPT-4.1 + Dataverse pipeline (Freelance)\n2. **JSON-Schema Form Engine** — 80+ entities, zero-redeploy config (Adastra)\n3. **Copilot Studio Agent** — MCP Server + CRUD (Adastra)\n4. **190+ Hrs Automation Suite** — Power Automate at enterprise scale (T-Systems)\n5. **Power BI Suite** — 3 dashboards, 5-level drilldowns (T-Systems)\n6. **AI Upload-to-Autofill** — Single-screen Azure OpenAI pipeline (Adastra)\n\nExplore each in The Canvas section of this portfolio.`
-};
+<!-- FOOTER -->
+<footer class="u-0297">
+  <div class="u-0114"><strong class="u-0209">Sagar Milind Deshpande</strong> · Power Platform + AI Engineer · Pune, India</div>
+  <div class="u-0298">
+    <button data-action="open-linkedin" class="u-0299"><span class="msym u-0146">link</span>LinkedIn</button>
+    <button data-action="copy-email" class="u-0300"><span class="msym u-0146">mail</span>deshpande.sagar.milind@gmail.com</button>
+  </div>
+  <div class="u-0301">Built with Power Platform aesthetics</div>
+</footer>
+</main>
 
-function getResp(msg){
-  const m=msg.toLowerCase();
-  if(m.includes('skill')||m.includes('expertise')||m.includes('top')||m.includes('best at'))return RESP.skills();
-  if(m.includes('german')||m.includes('deutsch'))return RESP.german();
-  if(m.includes('power app')||m.includes('complex')||m.includes('built')||m.includes('canvas'))return RESP.app();
-  if(m.includes('contact')||m.includes('email')||m.includes('phone')||m.includes('reach')||m.includes('linkedin'))return RESP.contact();
-  if(m.includes('certif'))return RESP.cert();
-  if(m.includes('experience')||m.includes('work')||m.includes('job')||m.includes('career')||m.includes('company'))return RESP.exp();
-  if(m.includes('hire')||m.includes('why')||m.includes('should'))return RESP.hire();
-  if(m.includes('portfolio')||m.includes('highlight')||m.includes('project'))return RESP.portfolio();
-  return `Great question! Sagar is a Power Platform + AI Engineer with 5+ years of experience specialising in Canvas Apps, Power Automate, AI integrations (GPT-4.1), Copilot Studio, and Dataverse — with C1 German fluency used daily.\n\nTry asking about:\n• His top skills\n• German expertise\n• A specific project\n• Work experience\n• Contact information\n• Why you should hire him`;
-}
+<!-- PROJECT MODAL -->
+<div id="proj-modal" class="u-0302">
+  <div class="u-0303" data-action="close-modal"></div>
+  <div class="glass u-0304">
+    <button data-action="close-modal" class="u-0305"><span class="msym u-0004">close</span></button>
+    <div id="modal-body"></div>
+  </div>
+</div>
 
-function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>').replace(/^• /gm,'&#8226; ')}
-
-function addMsg(role,text){
-  const w=document.getElementById('chat-msgs');
-  const d=document.createElement('div');
-  d.className='chat-msg';
-  if(role==='bot'){
-    d.innerHTML=`<div style="display:flex;gap:10px"><div style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,170,247,.35);overflow:hidden;flex-shrink:0;margin-top:18px"><img src="avatar.png" alt="Sagar" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="display:flex;flex-direction:column;gap:6px;max-width:90%"><span style="font-size:9px;font-weight:700;letter-spacing:.08em;color:#d4c1ce;text-transform:uppercase;margin-left:4px">Sagar's Copilot</span><div style="background:#2a2a2a;border-radius:16px 16px 16px 4px;padding:14px;color:#e5e2e1;font-size:13px;line-height:1.65">${fmt(text)}</div></div></div>`;
-  }else{
-    d.innerHTML=`<div style="display:flex;gap:10px;justify-content:flex-end"><div style="display:flex;flex-direction:column;gap:6px;max-width:80%;align-items:flex-end"><span style="font-size:9px;font-weight:700;letter-spacing:.08em;color:#d4c1ce;text-transform:uppercase;margin-right:4px">You</span><div style="background:#353534;border-radius:16px 16px 4px 16px;padding:12px 14px;color:#e5e2e1;font-size:13px;line-height:1.6">${text}</div></div><div style="width:32px;height:32px;border-radius:50%;background:#2a2a2a;border:1px solid #50434d;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:18px"><span class="msym" style="color:#d4c1ce;font-size:13px">person</span></div></div>`;
-  }
-  w.appendChild(d);w.scrollTop=w.scrollHeight;
-}
-
-function addTyping(){
-  const w=document.getElementById('chat-msgs');
-  const d=document.createElement('div');d.id='typing';
-  d.innerHTML=`<div style="display:flex;gap:10px"><div style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,170,247,.35);overflow:hidden;flex-shrink:0;margin-top:4px"><img src="avatar.png" alt="Sagar" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="background:#2a2a2a;border-radius:16px;padding:14px 18px;display:inline-flex;align-items:center"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>`;
-  w.appendChild(d);w.scrollTop=w.scrollHeight;
-}
-
-function removeTyping(){document.getElementById('typing')?.remove()}
-
-function sendMsg(){
-  const inp=document.getElementById('chat-input');
-  const msg=inp.value.trim();if(!msg)return;
-  inp.value='';inp.style.height='34px';
-  addMsg('user',msg);addTyping();
-  setTimeout(()=>{removeTyping();addMsg('bot',getResp(msg))},700+Math.random()*600);
-}
-
-function sendQ(q){addMsg('user',q);addTyping();setTimeout(()=>{removeTyping();addMsg('bot',getResp(q))},700+Math.random()*600)}
-
-function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg()}}
-function autores(el){el.style.height='34px';el.style.height=Math.min(el.scrollHeight,80)+'px'}
-function clearChat(){const w=document.getElementById('chat-msgs');while(w.children.length>1)w.removeChild(w.lastChild)}
-
-document.getElementById('chat-input').addEventListener('focus',()=>{document.getElementById('chat-wrap').style.borderColor='rgba(255,170,247,.55)'});
-document.getElementById('chat-input').addEventListener('blur',()=>{document.getElementById('chat-wrap').style.borderColor='#50434d'});
-
-// COPY EMAIL
-function copyEmail(){
-  navigator.clipboard.writeText('deshpande.sagar.milind@gmail.com').then(()=>toast('Email copied!')).catch(()=>toast('deshpande.sagar.milind@gmail.com'));
-}
-
-function toast(msg){
-  const el=document.getElementById('toast');
-  document.getElementById('toast-txt').textContent=msg;
-  el.classList.add('show');el.style.opacity='1';
-  setTimeout(()=>{el.style.opacity='0';el.classList.remove('show')},2800);
-}
-
-// INIT
-window.addEventListener('DOMContentLoaded',()=>{
-  document.querySelector('[data-sec="home"]')?.classList.add('active');
-  setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('vis')})},120);
-});
-</script>
+<!-- TOAST -->
+<div id="toast" class="u-0306">
+  <span class="msym u-0146">check_circle</span><span id="toast-txt">Copied!</span>
+</div>
+    <script src="js/theme.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/lang.js" defer></script>
 </body>
-
 </html>
