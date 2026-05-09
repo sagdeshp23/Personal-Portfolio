@@ -638,3 +638,38 @@ header { background: var(--nav-bg) !important; border-color: var(--nav-border) !
 [data-theme="light"] .u-0304{background:#fff;border:1px solid rgba(116,39,116,.14);box-shadow:0 24px 70px rgba(25,25,25,.18)}
 [data-theme="light"] .u-0306{background:#fff;border-color:rgba(212,169,0,.35);color:#9b7c00;box-shadow:0 14px 34px rgba(25,25,25,.12)}
 [data-theme="light"] .dot-grid{background-image:radial-gradient(rgba(116,39,116,.08) 1px,transparent 1px);background-size:22px 22px}
+
+/* Flow company brand colors and readable output labels. */
+[data-theme="light"] .u-0198{color:#74656f}
+[data-theme="light"] .u-0206,
+[data-theme="light"] .u-0215,
+[data-theme="light"] .u-0251{background:#fff;border-color:rgba(25,25,25,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+[data-theme="light"] .u-0207,
+[data-theme="light"] .u-0216{color:#685b66;font-weight:800}
+[data-theme="light"] .u-0209{color:#242424}
+
+[data-theme="light"] .u-0202{background:rgba(0,61,91,.08);border-bottom-color:rgba(0,61,91,.18)}
+[data-theme="light"] .u-0203{background:#003D5B}
+[data-theme="light"] .u-0204{color:#fff}
+[data-theme="light"] .u-0205,
+[data-theme="light"] .u-0199,
+[data-theme="light"] .u-0208{color:#003D5B}
+[data-theme="light"] .u-0206{border-color:rgba(0,61,91,.18)}
+
+[data-theme="light"] .u-0210{background:rgba(226,0,116,.08);border-bottom-color:rgba(226,0,116,.18)}
+[data-theme="light"] .u-0211{background:#E20074}
+[data-theme="light"] .u-0212{color:#fff}
+[data-theme="light"] .u-0213,
+[data-theme="light"] .u-0214,
+[data-theme="light"] .u-0218{color:#E20074}
+[data-theme="light"] .u-0215{border-color:rgba(226,0,116,.18)}
+[data-theme="light"] .u-0217 .u-0037{color:#E20074}
+
+[data-theme="light"] .u-0221{border-color:rgba(249,66,58,.22);box-shadow:0 14px 34px rgba(249,66,58,.08)}
+[data-theme="light"] .u-0222{background:rgba(249,66,58,.08);border-bottom-color:rgba(249,66,58,.18)}
+[data-theme="light"] .u-0221 .u-0191{background:#f9423a}
+[data-theme="light"] .u-0221 .u-0193,
+[data-theme="light"] .u-0223,
+[data-theme="light"] .u-0226,
+[data-theme="light"] .u-0228{color:#f9423a}
+[data-theme="light"] .u-0225{background:#f9423a}
