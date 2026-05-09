@@ -9,7 +9,7 @@
   const DE_TEXT = {
     'Power Portfolio': 'Power Portfolio',
     'Search sections…': 'Bereiche durchsuchen...',
-    'Save': 'Speichern',
+    'Connect': 'Vernetzen',
     'Chat with Sagar\'s Copilot': 'Mit Sagars Copilot chatten',
     'Power Platform + AI Engineer': 'Power Platform + AI Engineer',
     'Download CV': 'Lebenslauf herunterladen',
