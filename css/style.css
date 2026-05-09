@@ -51,6 +51,14 @@
   --glass-shadow: 0 2px 20px rgba(116, 39, 116, 0.06);
   --pulse-primary: rgba(116, 39, 116, 0.4);
   --pulse-secondary: rgba(11, 85, 106, 0.4);
+  
+  /* Company Brand Colors - Light Theme */
+  --adastra-primary: #f9423a;
+  --adastra-light: #fce5e3;
+  --concentrix-primary: #003D5B;
+  --concentrix-light: #e6f0f7;
+  --tsystems-primary: #E20074;
+  --tsystems-light: #fce5f0;
 }
 
 [data-theme="dark"] {
@@ -103,6 +111,14 @@
   --glass-shadow: none;
   --pulse-primary: rgba(255, 170, 247, 0.4);
   --pulse-secondary: rgba(191, 206, 119, 0.4);
+  
+  /* Company Brand Colors - Dark Theme */
+  --adastra-primary: #ff6b5b;
+  --adastra-bg: #2a1816;
+  --concentrix-primary: #4da6d6;
+  --concentrix-bg: #0d1f2d;
+  --tsystems-primary: #ff66cc;
+  --tsystems-bg: #2d0a1f;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg-primary);color:var(--text-primary);font-family:Inter,sans-serif;overflow-x:hidden;font-size:14px}
@@ -136,6 +152,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:Inter,sa
 .pcard:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.45)}
 .skill-tag{transition:all .2s;cursor:default;display:inline-flex;align-items:center;padding:6px 14px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:8px;font-family:'Space Grotesk',monospace;font-size:12px;color:var(--text-primary)}
 .skill-tag:hover{border-color:var(--accent-apps);transform:translateY(-2px);box-shadow:0 4px 14px rgba(255,170,247,.12)}
+.company-logo-wrapper{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--company-bg);border:2px solid var(--company-color);padding:8px;margin-right:16px}
+.company-logo{max-width:100%;max-height:100%;object-fit:contain;width:40px;height:40px}
 .filter-btn{cursor:pointer;padding:6px 16px;border-radius:9999px;border:1px solid var(--border-subtle);color:var(--text-secondary);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .2s;background:transparent;font-family:Inter,sans-serif}
 .filter-btn.active{background:#742774;border-color:var(--accent-apps);color:var(--accent-apps)}
 .filter-btn:hover:not(.active){border-color:rgba(255,170,247,.4);color:var(--accent-apps)}
