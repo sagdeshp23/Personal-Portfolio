@@ -2249,6 +2249,39 @@ header {
   text-transform: uppercase
 }
 
+.u-tmeta {
+  color: var(--text-secondary);
+  font-size: 10px;
+  opacity: .7;
+  margin-top: 3px
+}
+
+.u-tli {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  color: #0a66c2;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity .2s
+}
+
+.u-tli:hover {
+  opacity: .75
+}
+
+.u-tli-i {
+  font-size: 13px
+}
+
+.u-tli-x {
+  font-size: 11px
+}
+
 .u-0139 {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);

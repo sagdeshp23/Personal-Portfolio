@@ -49,6 +49,7 @@ document.addEventListener('click', event => {
   if(action === 'toggle-sidebar') toggleSidebar();
   if(action === 'close-sidebar') closeSidebar();
   if(action === 'open-linkedin') window.open('https://www.linkedin.com/in/sagar-deshpande2306/','_blank');
+  if(action === 'download-cv') downloadCV();
   if(action === 'copy-email') copyEmail();
   if(action === 'clear-chat') clearChat();
   if(action === 'send-msg') sendMsg();
@@ -117,7 +118,7 @@ const RESP={
   contact:()=>`Here are Sagar's direct contact details:\n\n📧 **Email:** deshpande.sagar.milind@gmail.com\n🔗 **LinkedIn:** linkedin.com/in/sagar-deshpande2306\n📍 **Location:** Pune, Maharashtra, India\n📱 **Phone:** +91 90286 82226\n\nHe is open to opportunities and available for interviews. Remote-friendly and open to relocation for the right role.`,
   cert:()=>`Sagar holds two current Microsoft certifications:\n\n🏅 **PL-400** — Microsoft Certified: Power Platform Developer Associate (May 2025)\nThe advanced developer certification — covering custom connectors, PCF controls, and complex Canvas App development.\n\n🏅 **PL-900** — Microsoft Certified: Power Platform Fundamentals (October 2024)\n\nBoth are from 2024–2025, reflecting active upskilling alongside his professional work.`,
   exp:()=>`Sagar's professional journey spans 5+ years:\n\n**Concentrix** (Jun 2020 – Mar 2022)\nAdvisor I — Built C1 German communication with native DACH clients. 87% CSAT, 90%+ RAP.\n\n**T-Systems ICT India** (May 2022 – Dec 2024)\nJunior Consultant — Automated 190+ hrs/month, built Canvas Apps, Power Automate suites, Power BI dashboards. Led German-language kick-offs.\n\n**Adastra** (Jan 2025 – Present)\nData Engineer (Power Platform) — AI pipelines, Copilot Studio agents with MCP Server, JSON-Schema form engine, PCF controls, Azure DevOps governance.`,
-  hire:()=>`Three things make Sagar stand out:\n\n**1. User-first thinking from an economics background**\nHe didn't start in CS — he started in economics. This gives him a systemic, non-technical perspective that most developers lack. His apps require almost no user training.\n\n**2. C1 German fluency**\nActually leading technical kick-offs with native DACH clients — not just listed on a CV. Opens European markets most Indian developers can't access directly.\n\n**3. Full-stack Power Platform depth**\nFrom Canvas Apps with PCF controls to AI pipelines with GPT-4.1 to Copilot Studio agents with MCP Server CRUD — Sagar works at the advanced end of the spectrum.\n\n"The apps he delivers require almost no user training — and that's the hardest thing to achieve in enterprise software." — Madhura Gokhale`,
+  hire:()=>`Three things make Sagar stand out:\n\n**1. User-first thinking from an economics background**\nHe didn't start in CS — he started in economics. This gives him a systemic, non-technical perspective that most developers lack. His apps require almost no user training.\n\n**2. C1 German fluency**\nActually leading technical kick-offs with native DACH clients — not just listed on a CV. Opens European markets most Indian developers can't access directly.\n\n**3. Full-stack Power Platform depth**\nFrom Canvas Apps with PCF controls to AI pipelines with GPT-4.1 to Copilot Studio agents with MCP Server CRUD — Sagar works at the advanced end of the spectrum.\n\n"What truly sets him apart is his attitude: proactive, innovative, and with a great work ethic. He identifies opportunities before being asked and always delivers with quality." — Max Rink, Cloud Architect @ Adastra`,
   portfolio:()=>`Sagar's portfolio has 10 projects across 3 companies:\n\n1. **JSON-Schema Form Engine** — 80+ entities, zero-redeploy config (Adastra)\n2. **Copilot Studio Agent** — MCP Server + CRUD (Adastra)\n3. **190+ Hrs Automation Suite** — Power Automate at enterprise scale (T-Systems)\n4. **Ticket Hierarchy Report** — 5-level drillable hierarchy (T-Systems)\n5. **DevOps License Compliance** — Multi-tool tracking and compliance (T-Systems)\n6. **ServiceNow SLA Report** — Full lifecycle tracking (T-Systems)\n7. **Adastra BI & Allocation Suite** — Advanced BI + bench reporting (Adastra)\n8. **AI Upload-to-Autofill** — Single-screen Azure OpenAI pipeline (Adastra)\n9. **Allocation Management App** — End-to-end approval solution (Adastra)\n10. **AI Document Processing** — GPT-4.1 + Dataverse (Freelance)\n\nExplore each in The Canvas section of this portfolio.`
 };
 
@@ -179,6 +180,16 @@ document.getElementById('chat-input').addEventListener('input',event=>autores(ev
 // COPY EMAIL
 function copyEmail(){
   navigator.clipboard.writeText('deshpande.sagar.milind@gmail.com').then(()=>toast('Email copied!')).catch(()=>toast('deshpande.sagar.milind@gmail.com'));
+}
+
+function downloadCV(){
+  const a=document.createElement('a');
+  a.href='Sagar-Deshpande-Resume.pdf';
+  a.download='Sagar Deshpande - Resume.pdf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  toast('Downloading resume…');
 }
 
 function toast(msg){
