@@ -1,175 +1,126 @@
 # Design System — Sagar Deshpande Portfolio
 
-A single reference for the site's design tokens and conventions. **Almost everything
-visual is driven by CSS custom properties (variables) defined once at the top of
-[`css/style.css`](css/style.css).** Change a value there and it updates everywhere.
+Warm humanist take on the Power Platform tools: the site is styled as a Power Apps
+studio (home + Canvas), a Power Automate run (Flow), a Power BI report (number cards)
+and a Copilot Studio test pane (chat). Cream paper and ink, one earthy accent per tool,
+serif display type, no glass, no gradients.
 
-- **Source of truth:** the `:root { … }` block (light theme) and the
-  `[data-theme="dark"] { … }` block (dark theme) at the top of `css/style.css`.
-- **Golden rule:** when you change a color, change it in **both** blocks so light and
-  dark stay in sync.
-- No build step — edit the file, refresh the browser. After editing CSS or JS, bump the
-  `?v=…` query on the matching `<link>`/`<script>` tag in `index.html` so visitors get
-  the new version instead of a cached one.
+- **Source of truth:** the `:root { … }` (light) and `[data-theme="dark"] { … }` blocks
+  at the top of [`css/app.css`](css/app.css). Change a value in **both** blocks.
+- **Files:** `css/app.css` = tokens, base, header, sidebar, hero, studio, BI cards.
+  `css/sections.css` = everything below the hero, modal, consent, toast.
+  `css/extras.css` = facts strip, hiring report, flow extras (action labels, Apply to each loop, email step), DLP cookie banner.
+  `js/motion.js` = hero build, count-ups, flow run, card tilt.
+  `js/report.js` = hiring decision report: role slicer (the five CV tracks), requirement rows with drillthrough to projects, EN/DE text. Rows are strengths only and every row must point to a real project (`data-modal`) or section.
+- No build step. After editing CSS/JS, bump the `?v=…` query on its tag in `index.html`.
 
 ---
 
 ## 1. Colors
 
-All colors are CSS variables. The table lists the **light** value (`:root`) and the
-**dark** value (`[data-theme="dark"]`). Edit them in `css/style.css`.
-
-### Surfaces & text
-| Variable | Light | Dark | Controls |
+### Paper + ink
+| Token | Light | Dark | Used for |
 |---|---|---|---|
-| `--bg-primary` | `#FFFFFF` | `#131313` | Page background |
-| `--bg-secondary` | `#EAEAEA` | `#1c1b1b` | Sidebar / secondary panels |
-| `--bg-card` | `rgba(255,255,255,.85)` | `rgba(34,34,34,.6)` | Card fill |
-| `--bg-glass` | `rgba(234,234,234,.7)` | `rgba(34,34,34,.6)` | Glass/blur panels |
-| `--border-color` | `rgba(116,39,116,.15)` | `rgba(255,255,255,.08)` | Standard borders |
-| `--border-subtle` | `rgba(25,25,25,.08)` | `rgba(80,67,77,.4)` | Hairline dividers |
-| `--text-primary` | `#191919` | `#e5e2e1` | Headings / primary text |
-| `--text-secondary` | `#4a4a4a` | `#d4c1ce` | Body / secondary text |
-| `--text-muted` | `#717171` | `rgba(212,193,206,.5)` | Captions / muted text |
+| `--bg-primary` | `#F5EFE4` | `#1B1714` | Page background (cream / espresso) |
+| `--bg-secondary` | `#EDE5D6` | `#221D19` | Sidebar |
+| `--surface` | `#FBF8F1` | `#27211C` | Cards, panels |
+| `--surface-2` | `#F1EADD` | `#2F2822` | Card headers, title bars |
+| `--text-primary` | `#2A231E` | `#F0E8DC` | Headings, body ink |
+| `--text-secondary` | `#5E5248` | `#C4B7A6` | Body copy |
+| `--text-muted` | `#8A7D70` | `#8F8272` | Captions, mono labels |
+| `--line` / `--line-strong` | `#E2D8C7` / `#CDBFA9` | `#3A322B` / `#4D4238` | Hairlines, borders |
 
-### Accents (the four "Power Platform pillar" colors)
-| Variable | Light | Dark | Controls |
+### One accent per tool
+| Token | Light | Dark | Tool |
 |---|---|---|---|
-| `--accent-apps` | `#742774` | `#ffaaf7` | Power Apps / primary purple accent |
-| `--accent-automate` | `#0066FF` | `#a3c9ff` | Power Automate / blue accent |
-| `--accent-bi` | `#D4A900` | `#bfce77` | Power BI / gold-green accent |
-| `--accent-copilot` | `#0B556A` | `#50E6FF` | Copilot / teal accent |
-| `--grad-text-start` → `--grad-text-end` | `#742774`→`#0066FF` | `#ffaaf7`→`#a3c9ff` | Gradient hero text (`.grad-text`) |
+| `--accent-apps` | `#8E3B5F` plum | `#D88AA9` | Power Apps (also Power Fx keywords) |
+| `--accent-automate` | `#1F6A73` teal | `#6FB6BE` | Power Automate |
+| `--accent-bi` / `--accent-bi-text` | `#B7832A` / `#8C6216` ochre | `#E0B062` | Power BI |
+| `--accent-copilot` | `#C2532D` rust | `#E9825A` | Copilot, **primary CTA**, italic emphasis |
+| `--success` | `#4D7A3A` | `#8DB872` | "Succeeded", available, checks |
 
-### Buttons
-| Variable | Light | Dark | Controls |
-|---|---|---|---|
-| `--btn-primary-bg` | `linear-gradient(135deg,#742774,#9a3a9a)` | same | Primary button fill (`.btn-p`) |
-| `--btn-primary-text` | `#ffffff` | `#ffd6f7` | Primary button text |
-| `--btn-secondary-bg` | `transparent` | `transparent` | Secondary button fill (`.btn-g`) |
-| `--btn-secondary-border` | `rgba(116,39,116,.35)` | `rgba(255,255,255,.18)` | Secondary button border |
-| `--btn-secondary-text` | `#742774` | `#e5e2e1` | Secondary button text |
+Components pick a tool colour with `data-tone="apps|automate|bi|copilot|success"`, which
+sets `--tone` (see `sections.css`). Older token names (`--card-bg`, `--btn-primary-bg`, …)
+still exist and map onto these.
 
-### Chrome (nav, sidebar, skill tags, formula bar, scrollbar, orbs)
-Key ones — see `css/style.css` for the full list: `--nav-bg`, `--nav-border`,
-`--sidebar-bg`, `--sidebar-active-text`, `--card-bg`, `--card-border`,
-`--card-hover-shadow`, `--skill-tag-bg/-border/-text`, `--formula-bar-bg/-border/-text`,
-`--scrollbar-thumb/-track`, `--orb-1/-2/-3`, `--available-text/-dot`, `--glass-shadow`,
-`--pulse-primary/-secondary`.
-
-### Company brand colors (logo chips)
-| Variable | Light | Dark | Used by |
-|---|---|---|---|
-| `--adastra-primary` | `#f9423a` | `#ff6b5b` | `.cl-adastra` logo-chip background |
-| `--tsystems-primary` | `#E20074` | `#ff66cc` | `.cl-tsystems` logo-chip background |
-| `--concentrix-primary` | `#003D5B` | `#4da6d6` | Concentrix accent (icon shown directly) |
+### Elevation
+`--shadow-1` (resting) · `--shadow-2` (hover) · `--shadow-3` (lifted / modal). Warm brown
+shadows in light mode, black in dark.
 
 ---
 
-## 2. Theming
+## 2. Typography
+- **Display:** `Instrument Serif` (+ italic) — headings, numbers, quotes. Italic + rust =
+  emphasis (`<em>`).
+- **Body/UI:** `Figtree` 400–700.
+- **Mono:** `JetBrains Mono` — Power Fx, labels, tags, kickers.
+- Loaded from Google Fonts in `index.html`. Tokens: `--font-display`, `--font-sans`,
+  `--font-mono`.
+- Section titles use `.display` (`clamp(48px, 7vw, 96px)`); hero `.hero-title` up to 108px.
 
-- The active theme is stored in `localStorage` under `portfolio-theme` and applied as
-  `<html data-theme="light|dark">`.
-- It's set in three places: an inline script in **`index.html`** (line ~24) that applies
-  the saved/OS preference before paint (prevents flash); **`js/theme.js`**; and the
-  **"ƒx Set( varTheme, … )" formula-bar toggle** in the header, which flips the theme.
-- **To change a color:** edit its variable in **both** `:root` and `[data-theme="dark"]`.
-- **To add a token:** add it to both blocks, then reference it as `var(--my-token)`.
+## 3. Shape + texture
+- Radius: cards 14–20px, controls 9–12px, chips/pills 999px.
+- Paper grain: SVG noise on `body::before` (`--grain-opacity`).
+- Canvas dot grid (`--canvas-dot`) on the studio canvas, chat, project card headers.
 
----
+## 4. Motion
+Easing tokens: `--ease-out` `cubic-bezier(.2,.7,.2,1)`, `--ease-spring`
+`cubic-bezier(.34,1.4,.5,1)`. Everything has a `prefers-reduced-motion` fallback that
+shows the final state.
 
-## 3. Typography
+| Moment | Where | How |
+|---|---|---|
+| Hero name rises in | `.hero-title .line` | CSS keyframe |
+| Profile card builds itself | `#studio`, `js/motion.js` | Controls selected one by one, Power Fx typed into the formula bar, toggle flips, "App published". "Preview" replays. |
+| BI cards count up + draw | `.bi-card` | IntersectionObserver → `.seen`, numbers from `data-count` |
+| Scroll reveal | `.reveal` → `.vis` | `js/main.js` |
+| Gallery filter | `filterP()` in `js/main.js` | FLIP animation, `CountRows: n` label |
+| Card tilt | `.pcard` | pointer-driven 3D tilt (fine pointers only) |
+| Flow test run | `#flow-run .step` | Each step: pending → running spinner → green check + duration (`data-dur`). Header flips Running → Succeeded at the end. |
+| Copilot streaming | `addMsg()` in `js/main.js` | Word-by-word stream, follow-up chips, contact answer as an Adaptive Card |
 
-- **Sans (UI/body):** `Inter` — weights 300, 400, 500, 600, 700.
-- **Mono (code/Power Fx accents):** `Space Grotesk` — weights 400, 500, 600.
-- Both load from Google Fonts in `index.html` `<head>`.
-- **Fluid headings:** the hero `<h1>` uses `font-size: clamp(32px, 5vw, 52px)` (class
-  `.u-0043`) so it scales smoothly between phone and desktop — never set a fixed `px`
-  font-size inline on it or you'll override the responsive scaling.
-- Section headings ≈ 32px; card titles ≈ 20px; body ≈ 14–15px; captions ≈ 9–12px.
+## 4a. Page order (a story, not a brochure)
+Home (hero, facts strip, About) → Flow (career) → Canvas (work) → Proof (certs, languages, testimonials) → Report (decision) → Copilot (questions) → Footer.
+The report comes after the evidence on purpose: its rows drill through to projects the reader has already seen.
 
----
+## 4b. Power Platform metaphors (keep them honest)
+| Tool | Where | What it does |
+|---|---|---|
+| Power Apps | Hero studio, Canvas gallery | builds the profile card, Filter() gallery |
+| Power Automate | Flow | one action per job: Trigger, Initialize variable, Condition, Scope, Switch, Apply to each + Post adaptive card, Send an email (V2) |
+| Power BI | Hiring decision report | role slicer, coverage table, drillthrough, recommended action |
+| Governance | Cookie banner + Copilot answer | GA consent styled as a DLP connector choice (equal-weight buttons); governance details live in the chat answer |
 
-## 4. Spacing, radius, shadow, glass
-
-- **Spacing:** common gaps/padding are 6 / 8 / 10 / 14 / 16 / 20 / 24 / 32 px.
-- **Radius:** chips/pills `9999px`; cards `14–20px`; logo chips `10px` (small `8px`);
-  small controls `6–8px`.
-- **Glass effect:** `.glass`, `.pcard`, `.stats-card` use `var(--card-bg)`,
-  `var(--card-border)` and `var(--glass-shadow)` for the frosted look.
-- **Hover lift:** cards translate up a few px with `var(--card-hover-shadow)`.
-
----
-
-## 5. Breakpoints (responsive)
-
-Min-width 768px = "desktop" (fixed sidebar visible). Everything else is max-width.
-
-| Breakpoint | What it governs |
+## 5. Breakpoints
+| Width | Change |
 |---|---|
-| `≤480px` | Hide "Connect" button + wordmark crowding; tighter section padding (16px) |
-| `≤640px` | Hide header wordmark; Flow "Try/Catch" stacks to 1 column |
-| `≤767px` | Mobile: sidebar slides off-canvas (hamburger), search hidden, testimonials & two/three-column grids collapse to 1, chat sidebar hidden |
-| `≥768px` | Sidebar fixed & always visible; main content offset by 260px |
-| `≤900px` | Hero stacks (stats-card full width); project grid → 2 columns; Switch roles → 1 column |
-| `≤980px` | Formula-bar label hidden; testimonials → 2 columns |
-| `≤1300px` | Project grid → 3 columns (4 columns only above this) |
+| `≤1180px` | Formula toggle label hidden, BI cards 2-up, Dataverse view drops Stack column, testimonials 2-up |
+| `≤1040px` | Hero stacks |
+| `≤980px` | Doorways + About + Switch cases stack, chat prompts become a horizontal scroller |
+| `≤900px` | Header search hidden |
+| `≤767px` | Sidebar off-canvas (hamburger), single-column certs/quotes, try/catch stacks |
+| `≤560px` / `≤480px` | Tighter header + section padding |
 
-The project grid tiers live together in one ordered block near `.u-0153` in
-`css/style.css` (4 → 3 → 2 → 1 columns). Mobile heights use `100dvh` (with a `100vh`
-fallback) to avoid mobile address-bar jump.
-
----
-
-## 6. Components & conventions
-
-- **`u-####` utility classes** (e.g. `.u-0043`, `.u-0153`): machine-generated, one class
-  per unique style bundle. Treat each as "the styles for this element." To restyle an
-  element, find its `u-####` class in `css/style.css`. (Some elements still use inline
-  `style="…"` — those override the stylesheet.)
-- **Scroll reveal:** elements with class `.reveal` start hidden and fade/slide in when
-  scrolled into view (the `.vis` class is added by an IntersectionObserver in
-  `js/main.js`). Stagger helpers: `.d1`–`.d4` add delay.
-- **Logo chips:** `.company-logo-wrapper` + a company modifier
-  (`.cl-adastra` / `.cl-tsystems` / `.cl-concentrix`) holding an `<img.company-logo>`.
-  White logos sit on a brand-colored chip; Concentrix's self-contained icon sits on a
-  transparent chip. `.company-logo-sm` is the smaller Flow-timeline variant.
-- **Project modal:** `#proj-modal`; content is generated in `js/main.js` from the `PM`
-  array (edit project copy there). The German modal copy lives in the `PROJECTS_DE` array
-  in `js/lang.js` and is indexed by the same `data-modal="N"` value — keep the two arrays
-  the same length and order, or German modals will show the wrong project.
-- **Chatbot answers:** canned responses live in the `RESP` map in `js/main.js`.
-- **Language (EN/DE):** translations in `js/lang.js`, toggled by the header `EN`/`DE`
-  buttons.
-
----
+## 6. Conventions
+- **Language (EN/DE):** `DE_TEXT` in `js/lang.js` is keyed by the exact English text of
+  each text node (whitespace collapsed). A `<strong>`, `<em>` or `<br>` splits a node.
+  For headings or paragraphs with inline markup, put the full German HTML in a
+  `data-de="…"` attribute on the element instead — lang.js swaps `innerHTML`.
+  Runtime strings (toasts, chat, flow states) go through `t()` / `translate()`.
+- **Project modal copy:** `PM` in `js/main.js`, German in `PROJECTS_DE` (same index as
+  `data-modal="N"`).
+- **Chat answers:** `RESP` in `js/main.js`, German `RESP_DE` in `js/lang.js`. No emoji —
+  `addMsg` strips them.
+- **Icons:** Material Symbols, subset via `icon_names=` in `index.html` (alphabetical).
+  Add new names there or they render as text.
+- **Numbers:** every figure on the page comes from the CV. Don't add stats that aren't.
+- **Testimonials:** verbatim LinkedIn quotes — don't edit.
+- **Cookie consent:** GA loads only from `js/consent.js` after Accept.
+- Never hard-code colours in markup; use tokens or `data-tone`.
 
 ## 7. Assets
-
-| Asset | Path | Notes |
-|---|---|---|
-| Avatar / favicon | `images/avatar/sagar.png` | 256×256, optimized (~32KB). Displayed ≤96px. |
-| Adastra logo | `images/logos/adastra.png` | White art → shown on red `.cl-adastra` chip |
-| T-Systems logo | `images/logos/tsystems.svg` | White vector → shown on magenta `.cl-tsystems` chip |
-| Concentrix logo | `images/logos/concentrix.png` | Self-contained color icon (~2KB, 128px) |
-| Resume | `Sagar-Deshpande-Resume.pdf` | Linked from the "Download CV" button (`js/main.js`) |
-
-Keep asset filenames stable when replacing — the HTML/JS reference them by path. Export
-new logos as transparent PNG/SVG (white art works best on the brand-colored chips) and
-keep images small (avatar ≤256px, logos ≤128px).
-
----
-
-## 8. "How do I change …?" cookbook
-
-| I want to… | Do this |
+| Asset | Path |
 |---|---|
-| Change the main purple accent | Edit `--accent-apps` in **both** `:root` and `[data-theme="dark"]` in `css/style.css` |
-| Change the hero gradient | Edit `--grad-text-start` / `--grad-text-end` (both themes) |
-| Recolor a company logo chip | Edit `--adastra-primary` / `--tsystems-primary` (both themes) |
-| Adjust where the layout switches to mobile | Edit the `@media` breakpoints in `css/style.css` (see §5) |
-| Change the page font | Update the Google Fonts `<link>` in `index.html` and the `font-family` on `body` |
-| Edit a project's details | Edit the `PM` array in `js/main.js` (and the matching index in `PROJECTS_DE` in `js/lang.js` for German) |
-| Edit chatbot answers | Edit the `RESP` map in `js/main.js` |
-| Add/adjust a German translation | Edit `js/lang.js` |
-| Swap the avatar or a logo | Replace the file in `images/…` keeping the same filename and small size |
+| Avatar / favicon | `images/avatar/sagar.png` |
+| Logos | `images/logos/adastra.png`, `tsystems.svg`, `concentrix.png` |
+| Resume | `Sagar-Deshpande-Resume.pdf` |

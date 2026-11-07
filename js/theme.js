@@ -1,15 +1,16 @@
 /* FILE: /js/theme.js */
-/* Last updated: 2026-05-09 */
+/* Last updated: 2026-10-25 */
 /* Description: Theme switching logic and Power Apps formula bar interaction. */
 (() => {
   const key = 'portfolio-theme';
   const root = document.documentElement;
   const value = () => document.getElementById('fx-value');
   const current = () => root.dataset.theme === 'dark' ? 'dark' : 'light';
-  function setTheme(theme) {
+  // persist=false on load, so visitors without a saved choice keep following their OS theme
+  function setTheme(theme, persist = true) {
     const next = theme === 'dark' ? 'dark' : 'light';
     root.dataset.theme = next;
-    localStorage.setItem(key, next);
+    if (persist) { try { localStorage.setItem(key, next); } catch (e) {} }
     const val = value();
     if (val) {
       val.classList.add('is-fading');
@@ -22,7 +23,7 @@
   function toggleTheme() { setTheme(current() === 'dark' ? 'light' : 'dark'); }
   window.setPortfolioTheme = setTheme;
   document.addEventListener('DOMContentLoaded', () => {
-    setTheme(current());
+    setTheme(current(), false);
     const toggle = document.getElementById('formula-toggle');
     toggle?.addEventListener('click', toggleTheme);
     toggle?.addEventListener('keydown', event => {

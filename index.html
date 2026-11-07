@@ -1,905 +1,856 @@
 <!-- FILE: /index.html -->
-<!-- Last updated: 2026-05-09 -->
-<!-- Description: Portfolio HTML structure with external theme, language, and app scripts. -->
+<!-- Last updated: 2026-11-07 -->
+<!-- Description: Portfolio styled as Power Platform tools (Apps studio, Automate run, BI cards, Copilot chat). Styles: css/app.css + css/sections.css. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT702KWP1Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GT702KWP1Z');
-</script>
+<!-- Google Analytics loads from js/consent.js only after the visitor accepts the cookie banner. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sagar Deshpande · Power Platform + AI Engineer. Power Apps, Power Automate, Dataverse, Copilot Studio, Power BI and Fabric. German C1, available immediately, ready to relocate to Germany.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sagar Deshpande · Power Platform + AI Engineer">
+<meta property="og:description" content="Power Apps, Power Automate, Dataverse, Power BI, Copilot Studio and AI integrations. German C1. Available immediately, ready to relocate to Germany.">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="images/avatar/sagar.png">
 <link rel="apple-touch-icon" href="images/avatar/sagar.png">
-<link rel="shortcut icon" href="images/avatar/sagar.png">
-<title>Sagar Deshpande — Power Platform + AI Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <script>document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
-    <link rel="stylesheet" href="css/style.css?v=20260622c">
+<title>Sagar Deshpande · Power Platform + AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=account_circle,account_tree,add_circle,admin_panel_settings,alt_route,apps,arrow_forward,assignment_turned_in,auto_awesome,bar_chart,block,bolt,build,business_center,calendar_month,call,chat,check_circle,close,code,contact_page,cookie,dashboard_customize,database,delete_sweep,deployed_code,description,document_scanner,download,dynamic_form,error,event_available,fact_check,filter_alt,flag,flight_takeoff,flowsheet,format_quote,forum,function,grid_view,home,hourglass_top,image,key,keyboard_arrow_down,language,link,location_on,lock,mail,menu,monitoring,more_horiz,north_east,open_in_full,open_in_new,person,play_arrow,play_circle,policy,progress_activity,publish,redo,replay,rocket_launch,schema,school,search,send,sentiment_satisfied,shield,smart_button,smart_toy,smartphone,stacks,star,support_agent,table,table_view,text_fields,thumb_up,timer,toggle_on,translate,tune,undo,verified,view_cozy,view_module,work_history,workspace_premium&display=swap" rel="stylesheet">
+<!-- icon_names: alphabetical list of every icon used (HTML + js/*.js). Add new icons here or they render as plain text. -->
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}</script>
+    <noscript><style>.reveal,.ctl{opacity:1;transform:none}.hero-title .line>span{transform:none;animation:none}</style></noscript>
+    <link rel="stylesheet" href="css/app.css?v=20261107c">
+    <link rel="stylesheet" href="css/sections.css?v=20261107c">
+    <link rel="stylesheet" href="css/extras.css?v=20261107c">
 </head>
 <body>
-<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
 <div id="mob-overlay" data-action="close-sidebar"></div>
 
-<!-- ════════════════ TOP NAV ════════════════ -->
-<header class="u-0001">
-  <div class="u-0002">
-    <button id="menu-btn" data-action="toggle-sidebar" class="u-0003"><span class="msym u-0004">menu</span></button>
-    <span class="msym mf u-0005">view_cozy</span>
-    <span class="u-0006">Power Portfolio</span>
+<!-- ════════════════ TOP BAR ════════════════ -->
+<header class="topbar">
+  <div class="topbar-left">
+    <button id="menu-btn" data-action="toggle-sidebar" class="icon-btn" aria-label="Open menu"><span aria-hidden="true" class="msym">menu</span></button>
+    <a class="brand" href="#home" data-goto="home" aria-label="Sagar Deshpande, home">
+      <span class="brand-mark" aria-hidden="true">s</span>
+      <span class="brand-name">Power Portfolio <em>by Sagar</em></span>
+    </a>
   </div>
-  <div id="search-wrap" class="u-0007">
-    <span class="msym u-0008">search</span>
-    <input id="gsearch" class="u-0009" placeholder="Search sections…">
+  <div id="search-wrap" class="search">
+    <span aria-hidden="true" class="msym">search</span>
+    <input id="gsearch" type="search" placeholder="Search sections…" aria-label="Search sections…">
+    <kbd aria-hidden="true">↵</kbd>
   </div>
-  <div class="u-0010">
-                <div id="formula-toggle" class="formula-bar-toggle" title="Click to switch theme" tabindex="0" role="button" aria-label="Click to switch theme">
-                <span class="fx-icon">ƒx</span>
-                <span class="fx-label">Set( varTheme, </span>
-                <span id="fx-value" class="fx-value">"Dark"</span>
-                <span class="fx-close"> )</span>
-                <span class="fx-hint">↵</span>
-            </div>
-            <div id="lang-toggle" class="u-0011" aria-label="Language selector">
-                <button type="button" class="lang-btn active u-0012" data-lang="en" >EN</button>
-                <button type="button" class="lang-btn u-0013" data-lang="de" >DE</button>
-            </div>
-    <button data-action="open-linkedin" class="btn-p u-0014">Connect</button>
-    <div data-goto="copilot" title="Chat with Sagar's Copilot" class="u-0015">
-      <img src="images/avatar/sagar.png" alt="Sagar" class="u-0016">
+  <div class="topbar-right">
+    <div id="formula-toggle" class="formula-bar-toggle" title="Click to switch theme" tabindex="0" role="button" aria-label="Click to switch theme">
+      <span class="fx-icon">ƒx</span>
+      <span class="fx-label">Set( varTheme,&nbsp;</span>
+      <span id="fx-value" class="fx-value">"Light"</span>
+      <span class="fx-close">&nbsp;)</span>
+      <span class="fx-hint">↵</span>
+    </div>
+    <div id="lang-toggle" class="lang-toggle" aria-label="Language selector">
+      <button type="button" class="lang-btn active" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+    </div>
+    <button data-action="open-linkedin" class="btn-p connect-btn">Connect</button>
+    <div data-goto="copilot" title="Chat with Sagar's Copilot" aria-label="Chat with Sagar's Copilot" role="button" tabindex="0" class="header-avatar">
+      <img src="images/avatar/sagar.png" alt="Sagar">
     </div>
   </div>
 </header>
 
-<!-- ════════════════ SIDEBAR ════════════════ -->
-<nav id="sidebar" class="u-0017">
-  <div class="u-0018">
-    <div class="u-0019">
-      <div class="u-0020">
-        <img src="images/avatar/sagar.png" alt="Sagar Deshpande" class="u-0016">
-      </div>
+<!-- ════════════════ SIDEBAR (Power Apps tree view) ════════════════ -->
+<nav id="sidebar" class="sidebar" aria-label="Sections">
+  <div class="side-profile">
+    <div class="side-id">
+      <div class="side-avatar"><img src="images/avatar/sagar.png" alt="Sagar Deshpande"></div>
       <div>
-        <div class="u-0021">Sagar</div>
-        <div class="u-0022">Power Platform + AI Engineer</div>
+        <div class="side-name">Sagar</div>
+        <div class="side-role">Power Platform + AI Engineer</div>
       </div>
     </div>
-    <button data-action="download-cv" class="btn-p u-0023">
-      <span class="msym u-0024">download</span>Download CV
-    </button>
+    <button data-action="download-cv" class="btn-g side-cv"><span aria-hidden="true" class="msym">download</span>Download CV</button>
   </div>
-  <div class="u-0025">
-    <div class="nav-link" data-sec="home" data-goto="home" data-close-sidebar-mobile="true"><span class="ni">home</span>The Maker (Home)</div>
-    <div class="nav-link" data-sec="canvas" data-goto="canvas" data-close-sidebar-mobile="true"><span class="ni">grid_view</span>The Canvas</div>
-    <div class="nav-link" data-sec="flow" data-goto="flow" data-close-sidebar-mobile="true"><span class="ni">schema</span>The Flow</div>
-    <div class="nav-link" data-sec="copilot" data-goto="copilot" data-close-sidebar-mobile="true"><span class="ni">smart_toy</span>The Copilot</div>
-  </div>
-  <div class="u-0026">
-    <button data-action="open-linkedin" class="btn-g u-0027" title="LinkedIn"><span class="msym u-0028">link</span></button>
-    <button data-action="copy-email" class="btn-g u-0027" title="Copy Email"><span class="msym u-0028">mail</span></button>
-    <button data-goto="copilot" data-close-sidebar-mobile="true" class="btn-g u-0027" title="Copilot Chat"><span class="msym u-0028">chat</span></button>
-    <div class="u-0029">
-      <div class="pulse-g u-0030"></div>
-      <span class="u-0031">Available</span>
+  <div class="tree">
+    <div class="tree-label"><span>Tree view</span><span aria-hidden="true">5</span></div>
+    <div class="tree-root"><span aria-hidden="true" class="msym">deployed_code</span>App</div>
+    <div class="tree-items">
+      <div class="nav-link" role="button" tabindex="0" data-sec="home" data-goto="home" data-close-sidebar-mobile="true"><span class="ni" aria-hidden="true">home</span>The Maker (Home)</div>
+      <div class="nav-link" role="button" tabindex="0" data-sec="flow" data-goto="flow" data-close-sidebar-mobile="true"><span class="ni" aria-hidden="true">schema</span>The Flow</div>
+      <div class="nav-link" role="button" tabindex="0" data-sec="canvas" data-goto="canvas" data-close-sidebar-mobile="true"><span class="ni" aria-hidden="true">grid_view</span>The Canvas<span class="nav-sub" aria-hidden="true">16</span></div>
+      <div class="nav-link" role="button" tabindex="0" data-sec="report" data-goto="report" data-close-sidebar-mobile="true"><span class="ni" aria-hidden="true">bar_chart</span>The Report</div>
+      <div class="nav-link" role="button" tabindex="0" data-sec="copilot" data-goto="copilot" data-close-sidebar-mobile="true"><span class="ni" aria-hidden="true">smart_toy</span>The Copilot</div>
     </div>
+  </div>
+  <div class="side-foot">
+    <button data-action="open-linkedin" class="btn-g" title="LinkedIn" aria-label="LinkedIn"><span aria-hidden="true" class="msym">link</span></button>
+    <button data-action="copy-email" class="btn-g" title="Copy Email" aria-label="Copy Email"><span aria-hidden="true" class="msym">mail</span></button>
+    <button data-goto="copilot" data-close-sidebar-mobile="true" class="btn-g" title="Copilot Chat" aria-label="Copilot Chat"><span aria-hidden="true" class="msym">chat</span></button>
+    <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Available</span>
   </div>
 </nav>
 
 <!-- ════════════════ MAIN ════════════════ -->
-<main id="main-content" class="u-0032">
+<main id="main-content" class="main">
 
-<!-- ══════════════════════════════════════════════ -->
-<!--  HOME                                         -->
-<!-- ══════════════════════════════════════════════ -->
-<section id="home" class="u-0033">
-
-  <div class="fx-bar reveal u-0034">
-    <span class="msym u-0035">function</span>
-    <span class="u-0036"><span class="u-0037">Navigate</span><span class="u-0038">(Home_Screen, </span><span class="u-0039">ScreenTransition.Fade</span><span class="u-0038">)</span></span>
-  </div>
+<section id="home" class="sec sec-home">
 
   <!-- HERO -->
-  <div class="hero-grid u-0040">
-    <div class="u-0041">
-      <div class="reveal d1">
-        <div class="u-0042">// Power Platform + AI Portfolio</div>
-        <h1 class="u-0043" style="letter-spacing:-.02em;margin:0;padding:0"><span class="grad-text" style="display:inline">Sagar Milind Deshpande</span></h1>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><span class="fx">ƒx</span><span class="sep" aria-hidden="true"></span><span>Power Platform + AI · Deutsch C1</span></div>
+      <h1 class="hero-title">
+        <span class="line"><span>Sagar Milind</span></span>
+        <span class="line"><span><em>Deshpande</em></span></span>
+      </h1>
+      <p class="hero-sub">I build Power Apps, flows and Copilot agents for enterprise teams, and I can run the kick-off meeting in German. <strong>Six years in.</strong></p>
+      <div class="hero-cta">
+        <button data-goto="canvas" class="btn-p">See the work<span aria-hidden="true" class="msym">arrow_forward</span></button>
+        <button data-action="download-cv" class="btn-g"><span aria-hidden="true" class="msym">download</span>Resume / CV</button>
       </div>
-      <p class="reveal d2 u-0044">Power Platform + AI Engineer · C1 German · Turning complex problems into solutions people actually enjoy using.</p>
-      <div class="reveal d3 u-0045">
-        <button data-goto="canvas" class="btn-p u-0046"><span class="msym u-0024">grid_view</span>View Projects</button>
-        <button data-action="download-cv" class="btn-g u-0046"><span class="msym u-0024">download</span>Resume / CV</button>
-      </div>
-      <div class="reveal d4 u-0047">
-        <span class="u-0048">Power Platform</span>
-        <span class="u-0049">C1 Deutsch</span>
-        <span class="u-0050">AI &amp; Copilot</span>
-        <span class="u-0051">Economics Background</span>
+      <div class="hero-meta">
+        <span><span aria-hidden="true" class="msym">flight_takeoff</span>Available now · Ready to relocate to Germany</span>
+        <span><span aria-hidden="true" class="msym">school</span>BA Economics · SPPU · 2020</span>
+        <button data-action="copy-email" title="Copy email"><span aria-hidden="true" class="msym">mail</span>deshpande.sagar.milind@gmail.com</button>
       </div>
     </div>
-    <div class="stats-card glass reveal d2 u-0052">
-      <div class="u-0053"></div>
-      <div class="u-0054">
-        <div class="u-0055">
-          <img src="images/avatar/sagar.png" alt="Sagar Deshpande" class="u-0016">
+
+    <div class="hero-right">
+      <div class="studio" id="studio">
+        <div class="studio-bar">
+          <span class="studio-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="studio-file">Sagar_Profile.msapp</span>
+          <button type="button" class="studio-play" id="studio-play" aria-label="Replay build"><span aria-hidden="true" class="msym mf">play_arrow</span><span id="studio-play-txt">Preview</span></button>
         </div>
-        <div>
-          <div class="u-0056">Sagar Deshpande</div>
-          <div class="u-0057">Pune, Maharashtra · India</div>
-          <div class="u-0058">
-            <div class="pulse-g u-0030"></div>
-            <span class="u-0059">Open to Work</span>
+        <div class="studio-fx" aria-hidden="true">
+          <span class="studio-prop"><span class="msym">tune</span><span id="studio-prop">OnStart</span></span>
+          <span class="studio-fxi">ƒx</span>
+          <span class="studio-code" id="studio-code"></span>
+        </div>
+        <div class="studio-body">
+          <div class="studio-tree" aria-hidden="true">
+            <div class="t-h">Tree view</div>
+            <div class="t-i on"><span class="msym">smartphone</span>HomeScreen</div>
+            <div class="t-i lvl2" data-for="imgAvatar"><span class="msym">image</span>imgAvatar</div>
+            <div class="t-i lvl2" data-for="lblName"><span class="msym">text_fields</span>lblName</div>
+            <div class="t-i lvl2" data-for="tglOpen"><span class="msym">toggle_on</span>tglOpen</div>
+            <div class="t-i lvl2" data-for="galStats"><span class="msym">view_module</span>galStats</div>
+            <div class="t-i lvl2" data-for="btnGo"><span class="msym">smart_button</span>btnGo</div>
+          </div>
+          <div class="studio-canvas">
+            <div class="app-screen">
+              <div class="app-head">
+                <div class="ctl app-avatar" data-name="imgAvatar"><img src="images/avatar/sagar.png" alt="Sagar Deshpande"></div>
+                <div class="ctl" data-name="lblName">
+                  <div class="app-name">Sagar Deshpande</div>
+                  <div class="app-loc">German C1 · English C1</div>
+                </div>
+              </div>
+              <div class="ctl app-toggle" data-name="tglOpen">
+                <span>Open to Work</span>
+                <span class="app-switch" id="studio-switch" aria-hidden="true"></span>
+              </div>
+              <div class="ctl app-gallery" data-name="galStats">
+                <div class="app-tile"><b>6+</b><small>Yrs Exp</small></div>
+                <div class="app-tile"><b>C1</b><small>Deutsch</small></div>
+                <div class="app-tile"><b>16</b><small>Projects</small></div>
+              </div>
+              <div class="ctl app-btns" data-name="btnGo">
+                <button data-goto="canvas" class="btn-p"><span aria-hidden="true" class="msym">grid_view</span>Projects</button>
+                <button data-goto="copilot" class="btn-g"><span aria-hidden="true" class="msym">smart_toy</span>Ask Copilot</button>
+              </div>
+            </div>
+            <div class="studio-toast" id="studio-toast" aria-hidden="true"><span class="msym mf">check_circle</span>App published</div>
           </div>
         </div>
       </div>
-      <div class="u-0060">
-        <div class="u-0061">
-          <div class="u-0062">5+</div>
-          <div class="u-0063">Yrs Exp</div>
-        </div>
-        <div class="u-0061">
-          <div class="u-0064">C1</div>
-          <div class="u-0063">Deutsch</div>
-        </div>
-        <div class="u-0061">
-          <div class="u-0065">190+</div>
-          <div class="u-0063">Hrs/Mo</div>
-        </div>
-      </div>
-      <div class="u-0066">
-        <div class="u-0067"><span class="msym u-0068">location_on</span>Pune, India · Remote Friendly</div>
-        <div class="u-0067"><span class="msym u-0069">school</span>BA Economics · SPPU · 2020</div>
-        <div class="u-0070" data-action="copy-email" title="Copy email">
-          <span class="msym u-0071">mail</span>
-          <span class="u-0072">deshpande.sagar.milind@gmail.com</span>
-        </div>
-      </div>
+      <div class="studio-note" aria-hidden="true">Yes, this card is a Canvas App.</div>
     </div>
   </div>
 
-  <!-- QUICK NAV CARDS -->
-  <div class="two-col u-0073">
-    <button data-goto="canvas" class="glass u-0074">
-      <div class="u-0075">
-        <div class="u-0002">
-          <div class="u-0076"><span class="msym u-0077">grid_view</span></div>
-          <span class="u-0078">The Canvas</span>
-        </div>
-        <span class="msym u-0038">arrow_forward</span>
+  <!-- FACTS STRIP: the four questions recruiters ask first (labels translated by js/report.js) -->
+    <div class="bi-strip facts-strip reveal" data-no-i18n>
+      <div class="bi-card" data-tone="apps">
+        <div class="bi-vh" aria-hidden="true"><span class="msym">filter_alt</span><span class="msym">open_in_full</span><span class="msym">more_horiz</span></div>
+        <div class="bi-k"><span class="hr-k1">Experience</span><span aria-hidden="true" class="msym">work_history</span></div>
+        <div class="bi-num"><span data-count="6">6</span><sup>+</sup></div>
+        <div class="bi-cap hr-c1">years, since 06/2020</div>
       </div>
-      <p class="u-0079">A collection of 11 complex Power Apps, Dataverse architectures, and AI integrations.</p>
-      <div class="u-0080">
-        <span class="u-0081">Power Apps</span>
-        <span class="u-0082">AI / OpenAI</span>
-        <span class="u-0083">Dataverse</span>
+      <div class="bi-card" data-tone="success">
+        <div class="bi-vh" aria-hidden="true"><span class="msym">filter_alt</span><span class="msym">open_in_full</span><span class="msym">more_horiz</span></div>
+        <div class="bi-k"><span class="hr-k2">Notice period</span><span aria-hidden="true" class="msym">event_available</span></div>
+        <div class="bi-num"><span data-count="0">0</span><sup class="hr-days">days</sup></div>
+        <div class="bi-cap hr-c2">available immediately</div>
       </div>
-    </button>
-    <button data-goto="flow" class="glass u-0084">
-      <div class="u-0075">
-        <div class="u-0002">
-          <div class="u-0085"><span class="msym u-0037">schema</span></div>
-          <span class="u-0078">The Flow</span>
-        </div>
-        <span class="msym u-0038">arrow_forward</span>
+      <div class="bi-card" data-tone="copilot">
+        <div class="bi-vh" aria-hidden="true"><span class="msym">filter_alt</span><span class="msym">open_in_full</span><span class="msym">more_horiz</span></div>
+        <div class="bi-k"><span class="hr-k3">German</span><span aria-hidden="true" class="msym">translate</span></div>
+        <div class="bi-num">C1</div>
+        <div class="bi-cap hr-c3">Goethe-Zertifikat · English C1</div>
       </div>
-      <p class="u-0079">5+ years visualised as a Power Automate execution flow. Concentrix → T-Systems → Adastra.</p>
-      <div class="u-0080">
-        <span class="u-0082">T-Systems</span>
-        <span class="u-0081">Adastra</span>
+      <div class="bi-card" data-tone="automate">
+        <div class="bi-vh" aria-hidden="true"><span class="msym">filter_alt</span><span class="msym">open_in_full</span><span class="msym">more_horiz</span></div>
+        <div class="bi-k"><span class="hr-k4">Relocation</span><span aria-hidden="true" class="msym">flight_takeoff</span></div>
+        <div class="bi-num hr-ready">Ready</div>
+        <div class="bi-cap hr-c4">to Germany, any time</div>
       </div>
-    </button>
-  </div>
+    </div>
+
 
   <!-- ABOUT -->
-  <div class="glass reveal u-0119">
-    <h2 style="font-weight:600;font-size:20px;color:#e5e2e1;display:flex;align-items:center;gap:12px;margin-bottom:20px">
-      <div style="width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,170,247,.4);overflow:hidden;flex-shrink:0">
-        <img src="images/avatar/sagar.png" alt="Sagar" style="width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-      About Me
-    </h2>
-    <div style="display:flex;flex-direction:column;gap:14px;color:#d4c1ce;font-size:14px;line-height:1.8">
-      <p style="color:#e5e2e1;font-size:15px;font-weight:500;line-height:1.7">Most people use Power Platform to build forms. I use it to build systems people actually enjoy using.</p>
-      <p>Over the last 5+ years, I've been designing apps, automations, AI experiences, and business solutions that sit somewhere between engineering, product thinking, and <span style="color:#ffaaf7;font-style:italic">"how did you even build this in low-code?"</span></p>
-      <p>My work lives across Power Apps, Power Automate, Dataverse, Power BI, Copilot Studio, AI integrations — and increasingly the space where automation stops feeling robotic and starts feeling intelligent.</p>
-      <p>What makes me different is that I don't think like a traditional developer. I care about flow, friction, adoption, <span style="color:#a3c9ff">UI details people don't consciously notice</span>, the logic behind the logic, and the tiny things that make a system feel smooth instead of corporate.</p>
-      <p>I can discuss architecture with developers, process gaps with stakeholders, and then switch to presenting the same solution in German to DACH clients — without sounding like I memorised it five minutes earlier.</p>
-      <p>Somewhere between Power Fx, AI orchestration, and German theatre, I accidentally built a career around <span style="color:#bfce77">translating complexity into experiences that feel simple.</span></p>
-      <div style="border-top:1px solid #50434d;padding-top:14px;display:flex;align-items:flex-start;gap:10px;margin-top:4px">
-        <span class="msym" style="color:#ffaaf7;font-size:18px;margin-top:2px">format_quote</span>
-        <p style="color:#e5e2e1;font-style:italic;font-size:14px">And honestly, that's still the part I enjoy most.</p>
-      </div>
+  <article class="about reveal">
+    <div class="about-side">
+      <div class="sec-kicker"><span class="mono">01</span>About Me</div>
+      <div class="about-portrait"><img src="images/avatar/sagar.png" alt="Sagar Deshpande" loading="lazy"></div>
+      <div class="about-sign">Sagar</div>
     </div>
+    <div class="about-body">
+      <p class="about-lead" data-de="Die meisten nutzen Power Platform, um Formulare zu bauen. Ich baue damit Systeme, die Menschen <em>wirklich</em> gern nutzen.">Most people use Power Platform to build forms. I use it to build systems people <em>actually</em> like using.</p>
+      <p data-de="In den letzten sechs Jahren habe ich Apps, Automatisierungen und KI-Funktionen gebaut, irgendwo zwischen Engineering, Produktdenken und <span class=&quot;hl hl-apps&quot;>„Wie hast du das bitte in Low-Code gebaut?“</span>">For the last six years I've built apps, automations and AI features that sit somewhere between engineering, product thinking, and <span class="hl hl-apps">"how did you even build this in low-code?"</span></p>
+      <p data-de="Im Alltag heißt das Power Apps, Power Automate, Dataverse, Power BI und Copilot Studio. Und immer öfter die KI-Teile, durch die sich eine Automatisierung weniger nach Roboter anfühlt.">Day to day that means Power Apps, Power Automate, Dataverse, Power BI and Copilot Studio. More and more, it means the AI parts that make an automation feel less robotic.</p>
+      <p data-de="Ich habe Volkswirtschaft studiert, nicht Informatik. Deshalb denke ich über Ablauf, Reibung und Akzeptanz nach, über <span class=&quot;hl hl-automate&quot;>UI-Details, die man nicht bewusst bemerkt</span>, und über die Logik hinter der Logik.">I studied economics, not computer science. So I think about flow, friction and adoption, <span class="hl hl-automate">the UI details people don't consciously notice</span>, and the logic behind the logic.</p>
+      <p data-de="Ich kann mit Entwicklern über Architektur sprechen, mit Stakeholdern über Prozesslücken und dieselbe Lösung dann auf Deutsch vor DACH-Kunden präsentieren.">I can discuss architecture with developers, process gaps with stakeholders, and then present the same solution in German to DACH clients.</p>
+      <p data-de="Irgendwo zwischen Power Fx, KI-Orchestrierung und deutschem Theater ist daraus eine Karriere geworden, in der ich <span class=&quot;hl hl-bi&quot;>Kompliziertes einfach wirken lasse.</span>">Somewhere between Power Fx, AI orchestration and German theatre, I ended up with a career in <span class="hl hl-bi">making complicated things feel simple.</span></p>
+      <p class="about-coda" data-de="<span aria-hidden=&quot;true&quot; class=&quot;msym&quot;>format_quote</span>Das ist bis heute der Teil, der mir am meisten Spaß macht."><span aria-hidden="true" class="msym">format_quote</span>That's still the part I enjoy most.</p>
+    </div>
+  </article>
+
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  FLOW (Power Automate run)                    -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="flow" class="sec sec-flow">
+  <div class="run-bar reveal" id="run-bar">
+    <span class="rb-fxi">ƒx</span>
+    <span class="run-code"><span class="k">SortByColumns</span>(Experience, <span class="s">"StartDate"</span>)</span>
+    <span class="run-status" id="run-status" data-state="running"><span class="run-ico" aria-hidden="true"></span><span id="run-status-txt">Running</span></span>
+    <span class="run-dur mono">Duration: 6+ Years</span>
   </div>
 
-  <!-- EXPERIENCE TIMELINE -->
-  <div class="reveal">
-    <h2 class="u-0086"><span class="msym u-0037">business_center</span>Work Experience</h2>
-    <div class="u-0087">
-      <div class="u-0088">
-        <div class="company-logo-wrapper cl-adastra">
-          <img class="company-logo" src="images/logos/adastra.png" alt="Adastra logo" loading="lazy" width="40" height="40">
-        </div>
-        <div class="u-0090">
-          <div class="u-0091">
-            <span class="u-0092">Adastra</span>
-            <span class="u-0093">Current</span>
-          </div>
-          <div class="u-0057">Data Engineer — Power Platform + AI</div>
-          <div class="u-0094">
-            <span class="u-0095">Copilot Studio</span>
-            <span class="u-0095">Azure OpenAI</span>
-            <span class="u-0095">MCP Server</span>
-            <span class="u-0095">PCF Controls</span>
-          </div>
-        </div>
-        <div class="u-0096"><div class="u-0097">Jan 2025 – Present</div><div class="u-0098">Pune · ~1 yr</div></div>
-      </div>
-      <div class="u-0088">
-        <div class="company-logo-wrapper cl-tsystems">
-          <img class="company-logo" src="images/logos/tsystems.svg" alt="T-Systems logo" loading="lazy" width="40" height="40">
-        </div>
-        <div class="u-0090">
-          <div class="u-0092">T-Systems ICT India</div>
-          <div class="u-0057">Junior Consultant — Power Platform Developer</div>
-          <div class="u-0094">
-            <span class="u-0095">Power Automate</span>
-            <span class="u-0095">Power BI</span>
-            <span class="u-0095">Canvas Apps</span>
-            <span class="u-0095">German C1 Lead</span>
-          </div>
-        </div>
-        <div class="u-0096"><div class="u-0101">May 2022 – Dec 2024</div><div class="u-0098">Pune · 2.5 yrs</div></div>
-      </div>
-      <div class="u-0088">
-        <div class="company-logo-wrapper cl-concentrix">
-          <img class="company-logo" src="images/logos/concentrix.png" alt="Concentrix logo" loading="lazy" width="40" height="40">
-        </div>
-        <div class="u-0090">
-          <div class="u-0092">Concentrix Daksh Services</div>
-          <div class="u-0057">Advisor I — German Enterprise Support</div>
-          <div class="u-0094">
-            <span class="u-0095">German C1</span>
-            <span class="u-0095">87% CSAT</span>
-          </div>
-        </div>
-        <div class="u-0096"><div class="u-0104">Jun 2020 – Mar 2022</div><div class="u-0098">Pune · 1.8 yrs</div></div>
-      </div>
-    </div>
-    <div class="u-0107">
-      <button data-goto="flow" class="u-0108">Full flow timeline <span class="msym u-0109">arrow_forward</span></button>
-    </div>
+  <div class="sec-title reveal">
+    <div class="sec-kicker"><span class="mono">Run history</span>Power Automate</div>
+    <h2 class="display" data-de="Ausführungs-<em>Flow</em>">Execution <em>Flow</em></h2>
+    <p class="sec-sub">My professional journey: visualised as a Power Automate workflow.</p>
   </div>
 
-  <!-- CERTS -->
-    <h2 class="u-0086"><span class="msym mf u-0077">verified</span>Certifications</h2>
-    <div class="two-col u-0110">
-      <a href="https://learn.microsoft.com/en-us/users/deshpandesagar-8498/credentials/c73aed92a2030991" target="_blank" rel="noopener" style="text-decoration:none;display:block;border-radius:14px;transition:transform .2s;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div class="glass d1 reveal u-0111">
-          <div class="u-0112"><span class="msym mf u-0113">verified</span></div>
-          <div><div class="u-0056">PL-400</div><div class="u-0114">Power Platform Developer Associate</div><div class="u-0115">Microsoft · May 2025</div><div style="color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:6px;display:flex;align-items:center;gap:4px"><span class="msym" style="font-size:12px">open_in_new</span>Verify Credential</div></div>
+  <ol class="flow" id="flow-run">
+    <!-- TRIGGER -->
+    <li class="step" data-tone="automate" data-dur="2020">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym mf">bolt</span></span>
+        <span class="step-name"><span class="act-k mono">Trigger</span>When an academic degree is acquired</span>
+        <span class="step-type">TRIGGER</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body">
+        <div class="step-top">
+          <div><h3>Bachelor of Arts in Economics</h3><div class="step-sub">Savitribai Phule Pune University · 2020</div></div>
+          <div class="step-kpi"><b>SPPU</b><small>Pune</small></div>
         </div>
-      </a>
-      <a href="https://learn.microsoft.com/en-us/users/sagardeshpande-9658/credentials/6c8c69ef3a3ddae1" target="_blank" rel="noopener" style="text-decoration:none;display:block;border-radius:14px;transition:transform .2s;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div class="glass d2 reveal u-0111">
-          <div class="u-0116"><span class="msym mf u-0117">workspace_premium</span></div>
-          <div><div class="u-0056">PL-900</div><div class="u-0114">Power Platform Fundamentals</div><div class="u-0118">Microsoft · October 2024</div><div style="color:#ffaaf7;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:6px;display:flex;align-items:center;gap:4px"><span class="msym" style="font-size:12px">open_in_new</span>Verify Credential</div></div>
-        </div>
-      </a>
-    </div>
-  </div>
+        <p>Economics background instills systemic thinking, resource optimisation logic, and a user-first perspective I bring to every build.</p>
+      </div>
+    </li>
 
-  <!-- TESTIMONIALS -->
-  <div class="reveal">
-    <h2 class="u-0086"><span class="msym mf u-0039">format_quote</span>Testimonials</h2>
-    <div class="three-col u-0130">
-      <div class="glass d1 reveal u-0131">
-        <span class="msym u-0132">format_quote</span>
-        <p class="u-0133">"Sagar is a very helpful, cheerful, and polite team player who is a pleasure to work with.<br> His German skills are impressive, especially considering that German is his third language.<br> He made valuable contributions to an internal project by developing a Power App and creating insightful visualizations in Power BI. Throughout the project, he consistently demonstrated a proactive attitude and a strong willingness to help others.<br> I truly enjoyed working with Sagar and would be happy to collaborate with him again in the future."</p>
-        <div class="u-0134">
-          <div class="u-0135">Sebastian Klohn</div>
-          <div class="u-0136">Data Engineer · Adastra Germany</div>
-          <div class="u-tmeta">June 10, 2026 · Senior to Sagar, didn't manage directly</div>
-          <a href="https://www.linkedin.com/in/sagar-deshpande2306/" target="_blank" rel="noopener" class="u-tli"><span class="msym u-tli-i">verified</span>LinkedIn Verified<span class="msym u-tli-x">open_in_new</span></a>
+    <!-- Concentrix -->
+    <li class="step" data-tone="bi" data-dur="1.8 yrs">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym">translate</span></span>
+        <span class="step-name"><span class="act-k mono">Variable</span>Initialize variable: varGerman</span>
+        <span class="step-type">ACTION</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body">
+        <div class="step-top">
+          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-concentrix"><img class="company-logo" src="images/logos/concentrix.png" alt="Concentrix logo" loading="lazy"></div><div><h3>Concentrix Daksh Services</h3><div class="step-sub">Advisor · Jun 2020 – Mar 2022 · Pune</div></div></div>
+          <div class="step-kpi"><b>87%</b><small>CSAT</small></div>
+        </div>
+        <div class="io">
+          <div class="io-h">varGerman = "C1" · Output</div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span>50+ daily native-German interactions · 87% CSAT · 90%+ RAP performance</span></div>
+        </div>
+        <p>Built enterprise-level German communication with native DACH speakers. Foundation for leading kick-offs and acting as Team Lead at T-Systems.</p>
+      </div>
+    </li>
+
+    <!-- T-Systems -->
+    <li class="step" data-tone="apps" data-dur="2.7 yrs">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym">flowsheet</span></span>
+        <span class="step-name"><span class="act-k mono">Control</span>Condition: Is the task repetitive?</span>
+        <span class="step-type">CONDITION</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body">
+        <div class="step-top">
+          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-tsystems"><img class="company-logo" src="images/logos/tsystems.svg" alt="T-Systems logo" loading="lazy"></div><div><h3>T-Systems ICT India</h3><div class="step-sub">Junior Consultant · May 2022 – Dec 2024 · Pune</div></div></div>
+          <div class="step-kpi"><b>190+</b><small>Hrs/Month</small></div>
+        </div>
+        <div class="trycatch">
+          <div class="tc tc-try">
+            <div class="tc-h"><span class="mono">If yes</span>Automate it</div>
+            <ul><li>33 business processes with Power Automate</li><li>Canvas and Model-Driven Apps on SharePoint and Excel</li><li>Power BI reports for ServiceNow and licences</li></ul>
+          </div>
+          <div class="tc tc-next">
+            <div class="tc-h"><span class="mono">If no</span>Support it in German</div>
+            <ul><li>First-level support, technical and functional</li><li>Kick-off meetings with clients</li><li>Standing in for the team lead</li></ul>
+            <div class="tc-foot">Started in support, became the team's developer on my own initiative.</div>
+          </div>
+        </div>
+        <div class="io">
+          <div class="io-h">Output Metrics</div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span><strong>33 business processes</strong> automated, saving <strong>190+ team hours</strong> every month</span></div>
+        </div>
+        <div class="step-chips"><span>Power Apps</span><span>Power Automate</span><span>Power BI</span><span>SharePoint</span><span>German C1 Lead</span></div>
+        <p>Led kick-off meetings with German clients. Built Canvas/Model-Driven Apps, complex Power Automate flows, Power BI reporting suites, and ServiceNow integrations.</p>
+      </div>
+    </li>
+
+    <!-- Adastra -->
+    <li class="step" data-tone="copilot" data-dur="1.5 yrs">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym">smart_toy</span></span>
+        <span class="step-name"><span class="act-k mono">Control</span>Scope: Adastra</span>
+        <span class="step-type">SCOPE</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body">
+        <div class="step-top">
+          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-adastra"><img class="company-logo" src="images/logos/adastra.png" alt="Adastra logo" loading="lazy"></div><div><h3>Adastra</h3><div class="step-sub">Data Engineer (Power Platform &amp; BI Developer) · Jan 2025 – Jun 2026 · Pune</div></div></div>
+          <div class="step-kpi"><b>83%</b><small>Less effort</small></div>
+        </div>
+        <div class="io">
+          <div class="io-h">Outputs</div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span>ESG Copilot Studio agent in Teams + Copilot Chat: schema-driven, MCP server, in production</span></div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span>ESG Data Collector: JSON-schema form engine, 80+ entities, 1,000+ attributes, zero redeploy</span></div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span>Allocation Management App: multi-stage approval, 60 → 8 to 10 hrs/month (83% reduction)</span></div>
+          <div class="io-row"><span aria-hidden="true" class="msym mf">check_circle</span><span>Document Intelligence: 750+ document types, Azure AI Services and Azure OpenAI, Power Pages for external users</span></div>
+        </div>
+        <div class="step-chips"><span>Copilot Studio</span><span>MCP Server</span><span>PCF Controls</span><span>Azure OpenAI</span><span>Microsoft Fabric</span><span>Azure DevOps</span></div>
+        <p>Model-Driven and Canvas Apps on Dataverse, AI with Azure AI Services and Copilot Studio, Power BI and Microsoft Fabric, with ALM through Azure DevOps pipelines and DLP governance.</p>
+      </div>
+    </li>
+
+    <!-- SWITCH -->
+    <li class="step step-switch" data-tone="apps" data-dur="3 cases">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym">alt_route</span></span>
+        <span class="step-name"><span class="act-k mono">Control</span>Switch: Role at Adastra</span>
+        <span class="step-type">3 CASES</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="cases">
+        <div class="case" data-tone="apps">
+          <div class="case-k mono">CASE 1</div>
+          <div class="case-t">Power Platform Developer</div>
+          <p>Architected enterprise Canvas and Model-Driven applications with complex business logic, custom components, and Dataverse integrations.</p>
+          <div class="case-tags"><span>Canvas Apps</span><span>Model-Driven Apps</span><span>PCF Controls &amp; Power Fx</span><span>Dataverse Governance</span></div>
+        </div>
+        <div class="case" data-tone="bi">
+          <div class="case-k mono">CASE 2</div>
+          <div class="case-t">Power BI Developer</div>
+          <p>Designed optimised data models, complex DAX measures, and interactive dashboards enabling real-time decision-making analytics.</p>
+          <div class="case-tags"><span>DAX Measures</span><span>Power Query (M)</span><span>Data Modelling</span><span>Drilldown Reports</span></div>
+        </div>
+        <div class="case" data-tone="automate">
+          <div class="case-k mono">CASE 3</div>
+          <div class="case-t">Copilot Agent Developer</div>
+          <p>Engineered intelligent AI agents with MCP Server integration, autonomous CRUD operations, and knowledge-driven automation workflows.</p>
+          <div class="case-tags"><span>Copilot Studio</span><span>MCP Server CRUD</span><span>Azure OpenAI</span><span>Knowledge Base</span></div>
         </div>
       </div>
-      <div class="glass d2 reveal u-0131">
-        <span class="msym u-0132">format_quote</span>
-        <p class="u-0133">"I had the pleasure of working with Sagar and was always impressed by his proactive approach, technical expertise, and positive attitude.<br>Sagar combines strong Power Platform knowledge with excellent consulting skills. He worked confidently with German-speaking stakeholders, facilitated discussions in German, and consistently translated business requirements into practical solutions.<br>Beyond his technical contributions, Sagar helped drive improvements in the way the team worked by introducing Agile practices such as Scrum boards and regular stand-ups, many of which continue to benefit the team today. His solutions were designed with long-term value in mind, and several of the automations he developed are still actively used to improve efficiency.<br>Sagar is reliable, collaborative, and genuinely enjoyable to work with. I would highly recommend him to any organization looking for a consultant who can bridge the gap between business needs and technology."</p>
-        <div class="u-0134">
-          <div class="u-0137">Madhura Gokhale</div>
-          <div class="u-0136">Project Manager · T-Systems ICT India</div>
-          <div class="u-tmeta">June 1, 2026 · Managed Sagar directly</div>
-          <a href="https://www.linkedin.com/in/sagar-deshpande2306/" target="_blank" rel="noopener" class="u-tli"><span class="msym u-tli-i">verified</span>LinkedIn Verified<span class="msym u-tli-x">open_in_new</span></a>
+    </li>
+
+    <!-- Lutz und Grub: current role, an Apply to each loop -->
+    <li class="step step-live" data-tone="automate" data-dur="live">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym">school</span></span>
+        <span class="step-name"><span class="act-k mono">Control</span>Apply to each: Teilnehmende</span>
+        <span class="step-type step-type-live"><span class="status-dot" aria-hidden="true"></span>Current</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body">
+        <div class="step-top">
+          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-lutz" aria-hidden="true"><span class="msym mf">school</span></div><div><h3>Lutz und Grub Academy</h3><div class="step-sub">Freelance Trainer for Microsoft 365, Power Platform &amp; AI · Since Jul 2026 · Karlsruhe (remote)</div></div></div>
+          <div class="step-kpi"><b>DE</b><small>Taught in German</small></div>
+        </div>
+        <div class="loop">
+          <div class="loop-h"><span class="mono">items(</span>'Apply_to_each'<span class="mono">)</span> · modules</div>
+          <div class="loop-rows">
+            <div class="loop-row"><span class="mono">01</span><b>Microsoft 365</b><span>Teams, SharePoint Online (Sites and Lists), OneDrive, Word, Excel, PowerPoint</span></div>
+            <div class="loop-row"><span class="mono">02</span><b>Apps &amp; data</b><span>Power Apps, Power Automate, Dataverse, Power BI, Power Query, DAX</span></div>
+            <div class="loop-row"><span class="mono">03</span><b>AI &amp; method</b><span>Microsoft Copilot, Copilot Studio, agents and prompting; requirements engineering, solution design, Scrum, Kanban</span></div>
+          </div>
+        </div>
+        <div class="inner-act">
+          <div class="inner-h"><span class="msym mf" aria-hidden="true">forum</span>Post adaptive card and wait for a response</div>
+          <div class="acard acard-mini">
+            <div class="acard-q">Übung: Baue den Genehmigungsflow selbst nach.</div>
+            <div class="acard-actions"><span class="btn-p pbtn" aria-hidden="true">Abgeben</span><span class="btn-g pbtn" aria-hidden="true">Noch einmal zeigen</span></div>
+          </div>
+          <div class="inner-note mono">Every exercise waits for the learner's answer before the loop moves on.</div>
+        </div>
+        <p>Designing and teaching hands-on courses in German for participants in further-education programmes, with my own course material and exercises.</p>
+      </div>
+    </li>
+
+    <!-- END -->
+    <li class="step step-end" data-tone="success" data-dur="open">
+      <div class="step-head">
+        <span class="step-ico"><span aria-hidden="true" class="msym mf">mail</span></span>
+        <span class="step-name"><span class="act-k mono">Office 365 Outlook</span>Send an email (V2)</span>
+        <span class="step-type step-type-live"><span class="status-dot" aria-hidden="true"></span>Open to Work</span>
+        <span class="step-state" aria-hidden="true"></span>
+      </div>
+      <div class="step-body step-body-end">
+        <div class="mail-fields">
+          <div><span class="mono">To</span>You, the recruiter</div>
+          <div><span class="mono">Subject</span>Let's talk about your Power Platform role</div>
+        </div>
+        <p class="end-line">Ready to bring Power Platform expertise and C1 German to your team. Available immediately, ready to relocate to Germany.</p>
+        <div class="end-cta">
+          <button data-goto="copilot" class="btn-p"><span aria-hidden="true" class="msym">smart_toy</span>Chat with Copilot</button>
+          <button data-action="open-linkedin" class="btn-g"><span aria-hidden="true" class="msym">link</span>LinkedIn</button>
+          <button data-action="copy-email" class="btn-g"><span aria-hidden="true" class="msym">mail</span>Copy Email</button>
         </div>
       </div>
-      <div class="glass d3 reveal u-0131">
-        <span class="msym u-0132">format_quote</span>
-        <p class="u-0133">"I had the pleasure of working with Sagar and can recommend him without hesitation.<br> He is technically strong in low-code development and data visualization, but what truly sets him apart is his attitude: proactive, innovative, and with a great work ethic.<br> He identifies opportunities before being asked and always delivers with quality.<br> I have no doubt he will continue to do great work wherever he goes."</p>
-        <div class="u-0134">
-          <div class="u-0138">Max Rink</div>
-          <div class="u-0136">Cloud Architect · Adastra</div>
-          <div class="u-tmeta">June 4, 2026 · Senior to Sagar, didn't manage directly</div>
-          <a href="https://www.linkedin.com/in/sagar-deshpande2306/" target="_blank" rel="noopener" class="u-tli"><span class="msym u-tli-i">verified</span>LinkedIn Verified<span class="msym u-tli-x">open_in_new</span></a>
-        </div>
-      </div>
+    </li>
+  </ol>
+
+  <!-- Skills -->
+  <div class="skills reveal">
+    <div class="sec-head"><div class="sec-kicker"><span class="msym" aria-hidden="true">build</span>Skills Arsenal</div></div>
+    <div class="skill-cloud">
+      <span class="skill-tag">Power Apps (Canvas, Model-Driven, Custom Pages, Code Apps)</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Microsoft Dataverse</span><span class="skill-tag">Power Pages</span><span class="skill-tag">Copilot Studio</span><span class="skill-tag">MCP Server</span><span class="skill-tag">Azure AI Services</span><span class="skill-tag">Azure OpenAI</span><span class="skill-tag">Azure AI Foundry</span><span class="skill-tag">Power BI + DAX</span><span class="skill-tag">Power Query (M)</span><span class="skill-tag">Microsoft Fabric</span><span class="skill-tag">PCF Controls (TypeScript)</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React (Code App)</span><span class="skill-tag">JSON Schema</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Office Scripts</span><span class="skill-tag">Dynamics 365 Customizing</span><span class="skill-tag">SharePoint Online</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Managed Solutions</span><span class="skill-tag">Microsoft Entra ID</span><span class="skill-tag">DLP Policies</span><span class="skill-tag">Microsoft Loop</span><span class="skill-tag">ServiceNow</span><span class="skill-tag">Jira</span><span class="skill-tag">Requirements Engineering</span><span class="skill-tag">Scrum / Kanban</span><span class="skill-tag">German C1 · English C1</span>
     </div>
   </div>
 </section>
 
-<div class="u-0139"></div>
+<!-- ══════════════════════════════════════════════ -->
+<!--  CANVAS (Power Apps)                          -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="canvas" class="sec">
+  <!-- Decorative Power Apps Studio ribbon: hidden from assistive tech and not clickable -->
+  <div class="ribbon reveal" aria-hidden="true">
+    <span class="rb"><span class="msym">undo</span></span>
+    <span class="rb"><span class="msym">redo</span></span>
+    <span class="rb-sep"></span>
+    <span class="rb rb-t"><span class="msym">add_circle</span>Insert</span>
+    <span class="rb rb-t"><span class="msym">database</span>Data</span>
+    <span class="rb-fx"><span class="rb-prop">Items</span><span class="rb-fxi">ƒx</span><span class="rb-code"><span class="k">Filter</span>(Projects, Status = <span class="s">"Active"</span>)</span></span>
+    <span class="rb rb-play"><span class="msym mf">play_arrow</span></span>
+    <span class="rb"><span class="msym">publish</span></span>
+  </div>
 
-<!-- ══════════════════════════════════════════════ -->
-<!--  CANVAS                                       -->
-<!-- ══════════════════════════════════════════════ -->
-<section id="canvas" class="u-0140">
-  <div class="glass reveal u-0141">
-    <button class="btn-g u-0142"><span class="msym u-0143">undo</span></button>
-    <button class="btn-g u-0142"><span class="msym u-0143">redo</span></button>
-    <div class="u-0144"></div>
-    <button class="btn-g u-0145"><span class="msym u-0146">add_circle</span>Insert</button>
-    <button class="btn-g u-0145"><span class="msym u-0146">database</span>Data</button>
-    <div class="fx-bar u-0147">
-      <div class="u-0148"><span class="msym u-0149">function</span></div>
-      <span class="u-0150">Filter(Projects, Status = Active)</span>
-    </div>
-    <button class="btn-g u-0151"><span class="msym u-0143">play_circle</span></button>
-    <button class="btn-g u-0142"><span class="msym u-0143">publish</span></button>
+  <div class="sec-title reveal">
+    <div class="sec-kicker"><span class="mono">galProjects</span>Power Apps</div>
+    <h2 class="display" data-de="Das <em>Canvas</em>">The <em>Canvas</em></h2>
+    <p class="sec-sub">A collection of 16 Power Apps, Dataverse architectures, AI integrations and reports.</p>
   </div>
-  <div class="reveal">
-    <h1 class="u-0152">The Canvas</h1>
-    <p class="u-0038">A collection of 11 complex Power Apps, Dataverse architectures, and AI integrations.</p>
-  </div>
-  <div class="reveal u-0047">
-    <button class="filter-btn active" data-filter="all">All (11)</button>
+
+  <div class="filters reveal" role="toolbar" aria-label="Filter projects">
+    <button class="filter-btn active" data-filter="all">All (16)</button>
     <button class="filter-btn" data-filter="pa">Power Apps</button>
     <button class="filter-btn" data-filter="ai">AI</button>
     <button class="filter-btn" data-filter="dv">Dataverse</button>
     <button class="filter-btn" data-filter="pm">Power Automate</button>
     <button class="filter-btn" data-filter="bi">Power BI</button>
+    <span class="filter-count mono" id="filter-count" aria-live="polite">CountRows: 16</span>
   </div>
-  <div id="pgrid" class="pgrid u-0153">
-    <article class="glass pcard reveal d1 u-0154" data-t="pa,dv,ai">
-      <div class="u-0167">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0168">dynamic_form</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power Apps</span>
-          <span class="u-0162">Dataverse</span>
-        </div>
-        <h3 class="u-0056">ESG Data Collector</h3>
-        <p class="u-0163">JSON schema-driven Canvas App that replaced a costly third-party ESG tool in 3 months. One configurable form + grid for <strong class="u-0037">80+ entities</strong>, 1,000+ attributes — new fields and entities need zero code.</p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="0" class="u-0169">View Architecture <span class="msym u-0166">arrow_forward</span></button>
+
+  <div id="pgrid" class="pgrid">
+    <article class="pcard reveal" data-t="pa,dv,ai" data-tone="apps">
+      <div class="pc-head"><span class="pc-no mono">01</span><span aria-hidden="true" class="msym mf pc-ico">dynamic_form</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Apps</span><span>Dataverse</span></div>
+        <h3>ESG Data Collector</h3>
+        <p>JSON schema-driven Canvas App that replaced a costly third-party ESG tool in 3 months. One configurable form + grid for <strong>80+ entities</strong>, 1,000+ attributes: new fields and entities need zero code.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="0" class="pc-btn">View Architecture <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d2 u-0154" data-t="ai,dv">
-      <div class="u-0170">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0171">smart_toy</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0161">AI</span>
-          <span class="u-0172">Copilot Studio</span>
-        </div>
-        <h3 class="u-0056">ESG Copilot Studio Agent</h3>
-        <p class="u-0163">Built on the ESG Data Collector so users submit ESG data straight from Teams and Copilot Chat — no Canvas App needed. Conversation driven by the per-entity JSON schema, with an <strong class="u-0039">MCP server for dynamic form retrieval and CRUD.</strong> Ran in production.</p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="1" class="u-0173">View Details <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="ai,dv" data-tone="copilot">
+      <div class="pc-head"><span class="pc-no mono">02</span><span aria-hidden="true" class="msym mf pc-ico">smart_toy</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>AI</span><span>Copilot Studio</span></div>
+        <h3>ESG Copilot Studio Agent</h3>
+        <p>Built on the ESG Data Collector so users submit ESG data straight from Teams and Copilot Chat: no Canvas App needed. Conversation driven by the per-entity JSON schema, with an <strong>MCP server for dynamic form retrieval and CRUD.</strong> Ran in production.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="1" class="pc-btn">View Details <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d3 u-0154" data-t="pm,dv">
-      <div class="u-0174">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0168">bolt</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0161">Power Automate</span>
-          <span class="u-0172">SharePoint</span>
-        </div>
-        <h3 class="u-0056">190+ Hours Saved: Process Automation</h3>
-        <p class="u-0163">Multiple Power Automate flows automating business processes across the team — generating <strong class="u-0037">190+ hours</strong> of additional bandwidth. SharePoint and Excel as primary data sources.</p>
-        <div class="u-0164">T-Systems · 2022–2024</div>
-        <button data-modal="2" class="u-0169">View Suite <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="pm,dv" data-tone="automate">
+      <div class="pc-head"><span class="pc-no mono">03</span><span aria-hidden="true" class="msym mf pc-ico">bolt</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Automate</span><span>SharePoint</span></div>
+        <h3>33 Processes Automated: 190+ Hours/Month</h3>
+        <p>From German first-level support to the team's Power Platform developer: <strong>33 business processes</strong> automated with Power Automate, plus Canvas and Model-Driven Apps on SharePoint and Excel, freeing up <strong>190+ team hours</strong> a month.</p>
+        <div class="pc-foot"><span class="pc-co">T-Systems · 2022–2024</span><button data-modal="2" class="pc-btn">View Suite <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d1 u-0154" data-t="bi,dv,pm">
-      <div class="u-0175">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157">bar_chart</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power BI</span>
-          <span class="u-0162">DAX</span>
-        </div>
-        <h3 class="u-0056">ServiceNow Reporting</h3>
-        <p class="u-0163">End-to-end weekly ServiceNow reporting on a drillable <strong class="u-0037">5-level hierarchy</strong> — Projects → Services → Sub-Services → Tickets → Categories. Complex DAX, Power Query transformations, and slicer-driven dashboards.</p>
-        <div class="u-0164">T-Systems · 2022–2024</div>
-        <button data-modal="3" class="u-0165">View Report <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="bi,dv,pm" data-tone="bi">
+      <div class="pc-head"><span class="pc-no mono">04</span><span aria-hidden="true" class="msym mf pc-ico">bar_chart</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power BI</span><span>DAX</span></div>
+        <h3>ServiceNow Reporting</h3>
+        <p>End-to-end weekly ServiceNow reporting on a drillable <strong>5-level hierarchy</strong>: Projects → Services → Sub-Services → Tickets → Categories. Complex DAX, Power Query transformations, and slicer-driven dashboards.</p>
+        <div class="pc-foot"><span class="pc-co">T-Systems · 2022–2024</span><button data-modal="3" class="pc-btn">View Report <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d2 u-0154" data-t="bi,pm">
-      <div class="u-0175">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157">key</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power BI</span>
-          <span class="u-0162">Compliance</span>
-        </div>
-        <h3 class="u-0056">DevOps Toolchain License Report</h3>
-        <p class="u-0163">Tracks active users, maximum seats, and free capacity across 7–8 DevOps tools. Identifies licenses unused for 6+ months for cost optimisation.</p>
-        <div class="u-0164">T-Systems · 2022–2024</div>
-        <button data-modal="4" class="u-0165">View Report <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="bi,pm" data-tone="bi">
+      <div class="pc-head"><span class="pc-no mono">05</span><span aria-hidden="true" class="msym mf pc-ico">key</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power BI</span><span>Compliance</span></div>
+        <h3>DevOps Toolchain License Report</h3>
+        <p>Tracks active users, maximum seats, and free capacity across 7 to 8 DevOps tools. Identifies licenses unused for 6+ months for cost optimisation.</p>
+        <div class="pc-foot"><span class="pc-co">T-Systems · 2022–2024</span><button data-modal="4" class="pc-btn">View Report <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d3 u-0154" data-t="bi,pm">
-      <div class="u-0176">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157">timer</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power BI</span>
-          <span class="u-0162">ServiceNow</span>
-        </div>
-        <h3 class="u-0056">ServiceNow SLA Reaction Report</h3>
-        <p class="u-0163">Measures full ticket lifecycle: Open → In Progress → Pending → Closed. Surfaces SLA compliance gaps and team performance metrics.</p>
-        <div class="u-0164">T-Systems · 2022–2024</div>
-        <button data-modal="5" class="u-0165">View Report <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="bi,pm" data-tone="bi">
+      <div class="pc-head"><span class="pc-no mono">06</span><span aria-hidden="true" class="msym mf pc-ico">timer</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power BI</span><span>ServiceNow</span></div>
+        <h3>ServiceNow SLA Reaction Report</h3>
+        <p>Measures full ticket lifecycle: Open → In Progress → Pending → Closed. Surfaces SLA compliance gaps and team performance metrics.</p>
+        <div class="pc-foot"><span class="pc-co">T-Systems · 2022–2024</span><button data-modal="5" class="pc-btn">View Report <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-<article class="glass pcard u-0154 reveal d1" data-t="bi,dv">
-      <div class="u-0175">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157"style="color:var(--accent-apps)">bar_chart</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power BI</span>
-          <span class="u-0162">Dataverse</span>
-        </div>
-        <h3 class="u-0056">Adastra BI & Allocation Reporting Suite</h3>
-        <p class="u-0163">Allocation Report with complex business logic, multi-source transformation, and performance-optimised modelling — built once the Allocation Management App went live. Plus automated Bench Reporting with dynamic parameters, bookmarks, and DAX drilldowns embedded in the app.</p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="6" class="u-0165">View Suite <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="bi,dv" data-tone="bi">
+      <div class="pc-head"><span class="pc-no mono">07</span><span aria-hidden="true" class="msym mf pc-ico">monitoring</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power BI</span><span>Dataverse</span></div>
+        <h3>Adastra BI Suite: Allocation, Bench &amp; Xero</h3>
+        <p>Allocation Report for management's resource planning, Bench Reporting with dynamic parameters, bookmarks and DAX drilldowns <strong>embedded live in the app</strong>, and a Xero integration report joined with Dataverse.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="6" class="pc-btn">View Suite <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d2 u-0154" data-t="ai,pa">
-      <div class="u-0170">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0171">auto_awesome</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power Apps</span>
-          <span class="u-0161">AI</span>
-        </div>
-        <h3 class="u-0056">AI Assistance — Upload to Autofill</h3>
-        <p class="u-0163">The AI capture feature of the ESG Data Collector: upload a document on a single Canvas App screen and Azure AI pre-populates the relevant fields. Output saved as JSON for downstream systems — zero manual entry for standard documents.</p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="7" class="u-0173">View Flow <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="ai,pa" data-tone="copilot">
+      <div class="pc-head"><span class="pc-no mono">08</span><span aria-hidden="true" class="msym mf pc-ico">auto_awesome</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Apps</span><span>AI</span></div>
+        <h3>AI Assistance: Upload to Autofill</h3>
+        <p>The AI capture feature of the ESG Data Collector: upload a document on a single Canvas App screen and Azure AI pre-populates the relevant fields. Output saved as JSON for downstream systems: zero manual entry for standard documents.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="7" class="pc-btn">View Flow <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d3 u-0154" data-t="pa,dv,pm">
-      <div class="u-0175">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157">assignment_turned_in</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0160">Power Apps</span>
-          <span class="u-0162">Dataverse</span>
-        </div>
-        <h3 class="u-0056">Allocation Management App</h3>
-        <p class="u-0163">Replaced a manual Excel allocation process with a Model-Driven App on Dataverse — multi-stage approval, Adaptive Cards in Teams/Outlook, over-allocation warnings, and audit history. <strong class="u-0037">60 → 8-10 hrs/month, an 83% reduction.</strong></p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="8" class="u-0165">View Solution <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="pa,dv,pm" data-tone="apps">
+      <div class="pc-head"><span class="pc-no mono">09</span><span aria-hidden="true" class="msym mf pc-ico">assignment_turned_in</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Apps</span><span>Dataverse</span></div>
+        <h3>Allocation Management App</h3>
+        <p>Replaced a manual Excel allocation process with a Model-Driven App on Dataverse: multi-stage approval, Adaptive Cards in Teams/Outlook, over-allocation warnings, and audit history. <strong>60 → 8 to 10 hrs/month, an 83% reduction.</strong></p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="8" class="pc-btn">View Solution <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d1 u-0154" data-t="ai,pm,dv">
-      <div class="u-0155">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0157">document_scanner</span>
-      </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0161">Power Automate</span>
-          <span class="u-0161">AI</span>
-          <span class="u-0162">Dataverse</span>
-        </div>
-        <h3 class="u-0056">Document Intelligence Pipeline</h3>
-        <p class="u-0163">Azure REST API + Azure AI Services classify and extract metadata from <strong class="u-0077">500+ document types</strong> across 60+ families and six teams, loading into Dataverse. Model-Driven App and Power Pages front end.</p>
-        <div class="u-0164">Adastra · 2025</div>
-        <button data-modal="9" class="u-0165">View Solution <span class="msym u-0166">arrow_forward</span></button>
+    <article class="pcard reveal" data-t="ai,pm,dv" data-tone="automate">
+      <div class="pc-head"><span class="pc-no mono">10</span><span aria-hidden="true" class="msym mf pc-ico">document_scanner</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Automate</span><span>AI</span><span>Dataverse</span></div>
+        <h3>Document Intelligence Pipeline</h3>
+        <p>Azure REST API, Azure AI Services and Azure OpenAI classify and extract metadata from thousands of documents, <strong>750+ document types</strong> across 60+ families and six teams, loading into Dataverse. Model-Driven App and Power Pages front end.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="9" class="pc-btn">View Solution <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
-    <article class="glass pcard reveal d2 u-0154" data-t="ai">
-      <div class="u-0170">
-        <div class="u-0156"></div>
-        <span class="msym mf u-0171">support_agent</span>
+    <article class="pcard reveal" data-t="ai" data-tone="copilot">
+      <div class="pc-head"><span class="pc-no mono">11</span><span aria-hidden="true" class="msym mf pc-ico">support_agent</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>AI</span><span>First-Level Support</span></div>
+        <h3>Support Chatbots</h3>
+        <p>Chatbots for standard first-level support requests, built with the predecessor of Copilot Studio: topics, trigger phrases and conversation nodes.</p>
+        <div class="pc-foot"><span class="pc-co">T-Systems · 2022–2024</span><button data-modal="10" class="pc-btn">View Bot <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
-      <div class="u-0158">
-        <div class="u-0159">
-          <span class="u-0161">AI</span>
-          <span class="u-0172">Power Virtual Agents</span>
-        </div>
-        <h3 class="u-0056">Power Virtual Agents Bot</h3>
-        <p class="u-0163">Conversational bots built with Power Virtual Agents to handle first-line user queries — configuring topics, trigger phrases, and conversation nodes.</p>
-        <div class="u-0164">T-Systems · 2022–2024</div>
-        <button data-modal="10" class="u-0173">View Bot <span class="msym u-0166">arrow_forward</span></button>
+    </article>
+    <article class="pcard reveal" data-t="ai,dv" data-tone="copilot">
+      <div class="pc-head"><span class="pc-no mono">12</span><span aria-hidden="true" class="msym mf pc-ico">sentiment_satisfied</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>AI</span><span>Azure AI Foundry</span></div>
+        <h3>Sentiment Analysis in Dynamics 365</h3>
+        <p>A Custom Page opened from a Model-Driven App sends uploaded files to a model in <strong>Azure AI Foundry</strong>. Sentiment and metadata come back as JSON and land on contact and account in Dynamics 365.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="11" class="pc-btn">View Solution <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
+      </div>
+    </article>
+    <article class="pcard reveal" data-t="pa,dv" data-tone="apps">
+      <div class="pc-head"><span class="pc-no mono">13</span><span aria-hidden="true" class="msym mf pc-ico">dashboard_customize</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Dynamics 365</span><span>PCF</span></div>
+        <h3>Dynamics 365 Customizing</h3>
+        <p>Command bar changes with Ribbon Workbench, form logic in JavaScript, business rules, <strong>PCF controls in TypeScript</strong> and Custom Pages, with record- and column-level security.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="12" class="pc-btn">View Details <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
+      </div>
+    </article>
+    <article class="pcard reveal" data-t="bi" data-tone="bi">
+      <div class="pc-head"><span class="pc-no mono">14</span><span aria-hidden="true" class="msym mf pc-ico">stacks</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Microsoft Fabric</span><span>Power BI</span></div>
+        <h3>Microsoft Fabric Lakehouse</h3>
+        <p>Medallion architecture on F2 capacity: Xero, Dataverse and SharePoint in <strong>bronze</strong>, notebooks refine to silver and gold, a scheduled pipeline refreshes it, and a semantic model feeds Power BI.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="13" class="pc-btn">View Architecture <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
+      </div>
+    </article>
+    <article class="pcard reveal" data-t="pa,dv" data-tone="automate">
+      <div class="pc-head"><span class="pc-no mono">15</span><span aria-hidden="true" class="msym mf pc-ico">language</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Pages</span><span>Dataverse</span></div>
+        <h3>Power Pages Portal for External Users</h3>
+        <p>Service providers and suppliers sign in and see, create or change <strong>only the data shared with them</strong>, enforced with web roles and table permissions on Dataverse.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="14" class="pc-btn">View Portal <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
+      </div>
+    </article>
+    <article class="pcard reveal" data-t="pa" data-tone="apps">
+      <div class="pc-head"><span class="pc-no mono">16</span><span aria-hidden="true" class="msym mf pc-ico">code</span></div>
+      <div class="pc-body">
+        <div class="pc-tags"><span>Power Apps</span><span>React</span></div>
+        <h3>Code App with React</h3>
+        <p>A Power Apps <strong>Code App written in React</strong>, built with AI assistance on standard prompt and skill libraries. I reviewed the code myself against the requirements.</p>
+        <div class="pc-foot"><span class="pc-co">Adastra · 2025</span><button data-modal="15" class="pc-btn">View Details <span aria-hidden="true" class="msym">arrow_forward</span></button></div>
       </div>
     </article>
   </div>
 </section>
 
-<div class="u-0139"></div>
-
 <!-- ══════════════════════════════════════════════ -->
-<!--  FLOW                                         -->
+<!--  PROOF (certifications, languages, testimonials) -->
 <!-- ══════════════════════════════════════════════ -->
-<section id="flow" class="u-0177">
-  <div class="dot-grid u-0178"></div>
-
-  <div class="fx-bar reveal u-0179">
-    <span class="msym u-0035">function</span>
-    <span class="u-0036"><span class="u-0037">Filter</span><span class="u-0038">(Experience, Level &gt;= </span><span class="u-0039">Senior</span><span class="u-0038">)</span></span>
-    <div class="u-0180">
-      <span class="u-0181">Status:</span>
-      <span class="u-0182">Succeeded</span>
-      <span class="u-0183">| Duration: 5+ Years</span>
-    </div>
-  </div>
-
-  <div class="reveal u-0184">
-    <h1 class="u-0185"><span class="msym mf u-0186">schema</span>Execution Flow</h1>
-    <p class="u-0187">My professional journey — visualised as a Power Automate workflow.</p>
-  </div>
-
-  <!-- Timeline -->
-  <div class="u-0188">
-
-    <!-- TRIGGER: Education -->
-    <div class="glass reveal u-0189">
-      <div class="u-0190">
-        <div class="u-0191"><span class="msym mf u-0192">bolt</span></div>
-        <span class="u-0193">When an academic degree is acquired</span>
-        <span class="u-0194">TRIGGER</span>
+<section id="proof" class="sec">
+  <!-- CERTS -->
+  <div class="reveal">
+    <div class="sec-head"><div class="sec-kicker"><span class="mono">02</span>Certifications &amp; Languages</div></div>
+    <div class="certs">
+      <a class="cert" href="https://learn.microsoft.com/en-us/users/deshpandesagar-8498/credentials/c73aed92a2030991" target="_blank" rel="noopener">
+        <span class="cert-seal" data-tone="apps"><span aria-hidden="true" class="msym mf">verified</span></span>
+        <span class="cert-main">
+          <span class="cert-code">PL-400</span>
+          <span class="cert-name">Power Platform Developer Associate</span>
+          <span class="cert-date">Microsoft · May 2025</span>
+        </span>
+        <span class="cert-verify"><span aria-hidden="true" class="msym">open_in_new</span>Verify Credential</span>
+      </a>
+      <a class="cert" href="https://learn.microsoft.com/en-us/users/sagardeshpande-9658/credentials/6c8c69ef3a3ddae1" target="_blank" rel="noopener">
+        <span class="cert-seal" data-tone="automate"><span aria-hidden="true" class="msym mf">workspace_premium</span></span>
+        <span class="cert-main">
+          <span class="cert-code">PL-900</span>
+          <span class="cert-name">Power Platform Fundamentals</span>
+          <span class="cert-date">Microsoft · October 2024</span>
+        </span>
+        <span class="cert-verify"><span aria-hidden="true" class="msym">open_in_new</span>Verify Credential</span>
+      </a>
+      <div class="cert">
+        <span class="cert-seal" data-tone="copilot"><span aria-hidden="true" class="msym mf">translate</span></span>
+        <span class="cert-main">
+          <span class="cert-code">Deutsch C1</span>
+          <span class="cert-name">Goethe-Zertifikat C1 · business fluent</span>
+          <span class="cert-date">Used daily since 2020</span>
+        </span>
       </div>
-      <div class="u-0195">
-        <div class="u-0196">
-          <div><h3 class="u-0197">Bachelor of Arts — Economics</h3><div class="u-0198">Savitribai Phule Pune University · 2020</div></div>
-          <div class="u-0096"><div class="u-0199">SPPU</div><div class="u-0136">Pune</div></div>
-        </div>
-        <p class="u-0079">Economics background instills systemic thinking, resource optimisation logic, and a user-first perspective that most CS graduates don't develop.</p>
-      </div>
-    </div>
-    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
-
-    <!-- Concentrix -->
-    <div class="glass reveal d1 u-0189">
-      <div class="u-0202">
-        <div class="u-0203"><span class="msym u-0204">translate</span></div>
-        <span class="u-0205">Initialize German Language Protocol</span>
-        <span class="u-0194">ACTION</span>
-      </div>
-      <div class="u-0195">
-        <div class="u-0196">
-          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-concentrix"><img class="company-logo" src="images/logos/concentrix.png" alt="Concentrix logo" loading="lazy"></div><div><h3 class="u-0197">Concentrix Daksh Services</h3><div class="u-0198">Advisor I · Jun 2020 – Mar 2022 · Pune</div></div></div>
-          <div class="u-0096"><div class="u-0199">87%</div><div class="u-0136">CSAT</div></div>
-        </div>
-        <div class="u-0206">
-          <div class="u-0207">Output Variables</div>
-          <div class="u-0010"><span class="msym u-0208">check_circle</span><span class="u-0209">50+ daily native-German interactions · 87% CSAT · 90%+ RAP performance</span></div>
-        </div>
-        <p class="u-0079">Built enterprise-level German communication with native DACH speakers. Foundation for leading kick-offs and acting as Team Lead at T-Systems.</p>
-      </div>
-    </div>
-    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
-
-    <!-- T-Systems -->
-    <div class="glass reveal d2 u-0189">
-      <div class="u-0210">
-        <div class="u-0211"><span class="msym u-0212">flowsheet</span></div>
-        <span class="u-0213">Try/Catch: Initialize Power Platform Stack</span>
-        <span class="u-0194">ACTION</span>
-      </div>
-      <div class="u-0195">
-        <div class="u-0196">
-          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-tsystems"><img class="company-logo" src="images/logos/tsystems.svg" alt="T-Systems logo" loading="lazy"></div><div><h3 class="u-0197">T-Systems ICT India</h3><div class="u-0198">Junior Consultant · May 2022 – Dec 2024 · Pune</div></div></div>
-          <div class="u-0096"><div class="u-0214">190+</div><div class="u-0136">Hrs/Month</div></div>
-        </div>
-        <div class="trycatch-grid" style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div style="background:rgba(100,200,255,.08);border:1px solid rgba(100,200,255,.2);border-radius:8px;padding:10px">
-            <div style="font-size:11px;font-weight:600;color:#a3c9ff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Try Block</div>
-            <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#d4c1ce">
-              <div><span style="color:#7db4ff">▪</span> Power Apps (Canvas + MDA)</div>
-              <div><span style="color:#7db4ff">▪</span> Power Automate Flows</div>
-              <div><span style="color:#7db4ff">▪</span> Power BI Dashboards</div>
-            </div>
-          </div>
-          <div style="background:rgba(255,100,100,.08);border:1px solid rgba(255,100,100,.2);border-radius:8px;padding:10px">
-            <div style="font-size:11px;font-weight:600;color:#ff9999;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Catch Block</div>
-            <div style="font-size:13px;color:#d4c1ce;line-height:1.7;display:flex;flex-direction:column;gap:6px">
-              <div><span style="color:#ff9999">→</span> Stack ceiling reached: no AI orchestration, no MCP extensibility, no Copilot Studio depth</div>
-              <div><span style="color:#ff9999">→</span> Complex enterprise needs outgrew standard Power Platform delivery scope</div>
-              <div style="color:#ffaaf7;font-size:12px;margin-top:4px;font-style:italic">Resolution: escalate to Adastra — AI-first Power Platform architecture</div>
-            </div>
-          </div>
-        </div>
-        <div class="u-0215" style="margin-top:12px">
-          <div class="u-0216">Output Metrics</div>
-          <div class="u-0217"><span class="msym u-0218">check_circle</span><span class="u-0209">Automated workflows saving <strong class="u-0037">190+ hours</strong> of team bandwidth monthly</span></div>
-        </div>
-        <div class="u-0219">
-          <span class="u-0220">Power Apps</span>
-          <span class="u-0220">Power Automate</span>
-          <span class="u-0220">Power BI</span>
-          <span class="u-0220">SharePoint</span>
-          <span class="u-0220">German C1 Lead</span>
-        </div>
-        <p class="u-0079">Led kick-off meetings with German clients. Built Canvas/Model-Driven Apps, complex Power Automate flows, Power BI reporting suites, and ServiceNow integrations.</p>
-      </div>
-    </div>
-    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
-
-    <!-- Adastra -->
-    <div class="glass reveal d3 u-0221">
-      <div class="u-0222">
-        <div class="u-0191"><span class="msym u-0192">smart_toy</span></div>
-        <span class="u-0193">Deploy AI &amp; Advanced Architecture</span>
-        <div class="u-0029"><div class="pulse-g u-0030"></div><span class="u-0223">ACTIVE</span></div>
-      </div>
-      <div class="u-0195">
-        <div class="u-0196">
-          <div class="flow-co-head"><div class="company-logo-wrapper company-logo-sm cl-adastra"><img class="company-logo" src="images/logos/adastra.png" alt="Adastra logo" loading="lazy"></div><div><h3 class="u-0197">Adastra</h3><div class="u-0198">Data Engineer (Power Platform) · Jan 2025 – Present · Pune</div></div></div>
-          <div class="u-0224"><div class="pulse u-0225"></div><span class="u-0226">Live</span></div>
-        </div>
-        <div class="u-0215">
-          <div class="u-0216">Active Outputs</div>
-          <div class="u-0227">
-            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">ESG Copilot Studio agent in Teams + Copilot Chat — schema-driven, MCP server, in production</span></div>
-            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">ESG Data Collector — JSON-schema form engine, 80+ entities, 1,000+ attributes, zero redeploy</span></div>
-            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">Allocation Management App — multi-stage approval, 60 → 8-10 hrs/month (83% reduction)</span></div>
-            <div class="u-0010"><span class="msym u-0228">check_circle</span><span class="u-0209">Azure DevOps CI/CD pipelines — Dev/Test/Prod governance for enterprise apps</span></div>
-          </div>
-        </div>
-        <div class="u-0219">
-          <span class="u-0220">Copilot Studio</span>
-          <span class="u-0220">MCP Server</span>
-          <span class="u-0220">PCF Controls</span>
-          <span class="u-0220">Azure OpenAI</span>
-          <span class="u-0220">JSON Schema</span>
-          <span class="u-0220">Azure DevOps</span>
-        </div>
-        <p class="u-0079">Architecting advanced AI integrations, Dataverse-backed MDA apps, and enterprise Copilot agents with Dev/Test/Prod governance via Azure DevOps pipelines.</p>
-      </div>
-    </div>
-    <div class="u-0200"><div class="flow-conn"></div><span class="msym u-0201">keyboard_arrow_down</span></div>
-
-    <!-- SWITCH SCOPE -->
-    <div style="border:1px solid rgba(255,170,247,0.2);border-radius:14px;overflow:hidden;background:rgba(116,39,116,0.04);width:100%">
-      <!-- Header -->
-      <div style="padding:10px 16px;border-bottom:1px solid rgba(255,170,247,0.15);display:flex;align-items:center;justify-content:space-between;background:rgba(116,39,116,0.07)">
-        <div style="display:flex;align-items:center;gap:8px">
-          <span class="msym" style="color:#ffaaf7;font-size:16px">alt_route</span>
-          <span style="font-family:'Space Grotesk',monospace;font-size:11px;color:#ffaaf7;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Switch — Developer Roles at Adastra</span>
-        </div>
-        <span style="background:rgba(255,170,247,0.12);border:1px solid rgba(255,170,247,0.25);color:#ffaaf7;font-size:9px;font-weight:700;padding:2px 10px;border-radius:9999px;letter-spacing:.07em">3 ROLES</span>
-      </div>
-      <!-- Kanban Cards — equal width, horizontal -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:16px;gap:12px" class="switch-grid">
-
-        <!-- Case 1: Power Platform Developer -->
-        <div style="border:1px solid rgba(255,170,247,0.2);border-radius:10px;background:rgba(19,19,19,0.6);padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px">
-          <div>
-            <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,170,247,0.55);margin-bottom:8px">CASE 1</div>
-            <div style="color:#ffaaf7;font-weight:700;font-size:17px;line-height:1.3;margin-bottom:10px">Power Platform Developer</div>
-            <p style="color:#d4c1ce;font-size:12px;line-height:1.6">Architected enterprise Canvas and Model-Driven applications with complex business logic, custom components, and Dataverse integrations.</p>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
-            <span style="background:rgba(255,170,247,0.08);border:1px solid rgba(255,170,247,0.2);color:#ffaaf7;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Canvas Apps</span>
-            <span style="background:rgba(255,170,247,0.08);border:1px solid rgba(255,170,247,0.2);color:#ffaaf7;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Model-Driven Apps</span>
-            <span style="background:rgba(255,170,247,0.08);border:1px solid rgba(255,170,247,0.2);color:#ffaaf7;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">PCF Controls &amp; Power Fx</span>
-            <span style="background:rgba(255,170,247,0.08);border:1px solid rgba(255,170,247,0.2);color:#ffaaf7;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Dataverse Governance</span>
-          </div>
-        </div>
-
-        <!-- Case 2: Power BI Developer -->
-        <div style="border:1px solid rgba(191,206,119,0.2);border-radius:10px;background:rgba(19,19,19,0.6);padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px">
-          <div>
-            <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(191,206,119,0.55);margin-bottom:8px">CASE 2</div>
-            <div style="color:#bfce77;font-weight:700;font-size:17px;line-height:1.3;margin-bottom:10px">Power BI Developer</div>
-            <p style="color:#d4c1ce;font-size:12px;line-height:1.6">Designed optimised data models, complex DAX measures, and interactive dashboards enabling real-time decision-making analytics.</p>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
-            <span style="background:rgba(191,206,119,0.08);border:1px solid rgba(191,206,119,0.2);color:#bfce77;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">DAX Measures</span>
-            <span style="background:rgba(191,206,119,0.08);border:1px solid rgba(191,206,119,0.2);color:#bfce77;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Power Query (M)</span>
-            <span style="background:rgba(191,206,119,0.08);border:1px solid rgba(191,206,119,0.2);color:#bfce77;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Data Modelling</span>
-            <span style="background:rgba(191,206,119,0.08);border:1px solid rgba(191,206,119,0.2);color:#bfce77;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Drilldown Reports</span>
-          </div>
-        </div>
-
-        <!-- Case 3: Copilot Agent Developer -->
-        <div style="border:1px solid rgba(163,201,255,0.2);border-radius:10px;background:rgba(19,19,19,0.6);padding:18px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px">
-          <div>
-            <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(163,201,255,0.55);margin-bottom:8px">CASE 3</div>
-            <div style="color:#a3c9ff;font-weight:700;font-size:17px;line-height:1.3;margin-bottom:10px">Copilot Agent Developer</div>
-            <p style="color:#d4c1ce;font-size:12px;line-height:1.6">Engineered intelligent AI agents with MCP Server integration, autonomous CRUD operations, and knowledge-driven automation workflows.</p>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
-            <span style="background:rgba(163,201,255,0.08);border:1px solid rgba(163,201,255,0.2);color:#a3c9ff;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Copilot Studio</span>
-            <span style="background:rgba(163,201,255,0.08);border:1px solid rgba(163,201,255,0.2);color:#a3c9ff;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">MCP Server CRUD</span>
-            <span style="background:rgba(163,201,255,0.08);border:1px solid rgba(163,201,255,0.2);color:#a3c9ff;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Azure OpenAI</span>
-            <span style="background:rgba(163,201,255,0.08);border:1px solid rgba(163,201,255,0.2);color:#a3c9ff;font-size:10px;font-family:'Space Grotesk',monospace;padding:3px 10px;border-radius:6px">Knowledge Base</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Flow Connector -->
-    <div class="u-0200">
-      <div class="flow-conn"></div>
-      <div class="u-0256"></div>
-    </div>
-
-    <!-- END Node -->
-    <div class="glass reveal d1 u-0257">
-      <div class="u-0258">
-        <div class="u-0191"><span class="msym mf u-0192">flag</span></div>
-        <span class="u-0193">Current Status — Ready for Next Challenge</span>
-        <div class="u-0029"><div class="pulse-g u-0030"></div><span class="u-0259">Open to Work</span></div>
-      </div>
-      <div class="u-0260">
-        <p class="u-0261">Ready to bring Power Platform expertise and C1 German fluency to your team. Pune-based, remote-friendly.</p>
-        <div class="u-0262">
-          <button data-goto="copilot" class="btn-p u-0263"><span class="msym u-0024">smart_toy</span>Chat with Copilot</button>
-          <button data-action="open-linkedin" class="btn-g u-0263"><span class="msym u-0024">link</span>LinkedIn</button>
-          <button data-action="copy-email" class="btn-g u-0263"><span class="msym u-0024">mail</span>Copy Email</button>
-        </div>
+      <div class="cert">
+        <span class="cert-seal" data-tone="bi"><span aria-hidden="true" class="msym mf">language</span></span>
+        <span class="cert-main">
+          <span class="cert-code">English C1</span>
+          <span class="cert-name">Business fluent</span>
+          <span class="cert-date">Working language</span>
+        </span>
       </div>
     </div>
   </div>
 
-  <!-- Skills -->
-  <div class="reveal u-0264">
-    <h2 class="u-0086"><span class="msym u-0037">build</span>Skills Arsenal</h2>
-    <div class="u-0047">
-      <span class="skill-tag">Power Automate</span><span class="skill-tag">Power Apps (Canvas + MDA)</span><span class="skill-tag">Microsoft Dataverse</span><span class="skill-tag">Copilot Studio</span><span class="skill-tag">Power BI + DAX</span><span class="skill-tag">Azure OpenAI / GPT-4.1</span><span class="skill-tag">MCP Server Integration</span><span class="skill-tag">PCF Controls</span><span class="skill-tag">JSON Schema</span><span class="skill-tag">JavaScript / TypeScript</span><span class="skill-tag">SharePoint</span><span class="skill-tag">Dynamics 365</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">SQL Server</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Power Query (M)</span><span class="skill-tag">ServiceNow</span><span class="skill-tag">German C1 (Professional)</span>
+  <!-- TESTIMONIALS (verbatim from LinkedIn) -->
+  <div class="reveal">
+    <div class="sec-head"><div class="sec-kicker"><span class="mono">03</span>Testimonials</div></div>
+    <div class="quotes">
+      <figure class="quote">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>"Sagar is a very helpful, cheerful, and polite team player who is a pleasure to work with.<br> His German skills are impressive, especially considering that German is his third language.<br> He made valuable contributions to an internal project by developing a Power App and creating insightful visualizations in Power BI. Throughout the project, he consistently demonstrated a proactive attitude and a strong willingness to help others.<br> I truly enjoyed working with Sagar and would be happy to collaborate with him again in the future."</blockquote>
+        <figcaption>
+          <span class="q-ava" data-tone="apps" aria-hidden="true">SK</span>
+          <span><b>Sebastian Klohn</b><small>Data Engineer · Adastra Germany</small><small class="q-meta">June 10, 2026 · Senior to Sagar, didn't manage directly</small></span>
+        </figcaption>
+        <a href="https://www.linkedin.com/in/sagar-deshpande2306/details/recommendations/" target="_blank" rel="noopener" class="q-link">Read on LinkedIn<span aria-hidden="true" class="msym">north_east</span></a>
+      </figure>
+      <figure class="quote">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>"I had the pleasure of working with Sagar and was always impressed by his proactive approach, technical expertise, and positive attitude.<br>Sagar combines strong Power Platform knowledge with excellent consulting skills. He worked confidently with German-speaking stakeholders, facilitated discussions in German, and consistently translated business requirements into practical solutions.<br>Beyond his technical contributions, Sagar helped drive improvements in the way the team worked by introducing Agile practices such as Scrum boards and regular stand-ups, many of which continue to benefit the team today. His solutions were designed with long-term value in mind, and several of the automations he developed are still actively used to improve efficiency.<br>Sagar is reliable, collaborative, and genuinely enjoyable to work with. I would highly recommend him to any organization looking for a consultant who can bridge the gap between business needs and technology."</blockquote>
+        <figcaption>
+          <span class="q-ava" data-tone="automate" aria-hidden="true">MG</span>
+          <span><b>Madhura Gokhale</b><small>Project Manager · T-Systems ICT India</small><small class="q-meta">June 1, 2026 · Managed Sagar directly</small></span>
+        </figcaption>
+        <a href="https://www.linkedin.com/in/sagar-deshpande2306/details/recommendations/" target="_blank" rel="noopener" class="q-link">Read on LinkedIn<span aria-hidden="true" class="msym">north_east</span></a>
+      </figure>
+      <figure class="quote">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>"I had the pleasure of working with Sagar and can recommend him without hesitation.<br> He is technically strong in low-code development and data visualization, but what truly sets him apart is his attitude: proactive, innovative, and with a great work ethic.<br> He identifies opportunities before being asked and always delivers with quality.<br> I have no doubt he will continue to do great work wherever he goes."</blockquote>
+        <figcaption>
+          <span class="q-ava" data-tone="copilot" aria-hidden="true">MR</span>
+          <span><b>Max Rink</b><small>Cloud Architect · Adastra</small><small class="q-meta">June 4, 2026 · Senior to Sagar, didn't manage directly</small></span>
+        </figcaption>
+        <a href="https://www.linkedin.com/in/sagar-deshpande2306/details/recommendations/" target="_blank" rel="noopener" class="q-link">Read on LinkedIn<span aria-hidden="true" class="msym">north_east</span></a>
+      </figure>
     </div>
   </div>
 </section>
 
-<div class="u-0139"></div>
+<!-- ══════════════════════════════════════════════ -->
+<!--  REPORT (Power BI hiring decision)            -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="report" class="sec">
+  <div class="sec-title reveal">
+    <div class="sec-kicker"><span class="mono">Report</span>Power BI</div>
+    <h2 class="display" data-de="Der <em>Bericht</em>">The <em>Report</em></h2>
+    <p class="sec-sub">Everything above, on one report page. Pick your open role and decide.</p>
+  </div>
+  <!-- HIRING DECISION REPORT (Power BI page; rows rendered by js/report.js from CV facts) -->
+  <div class="bi-report reveal" id="hire-report" data-no-i18n>
+    <div class="bi-top">
+      <div class="bi-title">
+        <span aria-hidden="true" class="msym mf">bar_chart</span>
+        <div><b class="hr-q">Should you contact Sagar?</b><small class="hr-sub">Hiring decision report · Source: CV · 2026</small></div>
+      </div>
+      <div class="slicer" role="group" aria-label="Your open role">
+        <span class="slicer-k mono hr-slk">Your open role</span>
+        <button type="button" class="sl on" data-role="pp" aria-pressed="true">Power Platform Developer</button>
+        <button type="button" class="sl" data-role="ai" aria-pressed="false">Copilot &amp; AI</button>
+        <button type="button" class="sl" data-role="bi" aria-pressed="false">Power BI &amp; Fabric</button>
+        <button type="button" class="sl" data-role="crm" aria-pressed="false">Dynamics 365 / CRM</button>
+        <button type="button" class="sl" data-role="proc" aria-pressed="false">Process digitalisation</button>
+      </div>
+    </div>
+    <div class="bi-filter mono" aria-live="polite"><span class="msym" aria-hidden="true">filter_alt</span><span id="hr-filter">Role is (Power Platform Developer)</span></div>
+
+    <!-- Row 2: coverage matrix + decision -->
+    <div class="hr-grid">
+      <div class="cov">
+        <div class="cov-h">
+          <b class="hr-covt">Requirement coverage</b>
+          <span class="mono cov-role" id="cov-role">Power Platform Developer</span>
+        </div>
+        <div class="cov-cols mono" aria-hidden="true"><span class="hr-col1">Requirement</span><span class="hr-col2">Evidence</span><span class="hr-col3">Result</span><span class="hr-col4">Status</span></div>
+        <div id="cov-body" class="cov-body"></div>
+        <div class="cov-hint mono hr-hint">Click a row to drill through to the project.</div>
+      </div>
+      <div class="dec">
+        <div class="dec-k mono hr-deck">Recommended action</div>
+        <div class="dec-t hr-dect">Contact Sagar</div>
+        <div class="dec-found" id="dec-found">Evidence found for all 6 requirements</div>
+        <div class="dec-best-k mono hr-bestk">Strongest proof for this role</div>
+        <button class="dec-best" id="dec-best" data-modal="8">Allocation Management App</button>
+        <div class="dec-cta">
+          <button class="btn-p" data-action="download-cv"><span aria-hidden="true" class="msym">download</span><span class="hr-cta1">Download CV</span></button>
+          <button class="btn-g" data-goto="copilot"><span aria-hidden="true" class="msym">smart_toy</span><span class="hr-cta3">Ask the Copilot</span></button>
+          <button class="btn-g" data-action="copy-email"><span aria-hidden="true" class="msym">mail</span><span class="hr-cta2">Copy email</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════════════ -->
 <!--  COPILOT                                      -->
 <!-- ══════════════════════════════════════════════ -->
-<section id="copilot" class="u-0265">
-  <div class="reveal">
-    <h1 class="u-0152">The Copilot</h1>
-    <p class="u-0038">An AI agent trained on Sagar's profile. Ask anything a recruiter might want to know.</p>
+<section id="copilot" class="sec">
+  <div class="sec-title reveal">
+    <div class="sec-kicker"><span class="mono">Test your agent</span>Copilot Studio</div>
+    <h2 class="display" data-de="Der <em>Copilot</em>">The <em>Copilot</em></h2>
+    <p class="sec-sub">An assistant built from Sagar's profile. Ask anything a recruiter might want to know.</p>
   </div>
 
-  <div class="reveal chat-layout u-0266">
-    <!-- Sidebar prompts -->
-    <div class="chat-sidebar u-0267">
-      <div class="u-0268">Recruiter Prompts</div>
-      <button class="glass u-0269" data-question="What are your top skills?">
-        <span class="msym u-0270">star</span><span class="u-0271">What are your top skills?</span>
-      </button>
-      <button class="glass u-0269" data-question="Tell me about your German expertise">
-        <span class="msym u-0272">translate</span><span class="u-0271">Tell me about German expertise</span>
-      </button>
-      <button class="glass u-0269" data-question="Describe a complex Power App you built">
-        <span class="msym u-0273">work_history</span><span class="u-0271">Describe a complex Power App</span>
-      </button>
-      <button class="glass u-0269" data-question="Show contact information">
-        <span class="msym u-0270">contact_page</span><span class="u-0271">Show contact information</span>
-      </button>
-      <button class="glass u-0269" data-question="What certifications do you have?">
-        <span class="msym u-0272">verified</span><span class="u-0271">What certifications?</span>
-      </button>
-      <button class="glass u-0269" data-question="Tell me about your work experience">
-        <span class="msym u-0273">business_center</span><span class="u-0271">Work experience</span>
-      </button>
-      <button class="glass u-0269" data-question="Why should I hire Sagar?">
-        <span class="msym u-0270">thumb_up</span><span class="u-0271">Why should I hire Sagar?</span>
-      </button>
-    </div>
+  <div class="chat-layout reveal">
+    <aside class="chat-sidebar">
+      <div class="cs-h">Recruiter Prompts</div>
+      <button class="cs-q" data-question="What are your top skills?"><span aria-hidden="true" class="msym">star</span><span>What are your top skills?</span></button>
+      <button class="cs-q" data-question="Tell me about your German expertise"><span aria-hidden="true" class="msym">translate</span><span>Tell me about German expertise</span></button>
+      <button class="cs-q" data-question="Describe a complex Power App you built"><span aria-hidden="true" class="msym">work_history</span><span>Describe a complex Power App</span></button>
+      <button class="cs-q" data-question="Show contact information"><span aria-hidden="true" class="msym">contact_page</span><span>Show contact information</span></button>
+      <button class="cs-q" data-question="What certifications do you have?"><span aria-hidden="true" class="msym">verified</span><span>What certifications?</span></button>
+      <button class="cs-q" data-question="Tell me about your work experience"><span aria-hidden="true" class="msym">business_center</span><span>Work experience</span></button>
+      <button class="cs-q" data-question="When are you available?"><span aria-hidden="true" class="msym">event_available</span><span>Availability &amp; relocation</span></button>
+      <button class="cs-q" data-question="How do you handle governance and ALM?"><span aria-hidden="true" class="msym">policy</span><span>Governance &amp; ALM</span></button>
+      <button class="cs-q" data-question="Why should I hire Sagar?"><span aria-hidden="true" class="msym">thumb_up</span><span>Why should I hire Sagar?</span></button>
+      <div class="cs-note">Answers are written from the CV. No live model, no data sent anywhere.</div>
+    </aside>
 
-    <!-- Chat window -->
-    <div class="glass u-0274">
-      <div class="u-0275">
-        <div class="u-0276">
-          <div class="u-0277">
-            <img src="images/avatar/sagar.png" alt="Sagar" class="u-0016">
-          </div>
-          <div class="u-0278">
-            <span class="msym mf u-0279">smart_toy</span>
+    <div class="chat-win">
+      <div class="chat-head">
+        <div class="chat-id">
+          <div class="chat-ava"><img src="images/avatar/sagar.png" alt="Sagar"><span class="chat-ava-badge"><span aria-hidden="true" class="msym mf">smart_toy</span></span></div>
+          <div>
+            <div class="chat-name">Sagar's Copilot Agent</div>
+            <div class="chat-online"><span class="status-dot" aria-hidden="true"></span>Online &amp; Ready</div>
           </div>
         </div>
-        <div>
-          <div class="u-0092">Sagar's Copilot Agent</div>
-          <div class="u-0280">
-            <div class="pulse u-0225"></div>
-            <span class="u-0281">Online &amp; Ready</span>
-          </div>
-        </div>
-        <button data-action="clear-chat" class="u-0282" title="Clear chat">
-          <span class="msym u-0028">delete_sweep</span>
-        </button>
+        <button data-action="clear-chat" class="chat-clear" title="Clear chat" aria-label="Clear chat"><span aria-hidden="true" class="msym">delete_sweep</span></button>
       </div>
-      <div id="chat-msgs" class="u-0283">
-        <div class="u-0284">
-          <div class="u-0285">
-            <img src="images/avatar/sagar.png" alt="Sagar" class="u-0016">
-          </div>
-          <div class="u-0286">
-            <span class="u-0287">Sagar's Copilot</span>
-            <div class="u-0288">
-              <p class="u-0289">Hello! I'm an AI agent trained on Sagar's professional experience, portfolio, and skills.<br><br>I can help you understand his expertise in Power Platform, AI integrations, C1 German fluency, or provide direct contact details. Use the prompts on the left or just ask freely.</p>
-            </div>
-            <div class="u-0290">
-              <button data-question="Portfolio Highlights" class="u-0291">Portfolio Highlights</button>
-              <button data-question="Show contact information" class="u-0291">Contact Info</button>
-              <button data-question="Why should I hire Sagar?" class="u-0291">Why hire Sagar?</button>
+      <div id="chat-msgs" class="chat-msgs" aria-live="polite">
+        <div class="chat-msg">
+          <div class="chat-row bot">
+            <div class="chat-avatar"><img src="images/avatar/sagar.png" alt="Sagar"></div>
+            <div class="chat-stack bot">
+              <span class="chat-author">Sagar's Copilot</span>
+              <div class="chat-bubble bot"><p>Hello! I'm an assistant built from Sagar's professional experience, portfolio, and skills.<br><br>I can help you understand his expertise in Power Platform, AI integrations, C1 German fluency, or provide direct contact details. Use the prompts on the left or just ask freely.</p></div>
+              <div class="chat-chips">
+                <button data-question="Portfolio Highlights" class="chip">Portfolio Highlights</button>
+                <button data-question="Show contact information" class="chip">Contact Info</button>
+                <button data-question="Why should I hire Sagar?" class="chip">Why hire Sagar?</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="u-0292">
-        <div id="chat-wrap" class="u-0293">
-          <textarea id="chat-input" class="u-0294" placeholder="Ask Sagar's Copilot…" rows="1"></textarea>
-          <button data-action="send-msg" class="btn-p u-0295">
-            <span class="msym u-0143">send</span>
-          </button>
+      <div class="chat-input">
+        <div id="chat-wrap" class="chat-box">
+          <textarea id="chat-input" placeholder="Ask Sagar's Copilot…" aria-label="Ask Sagar's Copilot…" rows="1"></textarea>
+          <button data-action="send-msg" class="btn-p chat-send" aria-label="Send"><span aria-hidden="true" class="msym">send</span></button>
         </div>
-        <div class="u-0296">Enter to send · Shift+Enter for new line</div>
+        <div class="chat-hint">Enter to send · Shift+Enter for new line</div>
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- FOOTER -->
-<footer class="u-0297">
-  <div class="u-0114"><strong class="u-0209">Sagar Milind Deshpande</strong> · Power Platform + AI Engineer · Pune, India</div>
-  <div class="u-0298">
-    <button data-action="open-linkedin" class="u-0299"><span class="msym u-0146">link</span>LinkedIn</button>
-    <button data-action="copy-email" class="u-0300"><span class="msym u-0146">mail</span>deshpande.sagar.milind@gmail.com</button>
+<footer class="foot">
+  <div class="foot-big" data-de="Lassen Sie uns etwas bauen, das Menschen <em>gern</em> nutzen.">Let's build something people <em>like</em> using.</div>
+  <div class="foot-row">
+    <div class="foot-id"><strong>Sagar Milind Deshpande</strong> · Power Platform + AI Engineer · Available now, ready to relocate to Germany</div>
+    <div class="foot-links">
+      <button data-action="open-linkedin"><span aria-hidden="true" class="msym">link</span>LinkedIn</button>
+      <button data-action="copy-email"><span aria-hidden="true" class="msym">mail</span>deshpande.sagar.milind@gmail.com</button>
+      <button type="button" data-consent="open"><span aria-hidden="true" class="msym">cookie</span>Cookie settings</button>
+    </div>
   </div>
-  <div class="u-0301">Built with Power Platform aesthetics</div>
+  <div class="foot-fx mono"><span class="k">Notify</span>(<span class="s">"Built by hand, styled after Power Platform"</span>, NotificationType.Success)</div>
 </footer>
 </main>
 
 <!-- PROJECT MODAL -->
-<div id="proj-modal" class="u-0302">
-  <div class="u-0303" data-action="close-modal"></div>
-  <div class="glass u-0304">
-    <button data-action="close-modal" class="u-0305"><span class="msym u-0004">close</span></button>
+<div id="proj-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-scrim" data-action="close-modal"></div>
+  <div class="modal-panel">
+    <button data-action="close-modal" class="modal-close" aria-label="Close"><span aria-hidden="true" class="msym">close</span></button>
     <div id="modal-body"></div>
   </div>
 </div>
 
-<!-- TOAST -->
-<div id="toast" class="u-0306">
-  <span class="msym u-0146">check_circle</span><span id="toast-txt">Copied!</span>
+<!-- COOKIE CONSENT (js/consent.js) -->
+<div id="consent" class="consent consent-dlp" role="region" aria-label="Cookie consent" hidden>
+  <div class="dlp-pop-h"><span class="msym mf" aria-hidden="true">policy</span><span><b>Data policy: new connector detected</b><small class="mono">Cookie consent</small></span></div>
+  <div class="dlp-pop-conn"><span class="msym" aria-hidden="true">monitoring</span>Google Analytics</div>
+  <p>This connector counts visits to the site. It only sets cookies if you put it in the Business group. Nothing is loaded before you choose.</p>
+  <div class="consent-actions">
+    <button type="button" class="btn-g dlp-btn" data-consent="deny"><span class="msym" aria-hidden="true">block</span>Blocked (decline)</button>
+    <button type="button" class="btn-g dlp-btn" data-consent="accept"><span class="msym" aria-hidden="true">check_circle</span>Business (accept)</button>
+  </div>
 </div>
-    <script src="js/theme.js?v=20260622" defer></script>
-    <script src="js/main.js?v=20260622c" defer></script>
-    <script src="js/lang.js?v=20260622" defer></script>
+
+<!-- TOAST -->
+<div id="toast" class="toast" role="status" aria-live="polite">
+  <span aria-hidden="true" class="msym mf">check_circle</span><span id="toast-txt">Copied!</span>
+</div>
+    <script src="js/theme.js?v=20261107c" defer></script>
+    <script src="js/consent.js?v=20261107c" defer></script>
+    <script src="js/main.js?v=20261107c" defer></script>
+    <script src="js/motion.js?v=20261107c" defer></script>
+    <script src="js/report.js?v=20261107c" defer></script>
+    <script src="js/lang.js?v=20261107c" defer></script>
 </body>
 </html>
